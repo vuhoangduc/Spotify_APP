@@ -1,17 +1,22 @@
 package com.example.duan1_spotify_clone.AdapterHome.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.duan1_spotify_clone.Add_List;
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
+import com.example.duan1_spotify_clone.MainActivity;
 import com.example.duan1_spotify_clone.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -46,6 +51,14 @@ public class DanhMucAdapter  extends RecyclerView.Adapter<DanhMucAdapter.DanhMuc
         Random rnd = new Random();
         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         holder.linearLayout.setBackgroundColor(color);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Haha", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, Add_List.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -67,5 +80,6 @@ public class DanhMucAdapter  extends RecyclerView.Adapter<DanhMucAdapter.DanhMuc
             textView = itemView.findViewById(R.id.tvDanhMuc);
         }
     }
+
 
 }

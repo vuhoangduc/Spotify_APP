@@ -2,6 +2,8 @@ package com.example.duan1_spotify_clone;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.res.ColorStateList;
@@ -61,4 +63,10 @@ public class MainActivity2 extends AppCompatActivity {
             Color.parseColor("#B3B3B3"),
     };
     ColorStateList navigationViewColorStateList = new ColorStateList(states, colors);
+//    public void loadFragment(Fragment fragment) {
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.frame, fragment);
+//        transaction.addToBackStack(null);
+//        transaction.commit();
+//    }
 }
