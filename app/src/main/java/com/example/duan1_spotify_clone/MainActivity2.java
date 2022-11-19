@@ -28,6 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
         viewPager2 = findViewById(R.id.frame);
         adapter = new ViewPagerAdapter(this);
         viewPager2.setAdapter(adapter);
+        viewPager2.setUserInputEnabled(false);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
