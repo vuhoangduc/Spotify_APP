@@ -1,6 +1,7 @@
 package com.example.duan1_spotify_clone.DanhSachNhac;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class TongAdapter extends RecyclerView.Adapter<TongAdapter.TongViewHolder
         this.list = list;
         notifyDataSetChanged();
     }
-
+    int y =0;
     @NonNull
     @Override
     public TongViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,11 +39,17 @@ public class TongAdapter extends RecyclerView.Adapter<TongAdapter.TongViewHolder
     public void onBindViewHolder(@NonNull TongViewHolder holder, int position) {
 
         Tong tong = list.get(position);
-        holder.tvTong.setText(tong.getNameTong());
+        int count_old  =0;
+        holder.tvTong.setText(tong.getNameTong().get(position));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false);
         holder.recyclerView.setLayoutManager(linearLayoutManager);
-        ItemAdapter adapter = new ItemAdapter();
+         y += tong.getCount_img();
+        if (position > 0){
+            count_old  += tong.getCount_img();
+        }
+        ItemAdapter adapter = new ItemAdapter(context,y,count_old);
         adapter.setData(tong.getListTong());
+        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", "onBindViewHolder: "+tong.getCount_img());
         holder.recyclerView.setAdapter(adapter);
 
     }

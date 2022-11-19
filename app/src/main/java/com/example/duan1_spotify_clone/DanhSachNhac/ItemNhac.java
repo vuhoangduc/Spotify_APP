@@ -1,23 +1,25 @@
 package com.example.duan1_spotify_clone.DanhSachNhac;
 
 public class ItemNhac {
-    private int img;
+    private String img;
     private String tv1,tv2;
 
     public ItemNhac() {
     }
 
-    public ItemNhac(int img, String tv1, String tv2) {
+
+    public ItemNhac(String img, String tv1, String tv2) {
         this.img = img;
         this.tv1 = tv1;
         this.tv2 = tv2;
     }
 
-    public int getImg() {
+
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 

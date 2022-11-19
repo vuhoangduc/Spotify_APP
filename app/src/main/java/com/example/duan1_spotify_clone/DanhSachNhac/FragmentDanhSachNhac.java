@@ -6,12 +6,25 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_DanhMuc;
 import com.example.duan1_spotify_clone.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,26 +42,17 @@ public class FragmentDanhSachNhac extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        tongAdapter.setData(getData());
-        recyclerView.setAdapter(tongAdapter);
+        try {
+            init();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         return view;
     }
-    private List<Tong> getData(){
-        List<Tong> list = new ArrayList<>();
-        List<ItemNhac> listItem = new ArrayList<>();
-        listItem.add(new ItemNhac(R.drawable.popmix,"Son Tung","Nghe si so 1 VN"));
-        listItem.add(new ItemNhac(R.drawable.k_pop,"Son Tung","Nghe si so 1 VN"));
-        listItem.add(new ItemNhac(R.drawable.v_pop,"Son Tung","Nghe si so 1 VN"));
-        listItem.add(new ItemNhac(R.drawable.hiphop,"Son Tung","Nghe si so 1 VN"));
-        listItem.add(new ItemNhac(R.drawable.pop,"Son Tung","Nghe si so 1 VN"));
-        listItem.add(new ItemNhac(R.drawable.rockjpg,"Son Tung","Nghe si so 1 VN"));
+    public void init() throws UnknownHostException {
+        JsonParser_DanhMuc jsonParser = new JsonParser_DanhMuc(getActivity(),recyclerView);
+//        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+getMachineIP(), "init: ");
+        jsonParser.execute("http://192.168.0.103:3000/new");
 
-        list.add(new Tong("Nhac Viet thinh hanh",listItem));
-        list.add(new Tong("Nhac Viet thinh hanh",listItem));
-        list.add(new Tong("Nhac Viet thinh hanh",listItem));
-        list.add(new Tong("Nhac Viet thinh hanh",listItem));
-        list.add(new Tong("Nhac Viet thinh hanh",listItem));
-        list.add(new Tong("Nhac Viet thinh hanh",listItem));
-        return list;
     }
 }
