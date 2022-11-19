@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/custom_addlist"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đặt tên cho playlist của bạn."
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="19dp"
+        android:layout_marginTop="100dp"
+        android:textColor="#fff"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textColor="#fff"
+        android:id="@+id/edTenPlaylist"
+        android:textSize="35dp"
+        android:textColorHint="#fff"
+        android:backgroundTint="#cccc"
+        android:layout_margin="30dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HỦY"
+            android:textAlignment="center"
+            android:textSize="14dp"
+            android:id="@+id/btnHuyList"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="140dp"
+            android:textColor="#cccc"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TẠO"
+            android:layout_marginLeft="60dp"
+            android:textAlignment="center"
+            android:textSize="14dp"
+            android:id="@+id/btnAddList"
+            android:layout_marginTop="30dp"
+            android:textColor="#20ED54"/>
+    </LinearLayout>
+
+
+</LinearLayout>

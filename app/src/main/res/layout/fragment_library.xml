@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#212121"
+    tools:context=".Fragment.FragmentLibrary"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="38dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/hiphop"
+            app:riv_corner_radius="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thư viện"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_baseline_search_24"
+            android:layout_marginLeft="120dp"
+            app:riv_corner_radius="30dp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/img_addlist"
+            android:src="@drawable/ic_baseline_add_24"
+            android:layout_marginLeft="10dp"
+            app:riv_corner_radius="30dp"/>
+    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layoutLibrary"
+        app:tabMode="fixed"
+        app:tabGravity="center"
+        android:layout_marginLeft="20dp"
+        app:tabIndicatorGravity="stretch"
+        android:layout_width="wrap_content"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabSelectedTextColor="#ffff"
+        app:tabIndicatorColor="@color/black"
+        app:tabTextColor="#fff"
+        app:tabIndicator="@drawable/custom_tablayout"
+        android:layout_height="wrap_content" />
+        <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:id="@+id/view_pagerLibrary"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

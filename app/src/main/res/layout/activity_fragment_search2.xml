@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    android:orientation="vertical"
+    tools:context=".Fragment.FragmentSearch2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#585858"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:src="@drawable/back"
+            android:padding="7dp"
+            android:id="@+id/back_search"
+            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"/>
+        <SearchView
+            android:layout_width="match_parent"
+            android:iconifiedByDefault="false"
+            android:queryBackground="@null"
+            android:id="@+id/searchView"
+            android:theme="@style/ThemeOverlay"
+            android:searchIcon="@null"
+            android:queryHint="Bạn muốn nghe gì"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listViewSearch"/>
+
+</LinearLayout>

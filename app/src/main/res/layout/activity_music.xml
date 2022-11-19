@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#212121"
+    tools:context=".ActivityMusic">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/down"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="16dp"
+                android:layout_marginTop="5dp"
+                android:text="ĐANG PHÁT TỪ NGHỆ SĨ "/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="16dp"
+
+                android:layout_marginRight="70dp"
+                android:textStyle="bold"
+                android:text="Bad Bunny"/>
+        </LinearLayout>
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:src="@drawable/sontung" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chúng ta của hiện tại"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#fff"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sơn Tùng M-TP"
+        android:textSize="16dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#fff" />
+    <SeekBar
+        android:id="@+id/thoi_gian_chay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:thumbTint="#212121"
+        android:progressTint="#fff"
+        android:outlineSpotShadowColor="#fff" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:textColor="#ccc"
+             android:layout_marginLeft="33dp"
+             android:textSize="12dp"
+             android:text="0:00"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="0:00"
+            android:textSize="12dp"
+            android:textColor="#ccc"
+            android:layout_marginLeft="290dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/favorite"/>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/back_button"/>
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/play"/>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/next_button"/>
+
+    </LinearLayout>
+        
+
+</LinearLayout>

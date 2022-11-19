@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ActivityLogin.Screen_Login_SignUp">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sontung" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom"/>
+       <LinearLayout
+           android:layout_height="match_parent"
+           android:layout_width="match_parent"
+           android:gravity="center"
+           android:orientation="vertical">
+           <ImageView
+               android:layout_width="40dp"
+               android:layout_height="40dp"
+               android:layout_marginTop="150dp"
+               android:layout_marginBottom="10dp"
+               android:src="@drawable/ic_spotify"
+               />
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text=" Hàng triệu bài hát
+                      Miễn phí trên Spotify."
+               android:gravity="center"
+               android:textSize="28dp"
+               android:textColor="#fff"
+               android:textStyle="bold"
+               android:layout_marginBottom="50dp"
+               />
+           <androidx.appcompat.widget.AppCompatButton
+               android:layout_width="280dp"
+               android:layout_height="50dp"
+               android:text="Đăng ký miễn phí"
+               android:textStyle="bold"
+               android:textSize="14dp"
+               android:onClick="dkFree"
+               android:textColor="#fff"
+               android:layout_marginBottom="15dp"
+               android:background="@drawable/custom_btn"
+               />
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="280dp"
+               android:layout_height="50dp"
+               android:orientation="horizontal"
+               android:gravity="center"
+               android:background="@drawable/custom_btn_dang_ky_sdt"
+               android:layout_marginBottom="15dp"
+               >
+
+               <ImageView
+                   android:id="@+id/img_phone"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_marginStart="15dp"
+                   android:src="@drawable/ic_phone"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:gravity="center"
+                   android:text="Tiếp tục với số diện thoại"
+                   android:textColor="#fff"
+                   android:textSize="14dp"
+                   android:textStyle="bold"
+
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.322"
+                   app:layout_constraintStart_toEndOf="@+id/img_phone"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintVertical_bias="0.0" />
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="280dp"
+               android:layout_height="50dp"
+               android:orientation="horizontal"
+               android:gravity="center"
+               android:background="@drawable/custom_btn_dang_ky_sdt"
+               android:layout_marginBottom="15dp"
+               >
+
+               <ImageView
+                   android:id="@+id/img_google"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_marginStart="15dp"
+                   android:src="@drawable/ic_google"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:gravity="center"
+                   android:text="Tiếp tục bằng Google"
+                   android:textColor="#fff"
+                   android:textSize="14dp"
+                   android:textStyle="bold"
+
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.322"
+                   app:layout_constraintStart_toEndOf="@+id/img_google"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintVertical_bias="0.0" />
+           </androidx.constraintlayout.widget.ConstraintLayout>
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="280dp"
+               android:layout_height="50dp"
+               android:orientation="horizontal"
+               android:gravity="center"
+               android:background="@drawable/custom_btn_dang_ky_sdt"
+               android:layout_marginBottom="20dp"
+               >
+
+               <ImageView
+                   android:id="@+id/img_facebook"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_marginStart="15dp"
+                   android:src="@drawable/ic_facebook"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:gravity="center"
+                   android:text="Tiếp tục với Facebook"
+                   android:textColor="#fff"
+                   android:textSize="14dp"
+                   android:textStyle="bold"
+
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.322"
+                   app:layout_constraintStart_toEndOf="@+id/img_facebook"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintVertical_bias="0.0" />
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Đăng nhập"
+               android:onClick="login"
+               android:textColor="#fff"
+               android:textSize="16dp"
+               android:textStyle="bold"
+               android:gravity="center"
+               />
+       </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

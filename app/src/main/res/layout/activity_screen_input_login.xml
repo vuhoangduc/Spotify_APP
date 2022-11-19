@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    android:orientation="vertical"
+    tools:context=".ActivityLogin.Screen_input_Login">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:paddingTop="18dp">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="24dp"
+            android:onClick="back_singup"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/img"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email hoặc tên người
+         dùng"
+        android:layout_marginTop="10dp"
+        android:paddingStart="20dp"
+        android:textColor="#fff"
+        android:textSize="36dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:id="@+id/layout"
+        app:errorEnabled="true"
+        android:layout_height="60dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:background="#535353"
+            android:textColor="#fff"
+            android:id="@+id/edtLoginEmail"
+            android:inputType="textEmailAddress"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mật khẩu"
+        android:paddingStart="20dp"
+        android:textColor="#fff"
+        android:textSize="36dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        app:passwordToggleEnabled="true"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:background="#535353"
+            android:inputType="textPassword"
+            android:id="@+id/edtLoginPass"
+            android:textColor="#fff"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_next"
+        android:id="@+id/btnLogin"
+        android:text="Đăng nhập" />
+
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#212121"
+    tools:context=".Fragment.FragmentSearch">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Tìm kiếm"
+          android:textStyle="bold"
+          android:textSize="30dp"
+          android:textColor="#fff"
+          android:layout_marginTop="20dp"
+          android:layout_marginLeft="20dp"/>
+
+      <SearchView
+          android:layout_width="350dp"
+          android:layout_height="53dp"
+          android:id="@+id/search"
+          android:layout_margin="20dp"
+          android:queryBackground="@null"
+          android:paddingTop="15dp"
+          android:paddingBottom="15dp"
+          android:iconifiedByDefault="false"
+          android:queryHint="Nghệ sĩ, bài hát hoặc podcast"
+          android:background="@drawable/custom_search"/>
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Duyệt tìm tất cả"
+          android:textStyle="bold"
+          android:textSize="24dp"
+          android:textColor="#fff"
+          android:textAlignment="center"
+          android:layout_margin="10dp"
+          />
+      <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="10dp"
+          android:id="@+id/recycle"/>
+  </LinearLayout>
+
+
+</FrameLayout>

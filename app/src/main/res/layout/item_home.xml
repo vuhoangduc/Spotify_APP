@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Danh mục"
+        android:id="@+id/tvHome"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

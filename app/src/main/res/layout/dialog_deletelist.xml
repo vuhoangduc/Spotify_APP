@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="400dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:text="Xóa playlist"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:text="Bạn có chắc muốn xóa"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_btn"
+            android:text="Xóa"
+            android:textSize="16dp"
+            android:id="@+id/btnXoaList"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:id="@+id/tvCloseDialogList"
+            android:textColor="@color/black"
+            android:text="Hủy"/>
+
+
+    </LinearLayout>
+</LinearLayout>
