@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         },3000);
-        //hello
     }
 }
 //Login:

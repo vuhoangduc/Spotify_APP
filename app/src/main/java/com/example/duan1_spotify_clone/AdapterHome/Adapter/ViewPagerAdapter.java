@@ -9,6 +9,7 @@ import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.example.duan1_spotify_clone.Fragment.FragmentHome;
 import com.example.duan1_spotify_clone.Fragment.FragmentKenh;
 import com.example.duan1_spotify_clone.Fragment.FragmentLibrary;
+import com.example.duan1_spotify_clone.Fragment.FragmentList;
 import com.example.duan1_spotify_clone.Fragment.FragmentMusic;
 import com.example.duan1_spotify_clone.Fragment.FragmentPramium;
 import com.example.duan1_spotify_clone.Fragment.FragmentSearch;

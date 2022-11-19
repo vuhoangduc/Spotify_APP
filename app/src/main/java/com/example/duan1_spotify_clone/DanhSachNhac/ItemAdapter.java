@@ -63,6 +63,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 holder.tv1.setText(itemNhac.getTv1());
                 holder.tv2.setText(itemNhac.getTv2());
                 y--;
+                //adfasf
     }
     @Override
     public int getItemCount() {
