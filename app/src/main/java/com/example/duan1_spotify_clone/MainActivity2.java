@@ -69,4 +69,8 @@ public class MainActivity2 extends AppCompatActivity {
 //        transaction.addToBackStack(null);
 //        transaction.commit();
 //    }
+
+    public void setCurrentPage(int position){
+        viewPager2.setCurrentItem( position);
+    }
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.TheLoai;
 import com.example.duan1_spotify_clone.Fragment.FragmentSearch;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -26,7 +28,6 @@ import java.util.Random;
 public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucViewHolder>{
     private Context context;
     private List<TheLoai> list;
-    private ItemOnclick itemOnclick;
     public TheLoaiAdapter(Context context, List<TheLoai> list) {
         this.context = context;
         this.list = list;
@@ -54,11 +55,10 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                itemOnclick.onItemClick(theLoai);
+                ((MainActivity2) context).setCurrentPage(4);
             }
         });
     }
-
     @Override
     public int getItemCount() {
         if(list!=null){
@@ -66,7 +66,6 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucV
         }
         return 0;
     }
-
     public class DanhMucViewHolder extends RecyclerView.ViewHolder{
             private RoundedImageView imgDM;
     private LinearLayout linearLayout;
@@ -77,9 +76,6 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucV
             linearLayout = itemView.findViewById(R.id.BackDanhMuc);
             textView = itemView.findViewById(R.id.tvDanhMuc);
         }
-    }
-    public interface ItemOnclick{
-        public void onItemClick(TheLoai theLoai);
     }
 
 }

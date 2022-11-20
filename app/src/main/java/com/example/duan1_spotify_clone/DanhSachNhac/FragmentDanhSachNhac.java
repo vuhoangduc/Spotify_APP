@@ -39,7 +39,6 @@ public class FragmentDanhSachNhac extends Fragment {
         View view=inflater.inflate(R.layout.fragment_danh_sach_nhac, container, false);;
         recyclerView = view.findViewById(R.id.recycleMain);
         tongAdapter = new TongAdapter(getContext());
-//        HAHAHAHdsfsdfsd
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
         try {
