@@ -63,13 +63,6 @@ public class MainActivity2 extends AppCompatActivity {
             Color.parseColor("#B3B3B3"),
     };
     ColorStateList navigationViewColorStateList = new ColorStateList(states, colors);
-//    public void loadFragment(Fragment fragment) {
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        transaction.replace(R.id.frame, fragment);
-//        transaction.addToBackStack(null);
-//        transaction.commit();
-//    }
-
     public void setCurrentPage(int position){
         viewPager2.setCurrentItem( position);
     }

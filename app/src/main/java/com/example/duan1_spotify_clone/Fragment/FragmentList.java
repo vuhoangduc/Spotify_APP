@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.PlayListAdapter2;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
@@ -23,6 +25,8 @@ public class FragmentList extends Fragment {
     ArrayList<Playlist> list = new ArrayList<>();
     DBPlayList db;
     PlayListAdapter2 adapter;
+    ImageView imageView;
+    TextView textView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

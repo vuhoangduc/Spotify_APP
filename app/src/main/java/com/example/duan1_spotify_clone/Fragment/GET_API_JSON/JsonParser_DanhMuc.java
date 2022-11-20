@@ -56,7 +56,6 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
                 Tong tong = new Tong();
                 List<ItemNhac> list_nhac = new ArrayList<>();
                 JSONArray jsonarray = new JSONArray(datav1);
-//                for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject value = jsonarray.getJSONObject(0);
                     JSONArray jsonarray_v1 = new JSONArray(value.getJSONArray("DanhMuc").toString());
                     for (int j = 0; j < jsonarray_v1.length(); j++) {
@@ -76,7 +75,6 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
                         data.add(tong);
                     }
                 }
-//            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {

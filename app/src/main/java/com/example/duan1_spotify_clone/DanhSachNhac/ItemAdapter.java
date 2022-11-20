@@ -45,14 +45,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         return new ItemViewHolder(view);
     }
-    int x =0 ;
+    int x =-1 ;
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
 
                 Log.d("zzzzzzzzzzzzzzzzzzzzzz"+position, "onBindViewHolder: ");
                 if (y == 10 ){
                     x = 5;
-                }else{
+                }else if (y == 15){
+                    x = 10;
+                }else if (y == 20){
+                    x = 15;
+                }else if (y == 25){
+                    x = 20;
+                }
+                else{
                     x++;
                 }
                 ItemNhac itemNhac = list.get(x);
