@@ -4,9 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DanhSachNhac.FragmentDanhSachNhac">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/back" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhạc Việt"
+        android:textSize="27dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="70dp"
+        android:textStyle="bold"
+        android:textColor="#fff"/>
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="120dp"
     android:id="@+id/recycleMain"/>
 
 </RelativeLayout>

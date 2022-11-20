@@ -33,12 +33,18 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new FragmentPramium();
             case 4:
                 return new FragmentDanhSachNhac();
+            case 5:
+                return new FragmentKenh();
+            case 6:
+                return new FragmentMusic();
+            case 7:
+                return new FragmentList();
         }
         return null;
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 8;
     }
 }

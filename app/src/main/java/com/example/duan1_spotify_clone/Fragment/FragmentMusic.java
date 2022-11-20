@@ -18,6 +18,7 @@ import com.example.duan1_spotify_clone.AdapterHome.NgheSiAdapterHome;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class FragmentMusic extends Fragment {
         tv_moveKenh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((MainActivity2)getActivity()).setCurrentPage(5);
             }
         });
         //
@@ -54,13 +56,6 @@ public class FragmentMusic extends Fragment {
         }
         name+="và hơn thế nữa";
         tv_dsBai.setText(name);
-
-        tv_moveKenh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         return v;
     }
     private List<HomeItem> getListHome(){
