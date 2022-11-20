@@ -57,7 +57,7 @@ public class FragmentSearch extends Fragment {
     public void init() throws UnknownHostException {
         JsonParser jsonParser = new JsonParser(getActivity(),recyclerView);
 //        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+getMachineIP(), "init: ");
-        jsonParser.execute("http://192.168.0.103:3000/new");
+        jsonParser.execute("http://192.168.0.104:3000/new");
 
     }
 }
