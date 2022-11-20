@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,7 +15,10 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.DanhMucAdapter;
+import com.example.duan1_spotify_clone.AdapterHome.Adapter.TheLoaiAdapter;
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
+import com.example.duan1_spotify_clone.DTO.TheLoai;
+import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
 import com.example.duan1_spotify_clone.R;
 
@@ -21,7 +26,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentSearch extends Fragment {
+public class FragmentSearch extends Fragment implements TheLoaiAdapter.ItemOnclick{
     List<DanhMuc> list = new ArrayList<>();
     RecyclerView recyclerView;
 
@@ -57,7 +62,18 @@ public class FragmentSearch extends Fragment {
     public void init() throws UnknownHostException {
         JsonParser jsonParser = new JsonParser(getActivity(),recyclerView);
 //        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+getMachineIP(), "init: ");
-        jsonParser.execute("http://192.168.0.104:3000/new");
+        jsonParser.execute("http://10.24.20.200:3000/new");
 
+    }
+
+
+    @Override
+    public void onItemClick(TheLoai theLoai) {
+        Fragment fragment = new FragmentDanhSachNhac();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

@@ -52,7 +52,7 @@ public class FragmentDanhSachNhac extends Fragment {
     public void init() throws UnknownHostException {
         JsonParser_DanhMuc jsonParser = new JsonParser_DanhMuc(getActivity(),recyclerView);
 //        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+getMachineIP(), "init: ");
-        jsonParser.execute("http://192.168.0.104:3000/new");
+        jsonParser.execute("http://10.24.20.200:3000/new");
 
     }
 }

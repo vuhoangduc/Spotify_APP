@@ -9,10 +9,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.TheLoai;
+import com.example.duan1_spotify_clone.Fragment.FragmentSearch;
 import com.example.duan1_spotify_clone.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -22,7 +26,7 @@ import java.util.Random;
 public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucViewHolder>{
     private Context context;
     private List<TheLoai> list;
-
+    private ItemOnclick itemOnclick;
     public TheLoaiAdapter(Context context, List<TheLoai> list) {
         this.context = context;
         this.list = list;
@@ -47,6 +51,12 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucV
         Random rnd = new Random();
         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         holder.linearLayout.setBackgroundColor(color);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                itemOnclick.onItemClick(theLoai);
+            }
+        });
     }
 
     @Override
@@ -67,6 +77,9 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucV
             linearLayout = itemView.findViewById(R.id.BackDanhMuc);
             textView = itemView.findViewById(R.id.tvDanhMuc);
         }
+    }
+    public interface ItemOnclick{
+        public void onItemClick(TheLoai theLoai);
     }
 
 }
