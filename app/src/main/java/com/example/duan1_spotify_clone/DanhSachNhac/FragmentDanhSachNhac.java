@@ -10,10 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_DanhMuc;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
 import org.json.JSONArray;
@@ -40,6 +42,13 @@ public class FragmentDanhSachNhac extends Fragment {
         View view=inflater.inflate(R.layout.fragment_danh_sach_nhac, container, false);;
         recyclerView = view.findViewById(R.id.recycleMain);
         tongAdapter = new TongAdapter(getContext());
+        ImageView img = view.findViewById(R.id.back_button);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)getContext()).setCurrentPage(1);
+            }
+        });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
         try {
