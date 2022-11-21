@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
@@ -74,6 +75,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 holder.img.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Dont_Open dont_open = new Dont_Open(context);
+                        dont_open.open();
+                        if (!dont_open.getData().equals("")){
+                            dont_open.DELETE_ALL();
+                            dont_open.ADD_NEW(itemNhac.getTv1());
+                        }else {
+                            dont_open.ADD_NEW(itemNhac.getTv1());
+                        }
                         ((MainActivity2)context).setCurrentPage(7);
                     }
                 });

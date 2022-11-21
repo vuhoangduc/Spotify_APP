@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_DanhMuc;
 import com.example.duan1_spotify_clone.R;
@@ -49,9 +50,10 @@ public class FragmentDanhSachNhac extends Fragment {
         return view;
     }
     public void init() throws UnknownHostException {
-        JsonParser_DanhMuc jsonParser = new JsonParser_DanhMuc(getActivity(),recyclerView);
+        Dont_Open dont_open = new Dont_Open(getActivity());
+        JsonParser_DanhMuc jsonParser = new JsonParser_DanhMuc(getActivity(),recyclerView,dont_open.getData());
 //        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+getMachineIP(), "init: ");
-        jsonParser.execute("http://10.24.20.200:3000/new");
+        jsonParser.execute("http://192.168.137.45:3000/new");
         //hi
 
     }

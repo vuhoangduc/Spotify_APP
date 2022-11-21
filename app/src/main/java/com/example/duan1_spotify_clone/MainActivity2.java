@@ -3,15 +3,16 @@ package com.example.duan1_spotify_clone;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.app.FragmentTransaction;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
+import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -55,7 +56,6 @@ public class MainActivity2 extends AppCompatActivity {
             new int[]{android.R.attr.state_checked},   // checked
             new int[]{}                                // default
     };
-
     // Fill in color corresponding to state defined in state
     int[] colors = new int[]{
             Color.parseColor("#B3B3B3"),
@@ -63,7 +63,9 @@ public class MainActivity2 extends AppCompatActivity {
             Color.parseColor("#B3B3B3"),
     };
     ColorStateList navigationViewColorStateList = new ColorStateList(states, colors);
+
     public void setCurrentPage(int position){
-        viewPager2.setCurrentItem( position);
+        viewPager2.setCurrentItem(position);
     }
+
 }

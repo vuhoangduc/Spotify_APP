@@ -28,10 +28,11 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
     Context context;
     RecyclerView ds_danhMuc;
     TongAdapter tongAdapter;
-
-    public JsonParser_DanhMuc(Context context, RecyclerView ds_danhMuc) {
+    String data_tenTheLoai;
+    public JsonParser_DanhMuc(Context context, RecyclerView ds_danhMuc,String data_tenTheLoai) {
         this.context = context;
         this.ds_danhMuc = ds_danhMuc;
+        this.data_tenTheLoai = data_tenTheLoai;
     }
     public JsonParser_DanhMuc(Context context) {
         this.context = context;
@@ -56,24 +57,30 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
                 Tong tong = new Tong();
                 List<ItemNhac> list_nhac = new ArrayList<>();
                 JSONArray jsonarray = new JSONArray(datav1);
-                    JSONObject value = jsonarray.getJSONObject(0);
-                    JSONArray jsonarray_v1 = new JSONArray(value.getJSONArray("DanhMuc").toString());
-                    for (int j = 0; j < jsonarray_v1.length(); j++) {
-                        JSONObject value_DanhMuc = jsonarray_v1.getJSONObject(j);
-                        JSONArray jsonarray_v2 = new JSONArray(value_DanhMuc.getJSONArray("DanhSach_Nhac").toString());
-                        for (int i = 0; i < jsonarray_v2.length(); i++) {
-                            JSONObject value_DanhSachNhac = jsonarray_v2.getJSONObject(i);
-                            Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+jsonarray_v2
-                                    .length(), "doInBackground: ");
-                            ItemNhac itemNhac =new ItemNhac(value_DanhSachNhac.getString("img_DanhSach"),value_DanhSachNhac.getString("ten_DanhSach"),value_DanhSachNhac.getString("gioi_thieu_DanhSach"));
-                            list_nhac.add(itemNhac);
-                            tong.setCount_img(jsonarray_v2.length());
-                        }
+                for (int i = 0; i < jsonarray.length(); i++) {
+                    JSONObject value = jsonarray.getJSONObject(i);
+                    if (value.getString("ten_TL").equals(data_tenTheLoai)){
+                        JSONArray jsonarray_v1 = new JSONArray(value.getJSONArray("DanhMuc").toString());
+                        for (int j = 0; j < jsonarray_v1.length(); j++) {
+                            JSONObject value_DanhMuc = jsonarray_v1.getJSONObject(j);
+                            JSONArray jsonarray_v2 = new JSONArray(value_DanhMuc.getJSONArray("DanhSach_Nhac").toString());
+                            for (int k = 0; k < jsonarray_v2.length(); k++) {
+                                JSONObject value_DanhSachNhac = jsonarray_v2.getJSONObject(k);
+                                Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+jsonarray_v2
+                                        .length(), "doInBackground: ");
+                                ItemNhac itemNhac =new ItemNhac(value_DanhSachNhac.getString("img_DanhSach"),value_DanhSachNhac.getString("ten_DanhSach"),value_DanhSachNhac.getString("gioi_thieu_DanhSach"));
+                                list_nhac.add(itemNhac);
+                                tong.setCount_img(jsonarray_v2.length());
+                            }
                             tenDanhMuclist.add(value_DanhMuc.getString("ten_DM"));
                             tong.setNameTong(tenDanhMuclist);
                             tong.setListTong(list_nhac);
-                        data.add(tong);
+                            data.add(tong);
+                        }
+                    }else{
+                        continue;
                     }
+                }
                 }
         } catch (IOException e) {
             e.printStackTrace();
