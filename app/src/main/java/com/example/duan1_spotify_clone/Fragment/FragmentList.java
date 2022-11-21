@@ -55,6 +55,13 @@ public class FragmentList extends Fragment {
         imageView = v.findViewById(R.id.img_DanhSachNhac);
         db = new DBPlayList(getContext());
         capNhat();
+        ImageView img = v.findViewById(R.id.back_list);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)getContext()).setCurrentPage(4);
+            }
+        });
         GetData getData = new GetData();
         getData.execute("http://192.168.137.45:3000/new");
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

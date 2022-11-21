@@ -14,14 +14,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/custom_addlist"/>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="20dp"
+        android:id="@+id/back_music"
+        android:src="@drawable/back"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
+
             <ImageView
-                android:layout_width="280dp"
-                android:layout_height="280dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:src="@drawable/img_music"/>
             <TextView
                 android:layout_width="match_parent"

@@ -52,7 +52,7 @@
                android:textStyle="bold"
                android:textSize="14dp"
                android:onClick="dkFree"
-               android:textColor="#fff"
+               android:textColor="@color/black"
                android:layout_marginBottom="15dp"
                android:background="@drawable/custom_btn"
                />

@@ -58,4 +58,8 @@ public class Screen_input_name extends AppCompatActivity {
     public void go(){
         startActivity(new Intent(Screen_input_name.this, MainActivity2.class));
     }
+    public  void back_gender(View view){
+            startActivity(new Intent(Screen_input_name.this, Screen_input_gender.class));
+
+    }
 }

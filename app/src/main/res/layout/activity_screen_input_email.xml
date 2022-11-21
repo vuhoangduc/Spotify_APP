@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#212121"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".ActivityLogin.Screen_input_email">
     <LinearLayout
@@ -32,18 +32,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email của bạn là"
-        android:layout_marginTop="130dp"
+        android:text="Email của bạn là gì"
+        android:layout_marginTop="80dp"
         android:paddingStart="20dp"
         android:textColor="#fff"
-        android:textSize="36dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="gi?"
-        android:paddingStart="20dp"
-        android:textColor="#fff"
-        android:textSize="36dp" />
+        android:textStyle="bold"
+        android:textSize="30dp" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_margin="20dp"

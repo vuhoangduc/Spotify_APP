@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#212121"
+    android:background="@color/black"
+    android:gravity="center"
     tools:context=".ActivityLogin.Screen_input_name">
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginLeft="24dp"
-            android:onClick="back_email"
+            android:onClick="back_gender"
             android:layout_marginTop="5dp"
             android:src="@drawable/img"/>
         <TextView
@@ -24,9 +25,8 @@
             android:layout_height="match_parent"
             android:text="Tạo tài khoản"
             android:textColor="#fff"
-
             android:paddingLeft="83dp"
-            android:textSize="22dp"/>
+            android:textSize="20dp"/>
     </LinearLayout>
 
     <TextView
@@ -35,8 +35,10 @@
         android:text="Tên của bạn là gì?"
         android:layout_marginTop="30dp"
         android:paddingStart="20dp"
+        android:textStyle="bold"
         android:textColor="#fff"
-        android:textSize="36dp" />
+        android:layout_marginRight="70dp"
+        android:textSize="30dp" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_margin="20dp"
@@ -53,21 +55,118 @@
     </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:textColor="#fff"
-        android:textSize="17dp"
-        android:layout_marginStart="20dp"
-        android:text="Thông tin này sẽ xuất hiện trên Spotify của
-        bạn."/>
+        android:textSize="14dp"
+        android:layout_marginStart="10dp"
+        android:text="Thông tin này sẽ xuất hiện trên Spotify của bạn."/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:textColor="#fff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Bằng việc nhấn vào ' Tạo tài khoản ',bạn đồng ý với Điều khoản \nsử dụng Spotify."/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:textColor="#01B51F"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Điều khoản sử dụng"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Để tìm hiêu thêm về cách thức Spotify thu thập, sử dụng ,chia \nsẻ và bảo vệ dữ liệu cá nhân của bạn, vui lòng xem Chính sách\nquyền riêng tư của Spotify."
+        android:textColor="#fff"
+        android:textSize="12dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textColor="#01B51F"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Chính sách quyền riêng tư"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Tôi không muốn nhận tin nhắn tiếp thị từ Spotify"
+            android:textColor="#fff"
+            android:textSize="13dp" />
+        <CheckBox
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:button="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/radio_selector"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="130dp"
+
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="330dp"
+           android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Chia sẻ dữ liệu đăng kí của tôi với các nhà cung cấp \nnội dung Spotify nhằm mục đích tiếp thị"
+            android:textColor="#fff"
+            android:textSize="13dp" />
+        <CheckBox
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:button="@android:color/transparent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/radio_selector"
+            />
+
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNextHome"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="30dp"
         android:background="@drawable/btn_next"
-        android:id="@+id/btnNextHome"
         android:text="Tạo tài khoản" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ĐƯỢC BẢO VỆ BĂNG RECAPTCHA"
+        android:textSize="13dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#ccc"
+        android:textAlignment="center"/>
 
 
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#212121"
+    android:background="@color/black"
     tools:context=".ActivityLogin.Screen_input_gender">
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,96 +30,83 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Giới tính của bạn là
-           gì?"
-        android:layout_marginTop="130dp"
+        android:text="Giới tính của bạn là gì?"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
         android:paddingStart="20dp"
         android:textColor="#fff"
-        android:textSize="36dp" />
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
-
-            <RadioGroup
+        android:textSize="30dp" />
+    <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
+        android:layout_marginLeft="10dp"
             android:orientation="horizontal">
-            <RadioButton
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nữ"
+                android:id="@+id/cb1"
                 android:button="@android:color/transparent"
                 android:background="@drawable/radio_selector"
                 android:textColor="@drawable/text_radio"
                 android:elevation="4dp"
-                android:padding="16dp"
-                android:textSize="20dp"/>
-            <RadioButton
+                android:padding="13dp"
+                android:textSize="15dp"/>
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nam"
+                android:id="@+id/cb2"
                 android:layout_marginLeft="20dp"
                 android:button="@android:color/transparent"
                 android:background="@drawable/radio_selector"
                 android:textColor="@drawable/text_radio"
                 android:elevation="4dp"
-                android:padding="16dp"
-                android:textSize="20dp"/>
-            <RadioButton
+                android:padding="13dp"
+                android:textSize="15dp"/>
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Phi nhị giới "
-                android:layout_marginLeft="20dp"
+                android:id="@+id/cb3"
+                android:layout_marginLeft="15dp"
                 android:button="@android:color/transparent"
                 android:background="@drawable/radio_selector"
                 android:textColor="@drawable/text_radio"
                 android:elevation="4dp"
-                android:padding="16dp"
-                android:textSize="20dp"/>
-        </RadioGroup>
-
-        <RadioGroup
+                android:padding="13dp"
+                android:textSize="15dp"/>
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:padding="12dp"
+            android:id="@+id/cb4"
+            android:layout_marginLeft="15dp"
+            android:text="Khác"
+            android:textColor="@drawable/text_radio"
+            android:textSize="15dp" />
+        </LinearLayout>
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/radio_selector"
-                android:button="@android:color/transparent"
-                android:elevation="4dp"
-                android:padding="16dp"
-                android:text="Khác"
-                android:textColor="@drawable/text_radio"
-                android:textSize="20dp" />
-
-            <RadioButton
+    <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/radio_selector"
                 android:button="@android:color/transparent"
                 android:elevation="4dp"
-                android:padding="16dp"
-                android:text="Không muốn nêu củ thể "
+                android:padding="13dp"
+                android:id="@+id/cb5"
+        android:layout_marginTop="15dp"
+        android:text="Không muốn nêu củ thể "
                 android:textColor="@drawable/text_radio"
-                android:textSize="17dp" />
-        </RadioGroup>
+                android:textSize="15dp" />
 
-    </RadioGroup>
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_next"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="30dp"
-        android:onClick="input_dieuKhoan"
-        android:text="Tiếp"/>
+
 
 
 </LinearLayout>

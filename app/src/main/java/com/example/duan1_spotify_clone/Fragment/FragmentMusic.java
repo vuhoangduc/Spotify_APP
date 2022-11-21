@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.duan1_spotify_clone.AdapterHome.DanhMucAdapterHome;
@@ -38,6 +39,13 @@ public class FragmentMusic extends Fragment {
         LinearLayoutManager managerDM = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerViewDM.setLayoutManager(managerDM);
         recyclerViewDM.setAdapter(DMAdapter);
+        ImageView img = v.findViewById(R.id.back_music);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)getContext()).setCurrentPage(7);
+            }
+        });
         tv_moveKenh  = v.findViewById(R.id.tv_moveKenh);
 
         tv_moveKenh.setOnClickListener(new View.OnClickListener() {

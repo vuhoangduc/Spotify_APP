@@ -36,8 +36,3 @@ public class MainActivity extends AppCompatActivity {
         },3000);
     }
 }
-//Login:
-//-Màn hình input_date:Chưa làm đẹp DatePicker,check sk
-//-Màn hình input_gender:Chưa cho các radio vào 1 ground,check sk
-//-Màn hình Login: Chưa check rỗng
-//-Màn hình Name:Chưa có điều khoản
