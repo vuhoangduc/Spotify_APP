@@ -50,7 +50,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
 
-                Log.d("zzzzzzzzzzzzzzzzzzzzzz"+position, "onBindViewHolder: ");
                 if (y == 10 ){
                     x = 5;
                 }else if (y == 15){
@@ -79,9 +78,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                         dont_open.open();
                         if (!dont_open.getData().equals("")){
                             dont_open.DELETE_ALL();
-                            dont_open.ADD_NEW(itemNhac.getTv1());
+                            dont_open.ADD_NEW(itemNhac.getId());
                         }else {
-                            dont_open.ADD_NEW(itemNhac.getTv1());
+                            dont_open.ADD_NEW(itemNhac.getId());
                         }
                         ((MainActivity2)context).setCurrentPage(7);
                     }
@@ -90,7 +89,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
     @Override
     public int getItemCount() {
-        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzz"+count_index, "getItemCount: ");
         return 5;
     }
     public class ItemViewHolder extends RecyclerView.ViewHolder{

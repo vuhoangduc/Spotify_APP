@@ -55,7 +55,7 @@ public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
                     JSONArray jsonarray_v1 = new JSONArray(value.getJSONArray("theloais").toString());
                     for (int j = 0; j < jsonarray_v1.length(); j++) {
                         JSONObject value_DanhMuc = jsonarray_v1.getJSONObject(j);
-                        TheLoai theLoai = new TheLoai(null,value_DanhMuc.getString("ten_TL"),value_DanhMuc.getString("img_TL"));
+                        TheLoai theLoai = new TheLoai(value_DanhMuc.getString("id_TL"),value_DanhMuc.getString("ten_TL"),value_DanhMuc.getString("img_TL"));
                         data.add(theLoai);
                     }
                 }
