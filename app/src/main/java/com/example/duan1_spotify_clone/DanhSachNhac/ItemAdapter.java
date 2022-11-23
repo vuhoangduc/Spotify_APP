@@ -87,7 +87,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     }
                 });
                 y--;
-                //adfasf
     }
     @Override
     public int getItemCount() {
