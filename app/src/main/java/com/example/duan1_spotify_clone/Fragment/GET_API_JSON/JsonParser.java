@@ -40,7 +40,6 @@ public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
         List<TheLoai> data = new ArrayList<>();
         try {
             URL url = new URL(strings[0]);
-            Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzz", "doInBackground: "+strings[0]);
             InputStream inputStream = url.openStream();
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -52,8 +51,12 @@ public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
                 JSONArray jsonarray = new JSONArray(datav1);
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject value = jsonarray.getJSONObject(i);
-                    TheLoai theLoai = new TheLoai(null,value.getString("ten_TL"),value.getString("img"));
-                    data.add(theLoai);
+                    JSONArray jsonarray_v1 = new JSONArray(value.getJSONArray("theloais").toString());
+                    for (int j = 0; j < jsonarray_v1.length(); j++) {
+                        JSONObject value_DanhMuc = jsonarray_v1.getJSONObject(j);
+                        TheLoai theLoai = new TheLoai(null,value_DanhMuc.getString("ten_TL"),value_DanhMuc.getString("img_TL"));
+                        data.add(theLoai);
+                    }
                 }
             }
         } catch (IOException e) {
