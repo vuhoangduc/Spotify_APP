@@ -16,11 +16,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.PlayListAdapter2;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.DTO.DanhSachNhac;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.DTO.TheLoai;
+import com.example.duan1_spotify_clone.DanhSachNhac.ItemNhac;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
@@ -32,6 +35,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;

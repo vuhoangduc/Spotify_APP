@@ -25,9 +25,9 @@ public class PlayListAdapter2 extends ArrayAdapter<Playlist> {
 
     public PlayListAdapter2(@NonNull Context context, List<Playlist> list) {
         super(context, 0,list);
-
         this.context=context;
         this.list=list;
+        notifyDataSetChanged();
     }
 
     @NonNull
