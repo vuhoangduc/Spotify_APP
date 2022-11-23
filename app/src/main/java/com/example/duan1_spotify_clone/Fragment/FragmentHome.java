@@ -3,6 +3,7 @@ package com.example.duan1_spotify_clone.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,13 +18,16 @@ import com.example.duan1_spotify_clone.AdapterHome.NgheSiAdapterHome;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Kenh_Home;
 import com.example.duan1_spotify_clone.R;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentHome extends Fragment {
-    private RecyclerView recyclerViewDM,recyclerViewNS,recycleViewPL;
+    private RecyclerView recyclerViewDM,recyclerViewNS,recycleViewPL,recyclerViewKenh;
     private DanhMucAdapterHome DMAdapter;
     private NgheSiAdapterHome NSAdapter;
     TextView tv_setDate;
@@ -31,6 +35,16 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+        //
+        recyclerViewKenh = v.findViewById(R.id.recycleViewKenh);
+        GridLayoutManager dGridLayoutManager = new GridLayoutManager(getActivity(),2);
+        recyclerViewKenh.setLayoutManager(dGridLayoutManager);
+        try {
+            init();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
         //
         recyclerViewDM = v.findViewById(R.id.recycleMainDM);
         DMAdapter = new DanhMucAdapterHome(getListHome());
@@ -74,5 +88,9 @@ public class FragmentHome extends Fragment {
         }else{
             tv_setDate.setText("Chào buổi tối");
         }
+    }
+    public void init() throws UnknownHostException {
+        JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh);
+        jsonParser.execute("http://10.24.2.54:3000/kenhs");
     }
 }

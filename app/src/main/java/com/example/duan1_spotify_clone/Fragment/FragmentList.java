@@ -43,7 +43,7 @@ public class FragmentList extends Fragment {
     ArrayList<Playlist> list = new ArrayList<>();
     DBPlayList db;
     PlayListAdapter2 adapter;
-    ImageView imageView;
+    ImageView imageView,back_list;
     TextView textView;
 
     @Override
@@ -53,6 +53,13 @@ public class FragmentList extends Fragment {
         listView = v.findViewById(R.id.lvListBH);
         textView = v.findViewById(R.id.tieu_de_DanhSachNhac);
         imageView = v.findViewById(R.id.img_DanhSachNhac);
+        back_list = v.findViewById(R.id.back_list);
+        back_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)getContext()).setCurrentPage(4);
+            }
+        });
         db = new DBPlayList(getContext());
         capNhat();
         GetData getData = new GetData();

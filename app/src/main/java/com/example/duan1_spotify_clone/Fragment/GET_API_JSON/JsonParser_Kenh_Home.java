@@ -2,12 +2,11 @@ package com.example.duan1_spotify_clone.Fragment.GET_API_JSON;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duan1_spotify_clone.AdapterHome.Adapter.TheLoaiAdapter;
 import com.example.duan1_spotify_clone.AdapterHome.KenhAdapterHome;
+import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.TheLoai;
 
 import org.json.JSONArray;
@@ -22,23 +21,23 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
+public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> {
     Context context;
-    RecyclerView ds_theloai;
+    RecyclerView ds_kenh;
 
-    public JsonParser(Context context, RecyclerView ds_theloai) {
+    public JsonParser_Kenh_Home(Context context, RecyclerView ds_kenh) {
         this.context = context;
-        this.ds_theloai = ds_theloai;
+        this.ds_kenh = ds_kenh;
     }
-    public JsonParser(Context context) {
+    public JsonParser_Kenh_Home(Context context) {
         this.context = context;
 
     }
     @Override
-    protected List<TheLoai> doInBackground(String... strings) {
+    protected List<Kenh> doInBackground(String... strings) {
         String line = "";
         String datav1 = "";
-        List<TheLoai> data = new ArrayList<>();
+        List<Kenh> data = new ArrayList<>();
         try {
             URL url = new URL(strings[0]);
             InputStream inputStream = url.openStream();
@@ -50,14 +49,10 @@ public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
             }
             if (!datav1.isEmpty()){
                 JSONArray jsonarray = new JSONArray(datav1);
-                for (int i = 0; i < jsonarray.length(); i++) {
+                for (int i = 0; i < 4; i++) {
                     JSONObject value = jsonarray.getJSONObject(i);
-                    JSONArray jsonarray_v1 = new JSONArray(value.getJSONArray("theloais").toString());
-                    for (int j = 0; j < jsonarray_v1.length(); j++) {
-                        JSONObject value_DanhMuc = jsonarray_v1.getJSONObject(j);
-                        TheLoai theLoai = new TheLoai(null,value_DanhMuc.getString("ten_TL"),value_DanhMuc.getString("img_TL"));
-                        data.add(theLoai);
-                    }
+                  Kenh kenh  = new Kenh(value.getString("id_kenh"),value.getString("ten_kenh"), value.getString("img_kenh"), value.getString("img_gioiThieu"),value.getString("thongtin_gioiThieu") );
+                  data.add(kenh);
                 }
             }
         } catch (IOException e) {
@@ -69,11 +64,10 @@ public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
     }
 
     @Override
-    protected void onPostExecute(List<TheLoai> theLoais) {
-        super.onPostExecute(theLoais);
-
-        TheLoaiAdapter adapter = new TheLoaiAdapter(context,theLoais);
-        ds_theloai.setAdapter(adapter);
+    protected void onPostExecute(List<Kenh> kenhs) {
+        super.onPostExecute(kenhs);
+        KenhAdapterHome adapter = new KenhAdapterHome(context,kenhs);
+        ds_kenh.setAdapter(adapter);
     }
 }
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="170dp"
+    android:layout_height="59dp"
+    android:layout_margin="3dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5E5B5B"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imgKenhHome"
+            android:layout_width="59dp"
+            android:src="@drawable/k_pop"
+            android:layout_height="59dp"/>
+        <TextView
+            android:id="@+id/tvKenhHome"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="SKY DEACADE"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#fff"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
