@@ -45,9 +45,9 @@ public class MusicAdapter extends ArrayAdapter<Playlist> {
         tvNS = v.findViewById(R.id.tv_nameMS);
         tvMS = v.findViewById(R.id.tv_nameNS);
         img = v.findViewById(R.id.img_MS);
-        tvMS.setText(music1.getTen_music());
-        tvMS.setText("hello");
-        Glide.with(context).load(list.get(position).getImg_music()).placeholder(R.drawable.hiphop).into(img);
+            tvMS.setText(music1.getTen_music());
+            tvMS.setText("hello");
+            Glide.with(context).load(list.get(position).getImg_music()).placeholder(R.drawable.hiphop).into(img);
         }
         return v;
         }
