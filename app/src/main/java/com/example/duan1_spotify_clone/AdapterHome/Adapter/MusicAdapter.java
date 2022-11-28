@@ -11,17 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.R;
 
 import java.util.List;
 
-public class MusicAdapter extends ArrayAdapter<Playlist> {
-        List<Playlist> list;
+public class MusicAdapter extends ArrayAdapter<Music1> {
+        List<Music1> list;
         Context context;
         TextView tvNS,tvMS;
         ImageView img;
-        public MusicAdapter(@NonNull Context context, List<Playlist> list) {
+        public MusicAdapter(@NonNull Context context, List<Music1> list) {
         super(context, 0,list);
         this.context=context;
         this.list=list;
@@ -35,12 +37,15 @@ public class MusicAdapter extends ArrayAdapter<Playlist> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.item_music, null);
         }
-         final Playlist playlist = list.get(position);
+         final Music1 playlist = list.get(position);
         if(playlist!=null){
-        tvNS = v.findViewById(R.id.tv_nameMS);
+        tvNS = v.findViewById(R.id.tv_tenbaihat);
         tvMS = v.findViewById(R.id.tv_nameNS);
         img = v.findViewById(R.id.img_MS);
         }
+        tvNS.setText(playlist.getTen_music());
+        tvMS.setText("hello");
+        Glide.with(context).load(list.get(position).getImg_music()).placeholder(R.drawable.hiphop).into(img);
         return v;
         }
 }
