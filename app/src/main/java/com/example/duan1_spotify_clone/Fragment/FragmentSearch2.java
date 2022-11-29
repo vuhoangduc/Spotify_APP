@@ -2,6 +2,7 @@ package com.example.duan1_spotify_clone.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.PlayListAdapter2;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
 import java.util.ArrayList;
@@ -24,8 +26,6 @@ public class FragmentSearch2 extends AppCompatActivity {
     ArrayList<Playlist> list = new ArrayList<>();
     ArrayList<Playlist> list2;
     DBPlayList db;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +58,7 @@ public class FragmentSearch2 extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
             }
         });
     }
