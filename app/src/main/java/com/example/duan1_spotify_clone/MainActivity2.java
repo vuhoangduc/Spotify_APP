@@ -35,16 +35,16 @@ public class MainActivity2 extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.iconHome:
-                        viewPager2.setCurrentItem(0);
+                        viewPager2.setCurrentItem(0,false);
                         break;
                     case R.id.iconSearch:
-                        viewPager2.setCurrentItem(1);
+                        viewPager2.setCurrentItem(1,false);
                         break;
                     case R.id.iconLibrary:
-                        viewPager2.setCurrentItem(2);
+                        viewPager2.setCurrentItem(2,false);
                         break;
                     case R.id.iconPremium:
-                        viewPager2.setCurrentItem(3);
+                        viewPager2.setCurrentItem(3,false);
                         break;
                 }
                 return true;
@@ -65,7 +65,7 @@ public class MainActivity2 extends AppCompatActivity {
     ColorStateList navigationViewColorStateList = new ColorStateList(states, colors);
 
     public void setCurrentPage(int position){
-        viewPager2.setCurrentItem(position);
+        viewPager2.setCurrentItem(position,false);
     }
 
 }
