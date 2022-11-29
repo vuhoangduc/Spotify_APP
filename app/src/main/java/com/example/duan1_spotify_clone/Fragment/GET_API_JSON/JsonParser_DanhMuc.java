@@ -65,7 +65,7 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
                     if (value.getString("id_TL").equals(data_value)) {
                         tenDanhMuclist.add(value.getString("ten_DM"));
                         GetData getData = new GetData();
-                        tong = new Tong(tenDanhMuclist, getData.doInBackground("http://172.28.192.1:3000/danhsachnhacs"));
+                        tong = new Tong(tenDanhMuclist, getData.doInBackground("http://192.168.0.104:3000/danhsachnhacs"));
                         data.add(tong);
                     } else {
                         continue;

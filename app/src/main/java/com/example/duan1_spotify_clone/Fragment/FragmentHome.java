@@ -91,6 +91,6 @@ public class FragmentHome extends Fragment {
     }
     public void init() throws UnknownHostException {
         JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh);
-        jsonParser.execute("http://172.28.192.1:3000/kenhs");
+        jsonParser.execute("http://192.168.0.104:3000/kenhs");
     }
 }

@@ -70,7 +70,7 @@ public class FragmentList extends Fragment {
         });
         db = new DBPlayList(getContext());
         GetData getData = new GetData();
-        getData.execute("http://172.28.192.1:3000/danhsachnhacs");
+        getData.execute("http://192.168.0.104:3000/danhsachnhacs");
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -78,13 +78,13 @@ public class FragmentList extends Fragment {
             }
         });
         JsonParser_Music jsonParser_music = new JsonParser_Music(getActivity(),listView);
-        jsonParser_music.execute("http://172.28.192.1:3000/musics");
+        jsonParser_music.execute("http://192.168.0.104:3000/musics");
         // Inflate the layout for this fragment
         playmusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 JsonParser_Music_v1 jsonParser_music_v1 = new JsonParser_Music_v1(getActivity());
-                jsonParser_music_v1.execute("http://172.28.192.1:3000/musics");
+                jsonParser_music_v1.execute("http://192.168.0.104:3000/musics");
             }
         });
         return v;
@@ -100,6 +100,7 @@ public class FragmentList extends Fragment {
         }
         @Override
         protected List<Music1> doInBackground(String... strings) {
+            Log.d("zzzzzzzz play music", "onClick: ");
             String line = "";
             String datav1 = "";
             List<Music1> data = new ArrayList<>();
@@ -134,7 +135,10 @@ public class FragmentList extends Fragment {
         @Override
         protected void onPostExecute(List<Music1> music1s) {
             super.onPostExecute(music1s);
-            startAudioStream(music1s.get(1).getFile_music());
+            for (int i = 0; i < music1s.size(); i++) {
+                Log.d("zzzzzzzzzzzzzzz file music"+music1s.get(i).getFile_music(), "onPostExecute: ");
+                startAudioStream(music1s.get(i).getFile_music());
+            }
         }
         public void startAudioStream(String url) {
             if (m == null)
