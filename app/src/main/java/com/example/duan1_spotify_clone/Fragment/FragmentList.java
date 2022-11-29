@@ -155,6 +155,13 @@ public class FragmentList extends Fragment {
             } catch (Exception e) {
                 Log.d("mylog", "Error playing in SoundHandler: " + e.toString());
             }
+            if(m.isPlaying()){
+                m.pause();
+                playmusic.setImageResource(R.drawable.pause);
+            }else {
+                m.start();
+                playmusic.setImageResource(R.drawable.play);
+            }
         }
     }
 

@@ -54,6 +54,7 @@
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
+        android:background="@null"
         android:layout_marginRight="15dp"
         android:id="@+id/recycleViewKenh"
         android:layout_height="wrap_content"/>
@@ -69,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:id="@+id/recycleMainDM"
+            android:background="@null"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="15dp"/>
@@ -99,6 +101,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:id="@+id/recycleMainPL"
+        android:background="@null"
         android:layout_height="wrap_content"
         android:layout_marginBottom="55dp"
         android:layout_marginLeft="15dp"/>

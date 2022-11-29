@@ -4,9 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
@@ -38,6 +40,7 @@ public class DanhMucAdapterHome   extends RecyclerView.Adapter<DanhMucAdapterHom
         }
         holder.imgDM.setImageResource(danhMuc.getImgHI());
         holder.textView.setText(danhMuc.getNameHI());
+        holder.layout.setBackgroundResource(0);
     }
 
     @Override
@@ -51,11 +54,13 @@ public class DanhMucAdapterHome   extends RecyclerView.Adapter<DanhMucAdapterHom
     public class DanhMucViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgDM;
         private TextView textView;
+        CardView layout;
 
         public DanhMucViewHolder(@NonNull View itemView) {
             super(itemView);
             imgDM = itemView.findViewById(R.id.imgDMHome);
             textView = itemView.findViewById(R.id.tenDMHome);
+            layout = itemView.findViewById(R.id.background2);
         }
     }
 }

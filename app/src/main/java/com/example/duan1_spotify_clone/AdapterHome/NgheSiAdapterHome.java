@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
@@ -22,6 +23,7 @@ import java.util.Random;
 
 public class NgheSiAdapterHome  extends RecyclerView.Adapter<NgheSiAdapterHome.NgheSiViewHolder> {
     private List<HomeItem> list;
+
 
     public NgheSiAdapterHome(List<HomeItem> list) {
         this.list = list;
@@ -43,6 +45,7 @@ public class NgheSiAdapterHome  extends RecyclerView.Adapter<NgheSiAdapterHome.N
         }
         holder.imgDM.setImageResource(danhMuc.getImgHI());
         holder.textView.setText(danhMuc.getNameHI());
+        holder.cardView.setBackgroundResource(0);
     }
 
     @Override
@@ -56,11 +59,13 @@ public class NgheSiAdapterHome  extends RecyclerView.Adapter<NgheSiAdapterHome.N
     public class NgheSiViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgDM;
         private TextView textView;
+        CardView cardView;
 
         public NgheSiViewHolder(@NonNull View itemView) {
             super(itemView);
             imgDM = itemView.findViewById(R.id.imgNSHome);
             textView = itemView.findViewById(R.id.tenNSHome);
+            cardView = itemView.findViewById(R.id.background);
         }
     }
 }
