@@ -24,6 +24,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 
 public class Screen_input_email extends AppCompatActivity {
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +41,14 @@ public class Screen_input_email extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(s.toString().matches(emailPattern)){
+                        email = s.toString();
                         btn.setBackgroundResource(R.drawable.btn_next2);
                         btn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                go();
+                                Intent intent = new Intent(Screen_input_email.this, Screen_input_password.class);
+                                intent.putExtra("Email",email);
+                                startActivity(intent);
                             }
                         });
                     }else{
@@ -71,9 +75,6 @@ public class Screen_input_email extends AppCompatActivity {
     }
     public void back_email(View view){
         startActivity(new Intent(Screen_input_email.this, Screen_Login_SignUp.class));
-    }
-    public void go(){
-        startActivity(new Intent(Screen_input_email.this, Screen_input_password.class));
     }
 
 

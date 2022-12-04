@@ -9,10 +9,10 @@
     tools:context=".Fragment.FragmentLibraryAll">
         <ListView
             android:id="@+id/ListViewList"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"

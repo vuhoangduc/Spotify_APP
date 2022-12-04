@@ -13,11 +13,16 @@ import android.widget.TextView;
 import com.example.duan1_spotify_clone.R;
 
 public class Screen_input_date extends AppCompatActivity {
+    String email,pass;
+    int date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_input_date);
+        Intent intent = getIntent();
+        pass=intent.getStringExtra("Pass");
+        email = intent.getStringExtra("Email");
         Button btn = findViewById(R.id.btnDate);
         DatePicker datePicker = findViewById(R.id.datePicker);
         TextView tv = findViewById(R.id.tvAlertDate);
@@ -39,7 +44,13 @@ public class Screen_input_date extends AppCompatActivity {
                             btn.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    startActivity(new Intent(Screen_input_date.this, Screen_input_gender.class));
+                                    Intent intent = new Intent(Screen_input_date.this, Screen_input_gender.class);
+                                    int year = datePicker.getYear();
+                                    date = 2022-year;
+                                    intent.putExtra("Email",email);
+                                    intent.putExtra("Pass",pass);
+                                    intent.putExtra("Age",date);
+                                    startActivity(intent);
                                 }
                             });
                         }

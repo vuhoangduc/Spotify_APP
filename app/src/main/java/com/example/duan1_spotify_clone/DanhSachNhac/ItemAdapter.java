@@ -76,6 +76,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     public void onClick(View v) {
                         Dont_Open dont_open = new Dont_Open(context);
                         dont_open.open();
+                        Log.d("xxxxx",itemNhac.getId());
                         if (!dont_open.getData().equals("")){
                             dont_open.DELETE_ALL();
                             dont_open.ADD_NEW(itemNhac.getId());

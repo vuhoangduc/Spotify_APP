@@ -52,8 +52,9 @@
         android:layout_width="wrap_content"
         app:tabIndicatorAnimationMode="elastic"
         app:tabSelectedTextColor="#ffff"
-        app:tabIndicatorColor="@color/black"
+        app:tabIndicatorColor="#39BD09"
         app:tabTextColor="#fff"
+
         app:tabIndicator="@drawable/custom_tablayout"
         android:layout_height="wrap_content" />
         <androidx.viewpager.widget.ViewPager

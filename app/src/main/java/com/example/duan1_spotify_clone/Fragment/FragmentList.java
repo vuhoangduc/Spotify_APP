@@ -53,8 +53,10 @@ public class FragmentList extends Fragment {
     ArrayList<Playlist> list = new ArrayList<>();
     DBPlayList db;
     PlayListAdapter2 adapter;
+    Dont_Open dont_open;
     public ImageView imageView,back_list,playmusic;
     public TextView textView;
+    GetData getData;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,15 +66,18 @@ public class FragmentList extends Fragment {
         imageView = v.findViewById(R.id.img_DanhSachNhac);
         back_list = v.findViewById(R.id.back_list);
         playmusic = v.findViewById(R.id.playMusic);
+         dont_open = new Dont_Open(getActivity());
         back_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainActivity2)getContext()).setCurrentPage(4);
+                getData = new GetData();
             }
         });
         db = new DBPlayList(getContext());
-        GetData getData = new GetData();
+        getData = new GetData();
         getData.execute("http://192.168.0.105:3000/danhsachnhacs");
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -91,7 +96,7 @@ public class FragmentList extends Fragment {
         protected List<DanhSachNhac> doInBackground(String... strings) {
             String line = "";
             String datav1 = "";
-            Dont_Open dont_open = new Dont_Open(getActivity());
+
             String data_value = dont_open.getData();
             List<DanhSachNhac> data = new ArrayList<>();
             try {
@@ -106,11 +111,13 @@ public class FragmentList extends Fragment {
                 }
                 JSONArray jsonarray = new JSONArray(datav1);
                 for (int i = 0; i < jsonarray.length(); i++) {
+                    Log.d("sdsd",data_value);
                     JSONObject value = jsonarray.getJSONObject(i);
                     if (value.getString("id_DanhSach").equals(data_value)){
                         DanhSachNhac danhSachNhac = new DanhSachNhac(value.getString("id_DanhSach"),value.getString("ten_DanhSach"),value.getString("img_DanhSach"),value.getString("gioi_thieu_DanhSach"),value.getString("id_DM"));
                         data.add(danhSachNhac);
                         dont_open.DELETE_ALL();
+
                         dont_open.ADD_NEW(value.getString("id_DanhSach"));
                         return data;
                     }

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
+import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -23,6 +24,7 @@ public class MainActivity2 extends AppCompatActivity {
     ViewPager2 viewPager2;
     ViewPagerAdapter adapter;
     FrameLayout frag_bottom_player;
+    Dont_Open dont_open;
 
 
     @Override
@@ -35,6 +37,8 @@ public class MainActivity2 extends AppCompatActivity {
         viewPager2 = findViewById(R.id.frame);
         adapter = new ViewPagerAdapter(this);
         viewPager2.setAdapter(adapter);
+        dont_open = new Dont_Open(this);
+        dont_open.open();
         viewPager2.setUserInputEnabled(false);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
