@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapter;
@@ -40,6 +42,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +55,6 @@ public class FragmentList extends Fragment {
     PlayListAdapter2 adapter;
     public ImageView imageView,back_list,playmusic;
     public TextView textView;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,100 +72,19 @@ public class FragmentList extends Fragment {
         });
         db = new DBPlayList(getContext());
         GetData getData = new GetData();
-        getData.execute("http://192.168.0.104:3000/danhsachnhacs");
+        getData.execute("http://192.168.0.105:3000/danhsachnhacs");
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ((MainActivity2) getContext()).setCurrentPage(6);
             }
         });
-        JsonParser_Music jsonParser_music = new JsonParser_Music(getActivity(),listView);
-        jsonParser_music.execute("http://192.168.0.104:3000/musics");
+        JsonParser_Music jsonParser_music = new JsonParser_Music(getActivity(),listView,playmusic);
+        jsonParser_music.execute("http://192.168.0.105:3000/musics");
         // Inflate the layout for this fragment
-        playmusic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                JsonParser_Music_v1 jsonParser_music_v1 = new JsonParser_Music_v1(getActivity());
-                jsonParser_music_v1.execute("http://192.168.0.104:3000/musics");
-            }
-        });
         return v;
     }
-    public class JsonParser_Music_v1 extends AsyncTask<String, Integer, List<Music1>> {
 
-        Context context;
-        MediaPlayer m;
-
-        public JsonParser_Music_v1(Context context) {
-            this.context = context;
-
-        }
-        @Override
-        protected List<Music1> doInBackground(String... strings) {
-            Log.d("zzzzzzzz play music", "onClick: ");
-            String line = "";
-            String datav1 = "";
-            List<Music1> data = new ArrayList<>();
-            try {
-                URL url = new URL(strings[0]);
-                InputStream inputStream = url.openStream();
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                StringBuilder stringBuilder = new StringBuilder();
-                while ((line = bufferedReader.readLine()) != null) {
-                    datav1 += line;
-                }
-                if (!datav1.isEmpty()){
-                    Dont_Open dont_open = new Dont_Open(context);
-                    JSONArray jsonarray = new JSONArray(datav1);
-                    for (int i = 0; i < jsonarray.length(); i++) {
-                        JSONObject value = jsonarray.getJSONObject(i);
-                        if (value.getString("id_DanhSach").equals(dont_open.getData())) {
-                            Music1 music1 = new Music1(value.getString("id_music"), value.getString("ten_music"), value.getString("img_music"), value.getString("file_music"), value.getString("id_kenh"), value.getString("id_DanhSach"));
-                            data.add(music1);
-                        }else{
-                            continue;
-                        }
-                    }
-                }
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
-            return data;
-        }
-
-        @Override
-        protected void onPostExecute(List<Music1> music1s) {
-            super.onPostExecute(music1s);
-            for (int i = 0; i < music1s.size(); i++) {
-                Log.d("zzzzzzzzzzzzzzz file music"+music1s.get(i).getFile_music(), "onPostExecute: ");
-                startAudioStream(music1s.get(i).getFile_music());
-            }
-        }
-        public void startAudioStream(String url) {
-            if (m == null)
-                m = new MediaPlayer();
-            try {
-                Log.d("mylog", "Playing: " + url);
-                m.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                m.setDataSource(url);
-                //descriptor.close();
-                m.prepare();
-                m.setVolume(1f, 1f);
-                m.setLooping(false);
-                m.start();
-            } catch (Exception e) {
-                Log.d("mylog", "Error playing in SoundHandler: " + e.toString());
-            }
-            if(m.isPlaying()){
-                m.pause();
-                playmusic.setImageResource(R.drawable.pause);
-            }else {
-                m.start();
-                playmusic.setImageResource(R.drawable.play);
-            }
-        }
-    }
 
     public class GetData extends AsyncTask<String, Integer, List<DanhSachNhac>> {
         @Override

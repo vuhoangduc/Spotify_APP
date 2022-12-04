@@ -104,9 +104,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" >
-
         </activity>
-
+        <service android:name=".Service_Play_Music_v1"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

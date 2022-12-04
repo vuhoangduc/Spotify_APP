@@ -1,16 +1,19 @@
 package com.example.duan1_spotify_clone.Fragment.GET_API_JSON;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapter;
-import com.example.duan1_spotify_clone.AdapterHome.Adapter.PlayListAdapter2;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.DTO.Music1;
-import com.example.duan1_spotify_clone.DTO.TheLoai;
+import com.example.duan1_spotify_clone.R;
+import com.example.duan1_spotify_clone.Service.Service_Play_Music;
+import com.example.duan1_spotify_clone.Service_Play_Music_v1;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,11 +31,18 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
 
     Context context;
     ListView view;
-
+    ImageView control_music;
     public JsonParser_Music(Context context, ListView view) {
         this.context = context;
         this.view = view;
     }
+
+    public JsonParser_Music(Context context, ListView view, ImageView control_music) {
+        this.context = context;
+        this.view = view;
+        this.control_music = control_music;
+    }
+
     MusicAdapter adapter;
     @Override
     protected List<Music1> doInBackground(String... strings) {
@@ -66,11 +76,28 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
         }
         return data;
     }
-
+    boolean check = true;
     @Override
     protected void onPostExecute(List<Music1> music1s) {
         super.onPostExecute(music1s);
         adapter = new MusicAdapter(context,music1s);
         view.setAdapter(adapter);
+        control_music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Service_Play_Music service_play_music = new Service_Play_Music(control_music,music1s);
+                Intent intent = new Intent(context,Service_Play_Music_v1.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("link", music1s.get(0).getFile_music());
+                mBundle.putBoolean("check",check);
+                intent.putExtras(mBundle);
+                    control_music.setImageResource(R.drawable.pause);
+                    context.startService(intent);
+                    check = false;
+                    mBundle.putBoolean("check",check);
+                    intent.putExtras(mBundle);
+            }
+        });
     }
+
 }

@@ -9,15 +9,21 @@ import android.app.FragmentTransaction;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class MainActivity2 extends AppCompatActivity {
     ViewPager2 viewPager2;
     ViewPagerAdapter adapter;
+    FrameLayout frag_bottom_player;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,8 @@ public class MainActivity2 extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
     int[][] states = new int[][]{
             new int[]{-android.R.attr.state_checked},  // unchecked
