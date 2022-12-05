@@ -102,17 +102,6 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
             @Override
             public void onClick(View view) {
                 control_music.setImageResource(R.drawable.pause);
-//                Service_Play_Music service_play_music = new Service_Play_Music(control_music,music1s);
-//                Intent intent = new Intent(context,Service_Play_Music_v1.class);
-//                Bundle mBundle = new Bundle();
-//                mBundle.putString("link", music1s.get(0).getFile_music());
-//                mBundle.putBoolean("check",check);
-//                intent.putExtras(mBundle);
-//                    control_music.setImageResource(R.drawable.pause);
-//                    context.startService(intent);
-//                    check = false;
-//                    mBundle.putBoolean("check",check);
-//                    intent.putExtras(mBundle);
                 ((MainActivity2)context).showFragment(false);
                 Intent intent = new Intent(context,NowPlayingFragmentBottom.class);
                 songItemAction = (SongItemAction) context;
