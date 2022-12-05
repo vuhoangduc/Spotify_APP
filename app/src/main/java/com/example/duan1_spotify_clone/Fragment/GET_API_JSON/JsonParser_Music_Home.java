@@ -6,8 +6,11 @@ import android.os.AsyncTask;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_spotify_clone.AdapterHome.KenhAdapterHome;
+import com.example.duan1_spotify_clone.AdapterHome.MusicAdapterHome;
+import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
+import com.example.duan1_spotify_clone.DTO.GoiY;
 import com.example.duan1_spotify_clone.DTO.Kenh;
-import com.example.duan1_spotify_clone.DTO.TheLoai;
+import com.example.duan1_spotify_clone.DTO.Music1;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,23 +24,23 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> {
+public class JsonParser_Music_Home extends AsyncTask<String,Integer, List<GoiY>> {
     Context context;
     RecyclerView ds_kenh;
 
-    public JsonParser_Kenh_Home(Context context, RecyclerView ds_kenh) {
+    public JsonParser_Music_Home(Context context, RecyclerView ds_kenh) {
         this.context = context;
         this.ds_kenh = ds_kenh;
     }
-    public JsonParser_Kenh_Home(Context context) {
+    public JsonParser_Music_Home(Context context) {
         this.context = context;
 
     }
     @Override
-    protected List<Kenh> doInBackground(String... strings) {
+    protected List<GoiY> doInBackground(String... strings) {
         String line = "";
         String datav1 = "";
-        List<Kenh> data = new ArrayList<>();
+        List<GoiY> data = new ArrayList<>();
         try {
             URL url = new URL(strings[0]);
             InputStream inputStream = url.openStream();
@@ -45,14 +48,14 @@ public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> 
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             StringBuilder stringBuilder = new StringBuilder();
             while ((line = bufferedReader.readLine()) != null) {
-                 datav1 += line;
+                datav1 += line;
             }
             if (!datav1.isEmpty()){
                 JSONArray jsonarray = new JSONArray(datav1);
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject value = jsonarray.getJSONObject(i);
-                  Kenh kenh  = new Kenh(value.getString("id_kenh"),value.getString("ten_kenh"), value.getString("img_kenh"), value.getString("img_gioiThieu"),value.getString("thongtin_gioiThieu") );
-                  data.add(kenh);
+                    GoiY goiY = new GoiY(value.getString("id_music"), value.getString("ten_music"), value.getString("img_music"), value.getString("file_music"), value.getString("id_kenh"));
+                        data.add(goiY);
                 }
             }
         } catch (IOException e) {
@@ -64,10 +67,9 @@ public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> 
     }
 
     @Override
-    protected void onPostExecute(List<Kenh> kenhs) {
-        super.onPostExecute(kenhs);
-        KenhAdapterHome adapter = new KenhAdapterHome(context,kenhs);
+    protected void onPostExecute(List<GoiY> goiYS) {
+        super.onPostExecute(goiYS);
+        MusicAdapterHome adapter = new MusicAdapterHome(context,goiYS);
         ds_kenh.setAdapter(adapter);
     }
 }
-

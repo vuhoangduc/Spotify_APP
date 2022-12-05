@@ -19,7 +19,9 @@ import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Chanel_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Kenh_Home;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music_Home;
 import com.example.duan1_spotify_clone.R;
 
 import java.net.UnknownHostException;
@@ -47,18 +49,25 @@ public class FragmentHome extends Fragment {
 
         //
         recyclerViewDM = v.findViewById(R.id.recycleMainDM);
-        DMAdapter = new DanhMucAdapterHome(getListHome());
         LinearLayoutManager managerDM = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerViewDM.setLayoutManager(managerDM);
-        recyclerViewDM.setAdapter(DMAdapter);
+        try {
+            init2();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         //
         recyclerViewNS = v.findViewById(R.id.recycleMainNS);
-        NSAdapter = new NgheSiAdapterHome(getListHome());
         LinearLayoutManager managerNS = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerViewNS.setLayoutManager(managerNS);
-        recyclerViewNS.setAdapter(NSAdapter);
+        try {
+            init3();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         //
         recycleViewPL = v.findViewById(R.id.recycleMainPL);
+        DMAdapter = new DanhMucAdapterHome(getListHome());
         LinearLayoutManager managerPL = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recycleViewPL.setLayoutManager(managerPL);
         recycleViewPL.setAdapter(DMAdapter);
@@ -91,6 +100,14 @@ public class FragmentHome extends Fragment {
     }
     public void init() throws UnknownHostException {
         JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh);
+        jsonParser.execute("http://192.168.0.105:3000/kenhs");
+    }
+    public void init2() throws UnknownHostException {
+        JsonParser_Music_Home jsonParser = new JsonParser_Music_Home(getActivity(),recyclerViewDM);
+        jsonParser.execute("http://192.168.0.105:3000/goiY");
+    }
+    public void init3() throws UnknownHostException {
+        JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
         jsonParser.execute("http://192.168.0.105:3000/kenhs");
     }
 }

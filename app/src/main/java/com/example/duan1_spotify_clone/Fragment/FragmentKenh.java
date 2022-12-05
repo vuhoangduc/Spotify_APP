@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.duan1_spotify_clone.AdapterHome.NgheSiAdapterHome;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
+import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.R;
 
@@ -31,7 +32,7 @@ public class FragmentKenh extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_kenh, container, false);
         recyclerViewNS = v.findViewById(R.id.recycleNS);
-        NSAdapter = new NgheSiAdapterHome(getListHome());
+        NSAdapter = new NgheSiAdapterHome(getListHome(),getContext());
         LinearLayoutManager managerNS = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerViewNS.setLayoutManager(managerNS);
         recyclerViewNS.setAdapter(NSAdapter);
@@ -51,13 +52,8 @@ public class FragmentKenh extends Fragment {
         tv_dsBai.setText(name);
         return v;
     }
-    private List<HomeItem> getListHome(){
-        List<HomeItem> list1 = new ArrayList<>();
-
-        list1.add(new HomeItem("Bad Bunny",R.drawable.v_pop));
-        list1.add(new HomeItem("Sơn Tùng M-TP",R.drawable.hiphop));
-        list1.add(new HomeItem("J97",R.drawable.k_pop));
-        list1.add(new HomeItem("Amee",R.drawable.pop));
+    private List<Kenh> getListHome(){
+        List<Kenh> list1 = new ArrayList<>();
         return list1;
 
     }

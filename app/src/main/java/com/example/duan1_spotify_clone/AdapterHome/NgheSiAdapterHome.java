@@ -13,8 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
+import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -22,11 +24,13 @@ import java.util.List;
 import java.util.Random;
 
 public class NgheSiAdapterHome  extends RecyclerView.Adapter<NgheSiAdapterHome.NgheSiViewHolder> {
-    private List<HomeItem> list;
+    private List<Kenh> list;
+    Context context;
 
 
-    public NgheSiAdapterHome(List<HomeItem> list) {
+    public NgheSiAdapterHome(List<Kenh> list,Context context) {
         this.list = list;
+        this.context = context;
         notifyDataSetChanged();
     }
 
@@ -39,12 +43,14 @@ public class NgheSiAdapterHome  extends RecyclerView.Adapter<NgheSiAdapterHome.N
 
     @Override
     public void onBindViewHolder(@NonNull NgheSiAdapterHome.NgheSiViewHolder holder, int position) {
-        HomeItem danhMuc = list.get(position);
-        if (danhMuc == null) {
+        Kenh kenh = list.get(position);
+        if (kenh == null) {
             return;
         }
-        holder.imgDM.setImageResource(danhMuc.getImgHI());
-        holder.textView.setText(danhMuc.getNameHI());
+
+
+        Glide.with(context).load(list.get(position).getImg_kenh()).placeholder(R.drawable.hiphop).into(holder.imgDM);
+        holder.textView.setText(kenh.getTen_kenh());
         holder.cardView.setBackgroundResource(0);
     }
 
