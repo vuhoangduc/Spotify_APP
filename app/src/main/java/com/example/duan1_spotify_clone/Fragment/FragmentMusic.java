@@ -19,6 +19,7 @@ import com.example.duan1_spotify_clone.AdapterHome.NgheSiAdapterHome;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.DTO.WordCup;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
@@ -35,7 +36,7 @@ public class FragmentMusic extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_music, container, false);
         recyclerViewDM = v.findViewById(R.id.recycleMainBH);
-        DMAdapter = new DanhMucAdapterHome(getListHome());
+        DMAdapter = new DanhMucAdapterHome(getContext(),getListHome());
         LinearLayoutManager managerDM = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerViewDM.setLayoutManager(managerDM);
         recyclerViewDM.setAdapter(DMAdapter);
@@ -66,13 +67,8 @@ public class FragmentMusic extends Fragment {
         tv_dsBai.setText(name);
         return v;
     }
-    private List<HomeItem> getListHome(){
-        List<HomeItem> list1 = new ArrayList<>();
-
-        list1.add(new HomeItem("Bad Bunny",R.drawable.v_pop));
-        list1.add(new HomeItem("Sơn Tùng M-TP",R.drawable.hiphop));
-        list1.add(new HomeItem("J97",R.drawable.k_pop));
-        list1.add(new HomeItem("Amee",R.drawable.pop));
+    private List<WordCup> getListHome(){
+        List<WordCup> list1 = new ArrayList<>();
         return list1;
 
     }

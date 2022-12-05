@@ -1,5 +1,6 @@
 package com.example.duan1_spotify_clone.AdapterHome;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
+import com.example.duan1_spotify_clone.DTO.WordCup;
 import com.example.duan1_spotify_clone.R;
 
 import java.util.List;
 
-public class DanhMucAdapterHome   extends RecyclerView.Adapter<DanhMucAdapterHome.DanhMucViewHolder> {
-    private List<HomeItem> list;
+public class DanhMucAdapterHome extends RecyclerView.Adapter<DanhMucAdapterHome.DanhMucViewHolder> {
+    private List<WordCup> list;
+    Context context;
 
-    public DanhMucAdapterHome(List<HomeItem> list) {
+    public DanhMucAdapterHome(Context context,List<WordCup> list) {
         this.list = list;
+        this.context= context;
         notifyDataSetChanged();
     }
 
@@ -34,12 +39,13 @@ public class DanhMucAdapterHome   extends RecyclerView.Adapter<DanhMucAdapterHom
 
     @Override
     public void onBindViewHolder(@NonNull DanhMucViewHolder holder, int position) {
-        HomeItem danhMuc = list.get(position);
-        if (danhMuc == null) {
+        WordCup wordCup = list.get(position);
+        if (wordCup == null) {
             return;
         }
-        holder.imgDM.setImageResource(danhMuc.getImgHI());
-        holder.textView.setText(danhMuc.getNameHI());
+        Glide.with(context).load(list.get(position).getImg_wc()).placeholder(R.drawable.hiphop).into(holder.imgDM);
+        holder.textView.setText(wordCup.getTen_wc());
+        holder.textView2.setText(wordCup.getNam_wc());
         holder.layout.setBackgroundResource(0);
     }
 
@@ -53,13 +59,14 @@ public class DanhMucAdapterHome   extends RecyclerView.Adapter<DanhMucAdapterHom
 
     public class DanhMucViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgDM;
-        private TextView textView;
+        private TextView textView,textView2;
         CardView layout;
 
         public DanhMucViewHolder(@NonNull View itemView) {
             super(itemView);
             imgDM = itemView.findViewById(R.id.imgDMHome);
             textView = itemView.findViewById(R.id.tenDMHome);
+            textView2 = itemView.findViewById(R.id.tenTTHome);
             layout = itemView.findViewById(R.id.background2);
         }
     }

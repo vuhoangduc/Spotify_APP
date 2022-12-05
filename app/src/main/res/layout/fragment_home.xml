@@ -19,6 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
@@ -58,22 +59,46 @@
         android:layout_marginRight="15dp"
         android:id="@+id/recycleViewKenh"
         android:layout_height="wrap_content"/>
-    <TextView
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:src="@drawable/imgwc"
+        android:layout_marginLeft="10dp"
+        app:riv_corner_radius="100dp"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gợi ý cho bạn"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="20dp"/>
-        <androidx.recyclerview.widget.RecyclerView
+        android:orientation="vertical">
+        <TextView
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:id="@+id/recycleMainDM"
-            android:background="@null"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:layout_marginLeft="15dp"/>
+                android:text="KHÁM PHÁ NHẠC CỦA"
+            android:textColor="#cccc"
+            android:textSize="14dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Word Cup"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:id="@+id/recycleMainPL"
+        android:background="@null"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:layout_marginLeft="15dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,18 +117,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Danh sách nghệ sĩ hot"
+        android:text="Gợi ý cho bạn"
         android:textColor="#fff"
         android:textSize="20dp"
         android:textStyle="bold"
         android:layout_marginLeft="20dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:id="@+id/recycleMainPL"
-        android:background="@null"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="55dp"
-        android:layout_marginLeft="15dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/recycleMainDM"
+            android:background="@null"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="15dp"/>
+
+
 </LinearLayout>
 </androidx.core.widget.NestedScrollView>

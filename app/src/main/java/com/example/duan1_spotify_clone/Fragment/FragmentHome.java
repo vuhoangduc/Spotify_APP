@@ -22,6 +22,7 @@ import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Chanel_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Kenh_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music_Home;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_WordCup;
 import com.example.duan1_spotify_clone.R;
 
 import java.net.UnknownHostException;
@@ -31,7 +32,6 @@ import java.util.List;
 public class FragmentHome extends Fragment {
     private RecyclerView recyclerViewDM,recyclerViewNS,recycleViewPL,recyclerViewKenh;
     private DanhMucAdapterHome DMAdapter;
-    private NgheSiAdapterHome NSAdapter;
     TextView tv_setDate;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,10 +67,13 @@ public class FragmentHome extends Fragment {
         }
         //
         recycleViewPL = v.findViewById(R.id.recycleMainPL);
-        DMAdapter = new DanhMucAdapterHome(getListHome());
         LinearLayoutManager managerPL = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recycleViewPL.setLayoutManager(managerPL);
-        recycleViewPL.setAdapter(DMAdapter);
+        try {
+            init4();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
 
         tv_setDate = v.findViewById(R.id.tv_setDate);
         setDate();
@@ -109,5 +112,9 @@ public class FragmentHome extends Fragment {
     public void init3() throws UnknownHostException {
         JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
         jsonParser.execute("http://192.168.0.105:3000/kenhs");
+    }
+    public void init4() throws UnknownHostException {
+        JsonParser_WordCup jsonParser = new JsonParser_WordCup(getActivity(),recycleViewPL);
+        jsonParser.execute("http://192.168.0.105:3000/wordcups");
     }
 }
