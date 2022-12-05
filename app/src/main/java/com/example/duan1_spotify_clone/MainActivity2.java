@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,17 +16,20 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
-import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
+import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music;
+import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
+import com.example.duan1_spotify_clone.intefaces.SongItemAction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-public class MainActivity2 extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity2 extends AppCompatActivity implements SongItemAction {
     ViewPager2 viewPager2;
     ViewPagerAdapter adapter;
     FrameLayout frag_bottom_player;
-    Dont_Open dont_open;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +41,12 @@ public class MainActivity2 extends AppCompatActivity {
         viewPager2 = findViewById(R.id.frame);
         adapter = new ViewPagerAdapter(this);
         viewPager2.setAdapter(adapter);
-        dont_open = new Dont_Open(this);
-        dont_open.open();
         viewPager2.setUserInputEnabled(false);
+        frag_bottom_player = findViewById(R.id.frag_bottom_player);
+        showFragment(true);
+        NowPlayingFragmentBottom nowPlayingFragmentBottom= NowPlayingFragmentBottom.getInstance();
+        JsonParser_Music jsonParser_music = new JsonParser_Music(this);
+
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -80,4 +87,24 @@ public class MainActivity2 extends AppCompatActivity {
         viewPager2.setCurrentItem(position,false);
     }
 
+
+    public void showFragment(boolean check){
+        if (check){
+            frag_bottom_player.setVisibility(View.GONE);
+        }else{
+            frag_bottom_player.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void showMoreAction(int position,List<Music1> songs) {
+        NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
+        fragBot.showMoreAction(0,songs);
+    }
+
+    @Override
+    public void setOnItemClickListener(int position,List<Music1> songs) {
+        NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
+        fragBot.showMoreAction_1(position,songs);
+    }
 }

@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.R;
+import com.example.duan1_spotify_clone.intefaces.SongItemAction;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         List<Music1> list;
         Context context;
         TextView tvNS,tvMS;
+    private SongItemAction songItemAction;
         ImageView img;
         public MusicAdapter(@NonNull Context context, List<Music1> list) {
         super(context, 0,list);
@@ -37,13 +39,20 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.item_music, null);
         }
-         final Music1 playlist = list.get(position);
-        if(playlist!=null){
-        tvNS = v.findViewById(R.id.tv_tenbaihat);
-        tvMS = v.findViewById(R.id.tv_nameNS);
-        img = v.findViewById(R.id.img_MS);
+        final Music1 music1 = list.get(position);
+        if(music1!=null){
+            tvNS = v.findViewById(R.id.tv_tenbaihat);
+            tvMS = v.findViewById(R.id.tv_nameNS);
+            img = v.findViewById(R.id.img_MS);
         }
-        tvNS.setText(playlist.getTen_music());
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                songItemAction = (SongItemAction) context;
+                songItemAction.setOnItemClickListener(position,list);
+            }
+        });
+        tvNS.setText(music1.getTen_music());
         tvMS.setText("hello");
         Glide.with(context).load(list.get(position).getImg_music()).placeholder(R.drawable.hiphop).into(img);
         return v;

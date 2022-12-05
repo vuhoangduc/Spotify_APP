@@ -78,12 +78,6 @@ public class FragmentList extends Fragment {
         getData = new GetData();
         getData.execute("http://192.168.0.105:3000/danhsachnhacs");
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((MainActivity2) getContext()).setCurrentPage(6);
-            }
-        });
         JsonParser_Music jsonParser_music = new JsonParser_Music(getActivity(),listView,playmusic);
         jsonParser_music.execute("http://192.168.0.105:3000/musics");
         // Inflate the layout for this fragment

@@ -27,6 +27,7 @@
             android:layout_margin="5dp"
             >
             <fragment
+                android:id="@+id/framgent_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:name="com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom"

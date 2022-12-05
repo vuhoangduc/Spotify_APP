@@ -8,6 +8,7 @@
     tools:context=".Fragment.NowPlayingFragmentBottom">
 
     <LinearLayout
+        android:id="@+id/item_Music"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -76,7 +77,7 @@
                     android:layout_width="21dp"
                     android:layout_height="21dp"
                     android:layout_marginRight="15dp"
-                    android:src="@drawable/play_button_arrowhead" />
+                    android:src="@drawable/pause_button_arrowhead" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <SeekBar
@@ -84,8 +85,6 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:thumbTint="#535353"
-            android:splitTrack="false"
-            android:indeterminate="true"
             android:progressTint="#fff"
             android:outlineSpotShadowColor="#fff" />
     </LinearLayout>
