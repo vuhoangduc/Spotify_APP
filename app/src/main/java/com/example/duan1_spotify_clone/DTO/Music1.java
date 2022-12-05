@@ -1,6 +1,8 @@
 package com.example.duan1_spotify_clone.DTO;
 
-public class Music1 {
+import java.io.Serializable;
+
+public class Music1 implements Serializable {
     private String id_music,ten_music,img_music,file_music,id_kenh,id_danhsach;
 
     public Music1(String id_music, String ten_music, String img_music, String file_music, String id_kenh, String id_danhsach) {
