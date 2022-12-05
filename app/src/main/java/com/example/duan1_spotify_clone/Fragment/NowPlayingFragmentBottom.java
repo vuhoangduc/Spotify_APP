@@ -57,13 +57,35 @@ public class NowPlayingFragmentBottom extends Fragment {
             SetTimeToal();
             capNhapthoigian();
         }
+
+        thoiGianChay.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                bundle.putInt("timeline", mediaPlayer.getDuration());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+                mediaPlayer.seekTo(thoiGianChay.getProgress());
+            }
+        });
+
+
     }
     public void showMoreAction_1( int index,List<Music1> songs) {
         music1s.clear();
         music1s.addAll(songs);
         position1 = index;
-        if (mediaPlayer.isPlaying()){
-            mediaPlayer.stop();
+        if (mediaPlayer!= null){
+            if (mediaPlayer.isPlaying()){
+                mediaPlayer.stop();
+            }
         }
         Log.d("zzzzzzzzzzzzzzzzzzzzz "+position1, "showMoreAction_1: ");
         if (music1s.size()!=0){
@@ -102,17 +124,16 @@ public class NowPlayingFragmentBottom extends Fragment {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (music1s.size()!=0){
-                    Intent intent = new Intent(getActivity(),ActivityMusic.class);
+                if (music1s.size()!=0) {
+                    Intent intent = new Intent(getActivity(), ActivityMusic.class);
                     Bundle bundle = new Bundle();
 
-                    bundle.putInt("index",position1);
+                    bundle.putInt("index", position1);
                     bundle.putSerializable("list", (Serializable) music1s);
-                    bundle.putInt("timeline",mediaPlayer.getDuration());
-
-
+                    intent.putExtras(bundle);
+                    mediaPlayer.stop();
+                    startActivity(intent);
                 }
-                startActivity(new Intent(getActivity(), ActivityMusic.class));
 
             }
         });
@@ -188,6 +209,7 @@ public class NowPlayingFragmentBottom extends Fragment {
     public void SetTimeToal(){
         SimpleDateFormat dinhgio = new SimpleDateFormat("mm:ss");
 //        txt_tgketthuc.setText(dinhgio.format(mediaPlayer.getDuration()));
+        Log.d("zzzzzzzzzzz "+mediaPlayer.getDuration(), "SetTimeToal: ");
         thoiGianChay.setMax(mediaPlayer.getDuration());
     }
 
