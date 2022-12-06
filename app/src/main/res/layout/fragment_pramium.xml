@@ -114,13 +114,5 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="30dp"
-        android:text="ĐĂNG XUẤT"
-        android:textSize="10dp"
-        android:textColor="#fff"
-        android:layout_gravity="center"
-        android:id="@+id/btnLogout"
-        android:background="@drawable/custom_btn_dang_ky_sdt"/>
+
 </LinearLayout>

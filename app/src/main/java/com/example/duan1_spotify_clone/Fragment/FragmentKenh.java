@@ -47,18 +47,17 @@ public class FragmentKenh extends Fragment {
         view = v.findViewById(R.id.imgKenh);
         imgGthieu=v.findViewById(R.id.imgGthieu);
         nameKenh =v.findViewById(R.id.nameKenh);
+        tvGioiThieu = v.findViewById(R.id.tv_gioiThieu);
         kenh = new Kenh();
-//        assert getArguments() != null;
-        kenh = (Kenh) getArguments().getSerializable("Kenh");
+        Bundle bundle = this.getArguments();
+        kenh = (Kenh) bundle.getSerializable("kenh");
         getDataKenh(kenh);
-//        Log.d("hihihi",getArguments().getString("data"));
         try {
             init3();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
 
-        tvGioiThieu = v.findViewById(R.id.tv_gioiThieu);
         tvGioiThieu.setText("Nguyễn Thanh Tùng (sinh ngày 5 tháng 7 năm 1994), thường được biết đến với nghệ danh Sơn Tùng M-TP, là một nam ca sĩ kiêm sáng tác nhạc, rapper và diễn viên người Việt Nam.\n" +
                 "\n" +
                 "Sinh ra ở thành phố Thái Bình, thời thơ ấu, Sơn Tùng thường đi hát ở Cung văn hoá thiếu nhi tỉnh Thái Bình và học chơi đàn organ. Sau đó, Tùng cùng với các bạn trong lớp thành lập nên một nhóm nhạc, lấy tên là Over Band, bắt đầu sáng tác và đăng tải các bài hát của mình lên một trang web chuyên về lĩnh vực âm nhạc có tên là LadyKillah.");
@@ -70,7 +69,6 @@ public class FragmentKenh extends Fragment {
         jsonParser.execute("http://192.168.0.104:3000/kenhs");
     }
     public void getDataKenh(Kenh kenh){
-
         tvGioiThieu.setText(kenh.getThongtin_gioiThieu());
         Glide.with(getContext()).load(kenh.getImg_kenh()).placeholder(R.drawable.hiphop).into(view);
         Glide.with(getContext()).load(kenh.getImg_gioiThieu()).placeholder(R.drawable.hiphop).into(imgGthieu);

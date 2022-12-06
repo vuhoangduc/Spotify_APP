@@ -125,7 +125,6 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction,K
         fragBot.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container,fragBot).commit();
-
         setCurrentPage(5);
 
     }
