@@ -32,19 +32,23 @@ import com.example.duan1_spotify_clone.Fragment.FragmentPramium;
 import com.example.duan1_spotify_clone.Fragment.FragmentSearch;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
+import com.example.duan1_spotify_clone.intefaces.KenhSend;
+import com.example.duan1_spotify_clone.intefaces.SongItemAction;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;
 import java.util.Random;
 
-public class KenhAdapterHome extends RecyclerView.Adapter<KenhAdapterHome.KenhViewHolder>{
+public class KenhAdapterHome extends RecyclerView.Adapter<KenhAdapterHome.KenhViewHolder> {
     private Context context;
     private List<Kenh> list;
+    KenhSend kenhSend;
     public KenhAdapterHome(Context context, List<Kenh> list) {
         this.context = context;
         this.list = list;
         notifyDataSetChanged();
     }
+
 
     @NonNull
     @Override
@@ -61,10 +65,12 @@ public class KenhAdapterHome extends RecyclerView.Adapter<KenhAdapterHome.KenhVi
         }
         Glide.with(context).load(list.get(position).getImg_kenh()).placeholder(R.drawable.hiphop).into(holder.img);
         holder.textView.setText(kenh.getTen_kenh());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity2)context).setCurrentPage(5);
+                kenhSend = (KenhSend) context;
+                kenhSend.setOnItemClickListener(kenh);
+
             }
         });
     }

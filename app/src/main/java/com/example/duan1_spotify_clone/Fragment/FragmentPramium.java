@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.duan1_spotify_clone.ActivityLogin.Screen_Login_SignUp;
 import com.example.duan1_spotify_clone.ActivityLogin.Screen_input_Login;
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.PlayListAdapter2;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
@@ -52,7 +53,7 @@ public class FragmentPramium extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                startActivity(new Intent(getActivity(), Screen_input_Login.class));
+                startActivity(new Intent(getActivity(), Screen_Login_SignUp.class));
             }
         });
         img = v.findViewById(R.id.deleteName);

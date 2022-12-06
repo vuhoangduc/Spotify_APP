@@ -34,6 +34,7 @@ public class FragmentLibraryAll extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_library_all, container, false);
         listView = v.findViewById(R.id.ListViewList);
+
         db = new DBPlayList(getContext());
         capNhat();
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

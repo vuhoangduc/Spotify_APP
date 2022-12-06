@@ -3,30 +3,37 @@ package com.example.duan1_spotify_clone;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainer;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.app.FragmentTransaction;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
+import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
+import com.example.duan1_spotify_clone.Fragment.FragmentKenh;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music;
 import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
+import com.example.duan1_spotify_clone.intefaces.KenhSend;
 import com.example.duan1_spotify_clone.intefaces.SongItemAction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity implements SongItemAction {
+public class MainActivity2 extends AppCompatActivity implements SongItemAction,KenhSend {
     ViewPager2 viewPager2;
     ViewPagerAdapter adapter;
     FrameLayout frag_bottom_player;
@@ -106,5 +113,20 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction {
     public void setOnItemClickListener(int position,List<Music1> songs) {
         NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
         fragBot.showMoreAction_1(position,songs);
+    }
+
+    @Override
+    public void setOnItemClickListener(Kenh kenh) {
+        Log.d("hahaha",kenh.getTen_kenh());
+        Bundle bundle = new Bundle();
+        Fragment fragBot = new FragmentKenh();
+//        ((FragmentKenh) fragBot).getDataKenh(kenh);
+        bundle.putSerializable("kenh",kenh);
+        fragBot.setArguments(bundle);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container,fragBot).commit();
+
+        setCurrentPage(5);
+
     }
 }

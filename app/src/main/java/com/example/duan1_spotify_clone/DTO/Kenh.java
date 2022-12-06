@@ -1,6 +1,8 @@
 package com.example.duan1_spotify_clone.DTO;
 
-public class Kenh {
+import java.io.Serializable;
+
+public class Kenh implements Serializable {
     private String id_kenh;
     private String ten_kenh;
     private String img_kenh;
