@@ -62,6 +62,6 @@ public class FragmentDanhSachNhac extends Fragment {
         Dont_Open dont_open = new Dont_Open(getActivity());
         JsonParser_DanhMuc jsonParser = new JsonParser_DanhMuc(getActivity(),recyclerView,dont_open.getData());
 //        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+getMachineIP(), "init: ");
-        jsonParser.execute("http://10.24.15.50:3000/danhmucs");
+        jsonParser.execute("http://192.168.0.104:3000/danhmucs");
     }
 }
