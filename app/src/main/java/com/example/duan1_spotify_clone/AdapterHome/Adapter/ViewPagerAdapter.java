@@ -13,6 +13,7 @@ import com.example.duan1_spotify_clone.Fragment.FragmentList;
 import com.example.duan1_spotify_clone.Fragment.FragmentMusic;
 import com.example.duan1_spotify_clone.Fragment.FragmentPramium;
 import com.example.duan1_spotify_clone.Fragment.FragmentSearch;
+import com.example.duan1_spotify_clone.Fragment.FragmentSetting;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -40,12 +41,14 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new FragmentMusic();
             case 7:
                 return new FragmentList();
+            case 8:
+                return new FragmentSetting();
         }
         return null;
     }
 
     @Override
     public int getItemCount() {
-        return 8;
+        return 9;
     }
 }

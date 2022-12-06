@@ -34,7 +34,6 @@ public class FragmentPramium extends Fragment {
     PlayListAdapter2 adapter;
     ImageView img;
     TextView tv;
-    Button btn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,13 +46,6 @@ public class FragmentPramium extends Fragment {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 openDialog(Gravity.CENTER,position);
                 return true;
-            }
-        });
-        btn = v.findViewById(R.id.btnLogout);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(getActivity(), Screen_Login_SignUp.class));
             }
         });
         img = v.findViewById(R.id.deleteName);
