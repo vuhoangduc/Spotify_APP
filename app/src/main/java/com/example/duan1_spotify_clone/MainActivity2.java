@@ -22,6 +22,7 @@ import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
 import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
+import com.example.duan1_spotify_clone.Fragment.FragmentHome;
 import com.example.duan1_spotify_clone.Fragment.FragmentKenh;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music;
 import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
@@ -33,11 +34,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.io.Serializable;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity implements SongItemAction,KenhSend {
-    ViewPager2 viewPager2;
+public class MainActivity2 extends AppCompatActivity implements SongItemAction {
+    public ViewPager2 viewPager2;
     ViewPagerAdapter adapter;
     FrameLayout frag_bottom_player;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +50,10 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction,K
         viewPager2.setAdapter(adapter);
         viewPager2.setUserInputEnabled(false);
         frag_bottom_player = findViewById(R.id.frag_bottom_player);
-        showFragment(true);
+    frag_bottom_player.setVisibility(View.GONE);
+
         NowPlayingFragmentBottom nowPlayingFragmentBottom= NowPlayingFragmentBottom.getInstance();
         JsonParser_Music jsonParser_music = new JsonParser_Music(this);
-
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -75,7 +75,11 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction,K
             }
         });
 
+        FragmentKenh fragmentKenh = FragmentKenh.getInstance();
+        FragmentHome fragmentHome = FragmentHome.getInstance();
 
+
+        fragmentHome.setKenhSend(fragmentKenh.getKenhSend());
     }
     int[][] states = new int[][]{
             new int[]{-android.R.attr.state_checked},  // unchecked
@@ -91,6 +95,9 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction,K
     ColorStateList navigationViewColorStateList = new ColorStateList(states, colors);
 
     public void setCurrentPage(int position){
+        if (position != 4 && position != 1){
+            viewPager2.getAdapter().notifyItemChanged(position);
+        }
         viewPager2.setCurrentItem(position,false);
     }
 
@@ -115,18 +122,6 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction,K
         fragBot.showMoreAction_1(position,songs);
     }
 
-    @Override
-    public void setOnItemClickListener(Kenh kenh) {
-        Log.d("hahaha",kenh.getTen_kenh());
-        Bundle bundle = new Bundle();
-        Fragment fragBot = new FragmentKenh();
-//        ((FragmentKenh) fragBot).getDataKenh(kenh);
-        bundle.putSerializable("kenh",kenh);
-        fragBot.setArguments(bundle);
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container,fragBot).commit();
 
-        setCurrentPage(5);
 
-    }
 }

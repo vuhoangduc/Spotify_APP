@@ -24,6 +24,7 @@ import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Kenh_Hom
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_WordCup;
 import com.example.duan1_spotify_clone.R;
+import com.example.duan1_spotify_clone.intefaces.KenhSend;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -32,6 +33,12 @@ import java.util.List;
 public class FragmentHome extends Fragment {
     private RecyclerView recyclerViewDM,recyclerViewNS,recycleViewPL,recyclerViewKenh;
     private DanhMucAdapterHome DMAdapter;
+    KenhSend kenhSend;
+
+    public void setKenhSend(KenhSend kenhSend) {
+        this.kenhSend = kenhSend;
+    }
+
     TextView tv_setDate;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,6 +86,9 @@ public class FragmentHome extends Fragment {
         setDate();
         return v;
     }
+    public static FragmentHome getInstance(){
+        return new FragmentHome();
+    }
     private List<HomeItem> getListHome(){
         List<HomeItem> list1 = new ArrayList<>();
 
@@ -102,7 +112,7 @@ public class FragmentHome extends Fragment {
         }
     }
     public void init() throws UnknownHostException {
-        JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh);
+        JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh,kenhSend);
         jsonParser.execute("http://192.168.0.104:3000/kenhs");
     }
     public void init2() throws UnknownHostException {

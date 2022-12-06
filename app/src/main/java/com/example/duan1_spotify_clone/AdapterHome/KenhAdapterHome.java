@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
+import com.example.duan1_spotify_clone.DBHelper.Save_kenh;
 import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.TheLoai;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
@@ -42,13 +43,13 @@ import java.util.Random;
 public class KenhAdapterHome extends RecyclerView.Adapter<KenhAdapterHome.KenhViewHolder> {
     private Context context;
     private List<Kenh> list;
-    KenhSend kenhSend;
-    public KenhAdapterHome(Context context, List<Kenh> list) {
+    KenhSend kenhSend1;
+    public KenhAdapterHome(Context context, List<Kenh> list, KenhSend kenhSend) {
         this.context = context;
         this.list = list;
+        this.kenhSend1 = kenhSend;
         notifyDataSetChanged();
     }
-
 
     @NonNull
     @Override
@@ -68,10 +69,19 @@ public class KenhAdapterHome extends RecyclerView.Adapter<KenhAdapterHome.KenhVi
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kenhSend = (KenhSend) context;
-                kenhSend.setOnItemClickListener(kenh);
+//                kenhSend1.setOnItemClickListener(kenh);
 
+                Save_kenh save_kenh = new Save_kenh(context);
+                if (save_kenh.getData()!=null){
+                    save_kenh.DELETE_ALL();
+                    save_kenh.ADD_NEW(kenh);
+                }else {
+                    save_kenh.ADD_NEW(kenh);
+                }
+
+                ((MainActivity2) context).setCurrentPage(5);
             }
+
         });
     }
     @Override

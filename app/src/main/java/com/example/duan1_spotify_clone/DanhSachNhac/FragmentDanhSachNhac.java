@@ -3,6 +3,7 @@ package com.example.duan1_spotify_clone.DanhSachNhac;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,7 +47,7 @@ public class FragmentDanhSachNhac extends Fragment {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity2)getContext()).setCurrentPage(1);
+                ((MainActivity2) getContext()).setCurrentPage(1);
             }
         });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);

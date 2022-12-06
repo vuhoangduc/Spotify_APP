@@ -73,6 +73,7 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucV
                 }else {
                     dont_open.ADD_NEW(theLoai.getId());
                 }
+                ((MainActivity2) context).viewPager2.getAdapter().notifyItemChanged(4);
                 ((MainActivity2) context).setCurrentPage(4);
             }
         });

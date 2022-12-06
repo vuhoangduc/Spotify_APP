@@ -72,6 +72,7 @@ public class FragmentList extends Fragment {
             public void onClick(View v) {
                 ((MainActivity2)getContext()).setCurrentPage(4);
                 getData = new GetData();
+
             }
         });
         db = new DBPlayList(getContext());
