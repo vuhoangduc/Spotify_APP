@@ -34,7 +34,6 @@ import java.util.List;
 
 
 public class NowPlayingFragmentBottom extends Fragment {
-
     ImageView control_btn,img_music_tabar;
     TextView tenBaiHat;
     public SeekBar thoiGianChay;
@@ -109,8 +108,6 @@ public class NowPlayingFragmentBottom extends Fragment {
     public void onStart() {
         super.onStart();
     }
-
-
     public static NowPlayingFragmentBottom getInstance(){
         return new NowPlayingFragmentBottom();
     }

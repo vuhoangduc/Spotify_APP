@@ -53,7 +53,6 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
             }
         });
         tvNS.setText(music1.getTen_music());
-        tvMS.setText("hello");
         Glide.with(context).load(list.get(position).getImg_music()).placeholder(R.drawable.hiphop).into(img);
         return v;
         }

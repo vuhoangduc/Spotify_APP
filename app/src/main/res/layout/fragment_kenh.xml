@@ -87,12 +87,12 @@
                     android:layout_marginRight="20dp"
                     android:textColor="#ccc"/>
                 <FrameLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="370dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:background="#ccc"
-                    android:layout_height="wrap_content">
+                    android:background="@drawable/sontungmtp"
+                    android:layout_height="370dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -112,7 +112,7 @@
                                 android:layout_marginTop="12dp"
                                 android:textSize="15dp"
                                 android:text="NGHỆ SĨ ĐÃ ĐƯỢC XÁC MINH"
-                                android:textColor="#212121"/>
+                                android:textColor="#fff"/>
                         </LinearLayout>
                         <TextView
                             android:layout_width="match_parent"

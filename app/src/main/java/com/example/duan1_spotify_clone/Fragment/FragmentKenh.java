@@ -16,8 +16,10 @@ import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Chanel_Home;
 import com.example.duan1_spotify_clone.R;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,10 +34,14 @@ public class FragmentKenh extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_kenh, container, false);
         recyclerViewNS = v.findViewById(R.id.recycleNS);
-        NSAdapter = new NgheSiAdapterHome(getListHome(),getContext());
+        recyclerViewNS = v.findViewById(R.id.recycleMainNS);
         LinearLayoutManager managerNS = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerViewNS.setLayoutManager(managerNS);
-        recyclerViewNS.setAdapter(NSAdapter);
+        try {
+            init3();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         tvGioiThieu = v.findViewById(R.id.tv_gioiThieu);
         tvGioiThieu.setText("Nguyễn Thanh Tùng (sinh ngày 5 tháng 7 năm 1994), thường được biết đến với nghệ danh Sơn Tùng M-TP, là một nam ca sĩ kiêm sáng tác nhạc, rapper và diễn viên người Việt Nam.\n" +
                 "\n" +
@@ -56,5 +62,9 @@ public class FragmentKenh extends Fragment {
         List<Kenh> list1 = new ArrayList<>();
         return list1;
 
+    }
+    public void init3() throws UnknownHostException {
+        JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
+        jsonParser.execute("http://192.168.0.104:3000/kenhs");
     }
 }

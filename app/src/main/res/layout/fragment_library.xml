@@ -16,7 +16,7 @@
             android:layout_width="38dp"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/hiphop"
+            android:src="@drawable/img111"
             app:riv_corner_radius="30dp" />
         <TextView
             android:layout_width="wrap_content"

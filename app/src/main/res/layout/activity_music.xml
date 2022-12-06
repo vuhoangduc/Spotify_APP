@@ -16,6 +16,7 @@
             android:id="@+id/back"
             android:layout_width="35dp"
             android:layout_height="11dp"
+
             android:layout_margin="20dp"
             android:src="@drawable/down" />
         <LinearLayout
@@ -31,24 +32,15 @@
                 android:textSize="16dp"
                 android:layout_marginTop="5dp"
                 android:text="ĐANG PHÁT TỪ NGHỆ SĨ "/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="#fff"
-                android:textSize="16dp"
-
-                android:layout_marginRight="70dp"
-                android:textStyle="bold"
-                android:text="Bad Bunny"/>
         </LinearLayout>
 </LinearLayout>
 
     <ImageView
         android:id="@+id/img_music"
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="30dp"
         android:src="@drawable/sontung" />
 
@@ -58,6 +50,7 @@
         android:layout_height="wrap_content"
         android:text="Chúng ta của hiện tại"
         android:textSize="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:textColor="#fff"
         android:textStyle="bold"/>
@@ -65,6 +58,7 @@
         android:id="@+id/ten_ngheSi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Sơn Tùng M-TP"
         android:textSize="16dp"
         android:layout_marginLeft="30dp"
@@ -97,7 +91,7 @@
             android:text="0:00"
             android:textSize="12dp"
             android:textColor="#ccc"
-            android:layout_marginLeft="290dp"/>
+            android:layout_marginLeft="270dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -105,29 +99,29 @@
         android:orientation="horizontal"
         android:layout_marginLeft="30dp">
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/favorite"/>
         <ImageView
             android:id="@+id/prev"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="40dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/back_button"/>
         <ImageView
             android:id="@+id/control_musicplayer"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/play"/>
         <ImageView
             android:id="@+id/next_f"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_margin="20dp"
             android:src="@drawable/next_button"/>
 
