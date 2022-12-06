@@ -34,7 +34,6 @@ public class FragmentKenh extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_kenh, container, false);
         recyclerViewNS = v.findViewById(R.id.recycleNS);
-        recyclerViewNS = v.findViewById(R.id.recycleMainNS);
         LinearLayoutManager managerNS = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerViewNS.setLayoutManager(managerNS);
         try {

@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Kenh;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -52,6 +53,12 @@ public class NgheSiAdapterHome  extends RecyclerView.Adapter<NgheSiAdapterHome.N
         Glide.with(context).load(list.get(position).getImg_kenh()).placeholder(R.drawable.hiphop).into(holder.imgDM);
         holder.textView.setText(kenh.getTen_kenh());
         holder.cardView.setBackgroundResource(0);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)context).setCurrentPage(5);
+            }
+        });
     }
 
     @Override

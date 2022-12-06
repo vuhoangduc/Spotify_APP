@@ -147,6 +147,7 @@ public class ActivityMusic extends AppCompatActivity {
                 capNhapthoigian();
             }
         });
+        
     }
 
     public void khoitao() throws IOException {

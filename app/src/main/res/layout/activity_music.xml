@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#212121"
+    android:background="@color/black"
     tools:context=".ActivityMusic">
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,14 +30,14 @@
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="16dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:text="ĐANG PHÁT TỪ NGHỆ SĨ "/>
         </LinearLayout>
 </LinearLayout>
 
     <ImageView
         android:id="@+id/img_music"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="300dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Chúng ta của hiện tại"
-        android:textSize="20dp"
+        android:textSize="21dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:textColor="#fff"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:thumbTint="#212121"
         android:progressTint="#fff"
         android:outlineSpotShadowColor="#fff" />

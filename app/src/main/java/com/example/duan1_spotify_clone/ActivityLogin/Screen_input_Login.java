@@ -21,7 +21,6 @@ public class Screen_input_Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        go();
         setContentView(R.layout.activity_screen_input_login);
         button = findViewById(R.id.btnLogin);
         edtEmail = findViewById(R.id.edtLoginEmail);
