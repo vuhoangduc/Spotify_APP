@@ -49,8 +49,8 @@ public class FragmentKenh extends Fragment {
         nameKenh =v.findViewById(R.id.nameKenh);
         kenh = new Kenh();
 //        assert getArguments() != null;
-//        kenh = (Kenh) getArguments().getSerializable("Kenh");
-//        getDataKenh(kenh);
+        kenh = (Kenh) getArguments().getSerializable("Kenh");
+        getDataKenh(kenh);
 //        Log.d("hihihi",getArguments().getString("data"));
         try {
             init3();
@@ -70,6 +70,7 @@ public class FragmentKenh extends Fragment {
         jsonParser.execute("http://192.168.0.104:3000/kenhs");
     }
     public void getDataKenh(Kenh kenh){
+
         tvGioiThieu.setText(kenh.getThongtin_gioiThieu());
         Glide.with(getContext()).load(kenh.getImg_kenh()).placeholder(R.drawable.hiphop).into(view);
         Glide.with(getContext()).load(kenh.getImg_gioiThieu()).placeholder(R.drawable.hiphop).into(imgGthieu);

@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.example.duan1_spotify_clone.intefaces.SongItemAction;
 
@@ -50,6 +51,7 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
             public void onClick(View view) {
                 songItemAction = (SongItemAction) context;
                 songItemAction.setOnItemClickListener(position,list);
+                ((MainActivity2)context).showFragment(false);
             }
         });
         tvNS.setText(music1.getTen_music());

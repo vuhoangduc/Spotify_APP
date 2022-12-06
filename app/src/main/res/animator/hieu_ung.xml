@@ -3,7 +3,7 @@
     android:ordering="sequentially">
 
     <objectAnimator android:propertyName="y"
-        android:valueTo="600"
+        android:valueTo="800"
         android:duration="500"/>
     <set android:ordering="together">
         <objectAnimator android:propertyName="scaleX"
