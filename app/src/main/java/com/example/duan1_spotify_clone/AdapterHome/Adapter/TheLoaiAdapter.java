@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
+import com.example.duan1_spotify_clone.DBHelper.Dont_Open_V1;
 import com.example.duan1_spotify_clone.DTO.TheLoai;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.example.duan1_spotify_clone.Fragment.FragmentHome;
@@ -67,11 +68,20 @@ public class TheLoaiAdapter extends RecyclerView.Adapter<TheLoaiAdapter.DanhMucV
             public void onClick(View view) {
                 Dont_Open dont_open = new Dont_Open(context);
                 dont_open.open();
+
+                Dont_Open_V1 dont_open_v1 = new Dont_Open_V1(context);
+
                 if (!dont_open.getData().equals("")){
                     dont_open.DELETE_ALL();
                     dont_open.ADD_NEW(theLoai.getId());
                 }else {
                     dont_open.ADD_NEW(theLoai.getId());
+                }
+                if (!dont_open_v1.getData().equals("")){
+                    dont_open_v1.DELETE_ALL();
+                    dont_open_v1.ADD_NEW(theLoai.getTitle());
+                }else {
+                    dont_open_v1.ADD_NEW(theLoai.getTitle());
                 }
                 ((MainActivity2) context).viewPager2.getAdapter().notifyItemChanged(4);
                 ((MainActivity2) context).setCurrentPage(4);

@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
+import com.example.duan1_spotify_clone.DBHelper.Dont_Open_V1;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_DanhMuc;
 import com.example.duan1_spotify_clone.MainActivity2;
@@ -22,6 +24,7 @@ import com.example.duan1_spotify_clone.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,6 +39,7 @@ import java.util.List;
 public class FragmentDanhSachNhac extends Fragment {
     RecyclerView recyclerView;
     TongAdapter tongAdapter;
+    TextView tenDanhMuc;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,6 +47,12 @@ public class FragmentDanhSachNhac extends Fragment {
         View view=inflater.inflate(R.layout.fragment_danh_sach_nhac, container, false);;
         recyclerView = view.findViewById(R.id.recycleMain);
         tongAdapter = new TongAdapter(getContext());
+        tenDanhMuc =view.findViewById(R.id.tv_tenDanhMuc1);
+
+        Dont_Open_V1 dont_open_v1 = new Dont_Open_V1(getActivity());
+        if (!dont_open_v1.getData().equals("")){
+            tenDanhMuc.setText(dont_open_v1.getData());
+        }
         ImageView img = view.findViewById(R.id.back_button);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
