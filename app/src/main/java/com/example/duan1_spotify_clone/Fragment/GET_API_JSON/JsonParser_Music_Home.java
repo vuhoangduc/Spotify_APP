@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonParser_Music_Home extends AsyncTask<String,Integer, List<GoiY>> {
+public class JsonParser_Music_Home extends AsyncTask<String,Integer, List<Music1>> {
     Context context;
     RecyclerView ds_kenh;
 
@@ -37,10 +37,10 @@ public class JsonParser_Music_Home extends AsyncTask<String,Integer, List<GoiY>>
 
     }
     @Override
-    protected List<GoiY> doInBackground(String... strings) {
+    protected List<Music1> doInBackground(String... strings) {
         String line = "";
         String datav1 = "";
-        List<GoiY> data = new ArrayList<>();
+        List<Music1> data = new ArrayList<>();
         try {
             URL url = new URL(strings[0]);
             InputStream inputStream = url.openStream();
@@ -54,7 +54,7 @@ public class JsonParser_Music_Home extends AsyncTask<String,Integer, List<GoiY>>
                 JSONArray jsonarray = new JSONArray(datav1);
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject value = jsonarray.getJSONObject(i);
-                    GoiY goiY = new GoiY(value.getString("id_music"), value.getString("ten_music"), value.getString("img_music"), value.getString("file_music"), value.getString("id_kenh"));
+                    Music1 goiY = new Music1(value.getString("id_music"), value.getString("ten_music"), value.getString("img_music"), value.getString("file_music"), value.getString("id_kenh"),value.getString("id_DanhSach"));
                         data.add(goiY);
                 }
             }
@@ -67,7 +67,7 @@ public class JsonParser_Music_Home extends AsyncTask<String,Integer, List<GoiY>>
     }
 
     @Override
-    protected void onPostExecute(List<GoiY> goiYS) {
+    protected void onPostExecute(List<Music1> goiYS) {
         super.onPostExecute(goiYS);
         MusicAdapterHome adapter = new MusicAdapterHome(context,goiYS);
         ds_kenh.setAdapter(adapter);

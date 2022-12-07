@@ -134,4 +134,6 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction {
         NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
         fragBot.showMoreAction_1(position,songs);
     }
+
+
 }

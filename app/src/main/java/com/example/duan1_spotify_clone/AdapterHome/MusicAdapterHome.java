@@ -23,9 +23,10 @@ import com.example.duan1_spotify_clone.intefaces.SongItemActionHome;
 import java.util.List;
     public class MusicAdapterHome extends RecyclerView.Adapter<MusicAdapterHome.MusicViewHolder>{
         private Context context;
-        private List<GoiY> list;
-        private SongItemActionHome songItemAction;
-        public MusicAdapterHome(Context context, List<GoiY> list) {
+        private List<Music1> list;
+//        private SongItemActionHome songItemAction;
+        private SongItemAction songItemAction;
+        public MusicAdapterHome(Context context, List<Music1> list) {
             this.context = context;
             this.list = list;
             notifyDataSetChanged();
@@ -40,7 +41,7 @@ import java.util.List;
 
         @Override
         public void onBindViewHolder(@NonNull MusicAdapterHome.MusicViewHolder holder, int position) {
-            GoiY goiY = list.get(position);
+            Music1 goiY = list.get(position);
             if(goiY==null){
                 return;
             }
@@ -51,6 +52,9 @@ import java.util.List;
             holder.img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    songItemAction = (SongItemAction) context;
+                    songItemAction.setOnItemClickListener(position,list);
+                    ((MainActivity2)context).showFragment(false);
                 }
             });
 
@@ -68,12 +72,10 @@ import java.util.List;
             CardView cardView;
             public MusicViewHolder(@NonNull View itemView) {
                 super(itemView);
-
                 img = itemView.findViewById(R.id.imgMSHome);
                 textView = itemView.findViewById(R.id.tenMSHome);
                 textView2 = itemView.findViewById(R.id.tenKMSHome);
                 cardView = itemView.findViewById(R.id.background3);
-
             }
         }
 

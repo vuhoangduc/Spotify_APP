@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.ActivityMusic;
+import com.example.duan1_spotify_clone.DTO.GoiY;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.R;
 import com.example.duan1_spotify_clone.intefaces.SongItemAction;
@@ -48,7 +49,51 @@ public int countP,countS;
     }
 
     List<Music1> music1s= new ArrayList<>();
+    List<GoiY> music2s= new ArrayList<>();
     boolean check = false;
+    public void showMoreActionv1( int index,List<GoiY> songs) {
+        music2s.addAll(songs);
+        position1 = index;
+        if (music2s.size()!=0){
+            try {
+                khoitao();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            mediaPlayer.start();
+            SetTimeToal();
+            capNhapthoigian();
+        }
+
+
+        thoiGianChay.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                bundle.putInt("timeline", mediaPlayer.getDuration());
+                countS=progress/1000;
+                if(countS==60){
+                    countS=0;
+                }
+                countP=progress;
+                Log.d("Timea",countP+":"+countS);
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                mediaPlayer.seekTo(thoiGianChay.getProgress());
+            }
+        });
+
+
+
+    }
+
 
     public void showMoreAction( int index,List<Music1> songs) {
         music1s.addAll(songs);
@@ -163,8 +208,6 @@ public int countP,countS;
                     imgImageView.setImageResource(R.drawable.play1);
                     control_btn.setImageResource(R.drawable.play_button_arrowhead);
 //                    cd.clearAnimation();
-
-
                 }else {
                     mediaPlayer.start();
                     imgImageView.setImageResource(R.drawable.pause);

@@ -122,7 +122,7 @@ public class FragmentHome extends Fragment {
     }
     public void init2() throws UnknownHostException {
         JsonParser_Music_Home jsonParser = new JsonParser_Music_Home(getActivity(),recyclerViewDM);
-        jsonParser.execute("http://192.168.0.103:3000/goiY");
+        jsonParser.execute("http://192.168.0.103:3000/musics");
     }
     public void init3() throws UnknownHostException {
         JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
