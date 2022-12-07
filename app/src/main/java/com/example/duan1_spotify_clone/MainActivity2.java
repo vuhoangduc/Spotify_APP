@@ -35,12 +35,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.io.Serializable;
+import java.net.URISyntaxException;
 import java.util.List;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
 
 public class MainActivity2 extends AppCompatActivity implements SongItemAction {
     public ViewPager2 viewPager2;
     ViewPagerAdapter adapter;
     FrameLayout frag_bottom_player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +82,6 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction {
                 return true;
             }
         });
-
         FragmentKenh fragmentKenh = FragmentKenh.getInstance();
         FragmentHome fragmentHome = FragmentHome.getInstance();
 

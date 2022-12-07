@@ -8,8 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 
 import com.example.duan1_spotify_clone.DTO.User;
@@ -19,12 +17,11 @@ import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.net.URISyntaxException;
 import java.util.HashMap;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
+import io.socket.client.IO;
+import io.socket.client.Socket;
 
 public class Screen_input_name extends AppCompatActivity {
     String email,gender,pass,name;
@@ -34,6 +31,7 @@ public class Screen_input_name extends AppCompatActivity {
     RetrofitInterFace retrofitInterFace;
     String BASE_URL = "";
 
+    private Socket mSocket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +41,13 @@ public class Screen_input_name extends AppCompatActivity {
         gender = intent.getStringExtra("Gender");
         pass = intent.getStringExtra("Pass");
         date = intent.getIntExtra("Age",0);
+        try {
+            mSocket = IO.socket("http://192.168.0.104:3000");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
 
+        mSocket.connect();
 
         final TextInputEditText editText = findViewById(R.id.edtInputName);
         AppCompatButton btn = findViewById(R.id.btnNextHome);
@@ -76,26 +80,6 @@ public class Screen_input_name extends AppCompatActivity {
                             map.put("date",""+date);
                             map.put("name",name);
                             map.put("gender",gender);
-
-
-                            Call<LoginResult> loginResultCall = retrofitInterFace.executeLogin(map);
-                            loginResultCall.enqueue(new Callback<LoginResult>() {
-                                @Override
-                                public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
-
-                                    if (response.code() == 200){
-                                            LoginResult loginResult = response.body();
-
-                                    }else if (response.code() == 400){
-
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<LoginResult> call, Throwable t) {
-
-                                }
-                            });
 
                             go();
                         }

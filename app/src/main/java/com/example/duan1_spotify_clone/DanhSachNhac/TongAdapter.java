@@ -43,13 +43,13 @@ public class TongAdapter extends RecyclerView.Adapter<TongAdapter.TongViewHolder
         holder.tvTong.setText(tong.getNameTong().get(position));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false);
         holder.recyclerView.setLayoutManager(linearLayoutManager);
-         y += tong.getCount_img();
+         y +=5;
+        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz "+y, "onBindViewHolder: ");
         if (position > 0){
             count_old  += tong.getCount_img();
         }
         ItemAdapter adapter = new ItemAdapter(context,y,count_old);
         adapter.setData(tong.getListTong());
-        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", "onBindViewHolder: "+tong.getCount_img());
         holder.recyclerView.setAdapter(adapter);
 
     }

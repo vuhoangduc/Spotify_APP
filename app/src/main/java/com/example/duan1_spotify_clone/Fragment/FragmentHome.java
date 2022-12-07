@@ -104,6 +104,16 @@ public class FragmentHome extends Fragment {
     public static FragmentHome getInstance(){
         return new FragmentHome();
     }
+    private List<HomeItem> getListHome(){
+        List<HomeItem> list1 = new ArrayList<>();
+
+        list1.add(new HomeItem("Bad Bunny",R.drawable.v_pop));
+        list1.add(new HomeItem("Sơn Tùng M-TP",R.drawable.hiphop));
+        list1.add(new HomeItem("J97",R.drawable.k_pop));
+        list1.add(new HomeItem("Amee",R.drawable.pop));
+        return list1;
+
+    }
     public void setDate(){
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();

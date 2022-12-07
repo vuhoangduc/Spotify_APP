@@ -2,6 +2,7 @@ package com.example.duan1_spotify_clone.Fragment.GET_API_JSON;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,7 +41,7 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
         this.context = context;
 
     }
-
+    String id_dm ="";
     @Override
     protected List<Tong> doInBackground(String... strings) {
         String line = "";
@@ -64,6 +65,8 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
                     JSONObject value = jsonarray.getJSONObject(i);
                     if (value.getString("id_TL").equals(data_value)) {
                         tenDanhMuclist.add(value.getString("ten_DM"));
+                        id_dm = value.getString("id_DM");
+                        Log.d("zzzzzzzzzzzzzzz id_DM:"+id_dm, "doInBackground: ");
                         GetData getData = new GetData();
                         tong = new Tong(tenDanhMuclist, getData.doInBackground("http://192.168.0.103:3000/danhsachnhacs"));
                         data.add(tong);
@@ -109,8 +112,12 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
                 JSONArray jsonarray = new JSONArray(datav1);
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject value = jsonarray.getJSONObject(i);
-                    ItemNhac itemNhac = new ItemNhac(value.getString("id_DanhSach"),value.getString("img_DanhSach"),value.getString("ten_DanhSach"),value.getString("gioi_thieu_DanhSach"));
-                    list.add(itemNhac);
+                    if (value.getString("id_DM").equals(id_dm)) {
+                        ItemNhac itemNhac = new ItemNhac(value.getString("id_DanhSach"), value.getString("img_DanhSach"), value.getString("ten_DanhSach"), value.getString("gioi_thieu_DanhSach"));
+                        list.add(itemNhac);
+                    }else{
+                        continue;
+                    }
                 }
             } catch (JSONException | IOException e) {
                 e.printStackTrace();

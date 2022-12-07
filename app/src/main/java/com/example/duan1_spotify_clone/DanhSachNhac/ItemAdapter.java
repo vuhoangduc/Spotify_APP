@@ -50,19 +50,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
 
-                if (y == 10 ){
-                    x = 5;
-                }else if (y == 15){
-                    x = 10;
-                }else if (y == 20){
-                    x = 15;
-                }else if (y == 25){
-                    x = 20;
-                }
-                else{
-                    x++;
-                }
-                ItemNhac itemNhac = list.get(x);
+//                if (y == 10 ){
+//                    x = 5;
+//                }else if (y == 15){
+//                    x = 10;
+//                }else if (y == 20){
+//                    x = 15;
+//                }else if (y == 25){
+//                    x = 20;
+//                }
+//                else{
+//                    x++;
+//                }
+        Log.d("zzzzzzzzzzzzzzzzzzzzs "+x, "onBindViewHolder: ");
+                ItemNhac itemNhac = list.get(position);
                 Glide.with(context)
                         .load(itemNhac.getImg())
                         .placeholder(R.drawable.hiphop) /// add this
@@ -90,7 +91,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
     public class ItemViewHolder extends RecyclerView.ViewHolder{
         ImageView img;
