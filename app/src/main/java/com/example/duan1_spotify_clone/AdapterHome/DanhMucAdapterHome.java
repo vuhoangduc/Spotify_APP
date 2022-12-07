@@ -16,14 +16,17 @@ import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.WordCup;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
+import com.example.duan1_spotify_clone.intefaces.SongItemAction;
+import com.example.duan1_spotify_clone.intefaces.SongItemActionHome;
 
 import java.util.List;
 
 public class DanhMucAdapterHome extends RecyclerView.Adapter<DanhMucAdapterHome.DanhMucViewHolder> {
     private List<WordCup> list;
     Context context;
-
+    SongItemActionHome songItemAction;
     public DanhMucAdapterHome(Context context,List<WordCup> list) {
         this.list = list;
         this.context= context;
@@ -47,6 +50,15 @@ public class DanhMucAdapterHome extends RecyclerView.Adapter<DanhMucAdapterHome.
         holder.textView.setText(wordCup.getTen_wc());
         holder.textView2.setText(wordCup.getNam_wc());
         holder.layout.setBackgroundResource(0);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                songItemAction = (SongItemActionHome) context;
+                songItemAction.setOnItemClickListenerv1(list);
+                ((MainActivity2)context).showFragment(false);
+            }
+        });
     }
 
     @Override

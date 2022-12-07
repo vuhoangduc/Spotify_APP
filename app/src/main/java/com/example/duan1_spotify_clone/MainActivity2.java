@@ -23,6 +23,7 @@ import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
 import com.example.duan1_spotify_clone.DTO.GoiY;
 import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Music1;
+import com.example.duan1_spotify_clone.DTO.WordCup;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.example.duan1_spotify_clone.Fragment.FragmentHome;
 import com.example.duan1_spotify_clone.Fragment.FragmentKenh;
@@ -41,7 +42,7 @@ import java.util.List;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 
-public class MainActivity2 extends AppCompatActivity implements SongItemAction {
+public class MainActivity2 extends AppCompatActivity implements SongItemAction,SongItemActionHome {
     public ViewPager2 viewPager2;
     ViewPagerAdapter adapter;
     FrameLayout frag_bottom_player;
@@ -140,4 +141,14 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction {
     }
 
 
+    @Override
+    public void showMoreActionv1(int position, List<WordCup> songs) {
+
+    }
+
+    @Override
+    public void setOnItemClickListenerv1(List<WordCup> songs) {
+        NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
+        fragBot.showMoreAction_2(songs);
+    }
 }

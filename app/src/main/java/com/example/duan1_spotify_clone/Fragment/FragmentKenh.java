@@ -84,11 +84,11 @@ public class FragmentKenh extends Fragment implements KenhSend {
     }
     public void init3() throws UnknownHostException {
         JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
-        jsonParser.execute("http://192.168.0.103:3000/kenhs");
+        jsonParser.execute("http://10.24.21.203:3000/kenhs");
     }
     public void init() throws UnknownHostException {
         JsonParser_Music_Kenh jsonParser = new JsonParser_Music_Kenh(getActivity(),lv,id_kenh,ten_kenh);
-        jsonParser.execute("http://192.168.0.103:3000/musics");
+        jsonParser.execute("http://10.24.21.203:3000/musics");
     }
 
     public static FragmentKenh getInstance(){

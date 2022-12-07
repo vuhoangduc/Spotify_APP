@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.duan1_spotify_clone.ActivityMusic;
 import com.example.duan1_spotify_clone.DTO.GoiY;
 import com.example.duan1_spotify_clone.DTO.Music1;
+import com.example.duan1_spotify_clone.DTO.WordCup;
 import com.example.duan1_spotify_clone.R;
 import com.example.duan1_spotify_clone.intefaces.SongItemAction;
 
@@ -158,7 +159,29 @@ public int countP,countS;
             capNhapthoigian();
         }
     }
-
+    public void showMoreAction_2( List<WordCup> songs) {
+        music1s.clear();
+        Music1 music1_wc = new Music1();
+        for (int i = 0; i < songs.size(); i++) {
+            music1_wc=new Music1(songs.get(i).getId_wc(),songs.get(i).getTen_wc(),songs.get(i).getImg_wc(),songs.get(i).getFile_wc(),songs.get(i).getNam_wc(),null);
+            music1s.add(music1_wc);
+        }
+        if (mediaPlayer!= null){
+            if (mediaPlayer.isPlaying()){
+                mediaPlayer.stop();
+            }
+        }
+        if (music1s.size()!=0){
+            try {
+                khoitao();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            mediaPlayer.start();
+            SetTimeToal();
+            capNhapthoigian();
+        }
+    }
     @Override
     public void onResume() {
         super.onResume();
