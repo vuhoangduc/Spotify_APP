@@ -17,8 +17,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.ViewPagerAdapter;
+import com.example.duan1_spotify_clone.DTO.GoiY;
 import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
@@ -28,6 +30,7 @@ import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music;
 import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
 import com.example.duan1_spotify_clone.intefaces.KenhSend;
 import com.example.duan1_spotify_clone.intefaces.SongItemAction;
+import com.example.duan1_spotify_clone.intefaces.SongItemActionHome;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -105,15 +108,25 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction {
     public void showFragment(boolean check){
         if (check){
             frag_bottom_player.setVisibility(View.GONE);
+
         }else{
             frag_bottom_player.setVisibility(View.VISIBLE);
         }
     }
+    public void controller(Boolean check){
+        NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
+        if(check==false){
+            fragBot.pauseMusic();
+        }else{
+           fragBot.playMusic();
+        }
+    }
 
     @Override
-    public void showMoreAction(int position,List<Music1> songs) {
+    public void showMoreAction(int position, List<Music1> songs, ImageView imageView) {
         NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
         fragBot.showMoreAction(0,songs);
+        fragBot.setImgImageView(imageView);
     }
 
     @Override
@@ -121,7 +134,4 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction {
         NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
         fragBot.showMoreAction_1(position,songs);
     }
-
-
-
 }

@@ -104,16 +104,6 @@ public class FragmentHome extends Fragment {
     public static FragmentHome getInstance(){
         return new FragmentHome();
     }
-    private List<HomeItem> getListHome(){
-        List<HomeItem> list1 = new ArrayList<>();
-
-        list1.add(new HomeItem("Bad Bunny",R.drawable.v_pop));
-        list1.add(new HomeItem("Sơn Tùng M-TP",R.drawable.hiphop));
-        list1.add(new HomeItem("J97",R.drawable.k_pop));
-        list1.add(new HomeItem("Amee",R.drawable.pop));
-        return list1;
-
-    }
     public void setDate(){
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
@@ -128,19 +118,19 @@ public class FragmentHome extends Fragment {
     }
     public void init() throws UnknownHostException {
         JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh,kenhSend);
-        jsonParser.execute("http://192.168.0.104:3000/kenhs");
+        jsonParser.execute("http://192.168.0.103:3000/kenhs");
     }
     public void init2() throws UnknownHostException {
         JsonParser_Music_Home jsonParser = new JsonParser_Music_Home(getActivity(),recyclerViewDM);
-        jsonParser.execute("http://192.168.0.104:3000/goiY");
+        jsonParser.execute("http://192.168.0.103:3000/goiY");
     }
     public void init3() throws UnknownHostException {
         JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
-        jsonParser.execute("http://192.168.0.104:3000/kenhs");
+        jsonParser.execute("http://192.168.0.103:3000/kenhs");
     }
     public void init4() throws UnknownHostException {
         JsonParser_WordCup jsonParser = new JsonParser_WordCup(getActivity(),recycleViewPL);
-        jsonParser.execute("http://192.168.0.104:3000/wordcups");
+        jsonParser.execute("http://192.168.0.103:3000/wordcups");
     }
     private void openDialog(int gravity){
         Dialog dialog = new Dialog(getContext());

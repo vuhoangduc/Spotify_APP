@@ -29,7 +29,7 @@
                 android:layout_marginRight="70dp"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:layout_marginTop="15dp"
                 android:text="ĐANG PHÁT TỪ NGHỆ SĨ "/>
         </LinearLayout>
@@ -40,8 +40,9 @@
         android:layout_width="350dp"
         android:layout_height="300dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:layout_marginRight="30dp"
+        android:layout_gravity="center"
         android:src="@drawable/sontung" />
 
     <TextView
@@ -49,8 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Chúng ta của hiện tại"
-        android:textSize="21dp"
-        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_marginTop="90dp"
         android:layout_marginLeft="30dp"
         android:textColor="#fff"
         android:textStyle="bold"/>
@@ -60,30 +61,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Sơn Tùng M-TP"
-        android:textSize="16dp"
+        android:textSize="14dp"
         android:layout_marginLeft="30dp"
         android:textColor="#fff" />
     <SeekBar
         android:id="@+id/thoi_gian_chay_v1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="33dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
-        android:thumbTint="#212121"
+        android:thumbTint="@color/black"
         android:progressTint="#fff"
         android:outlineSpotShadowColor="#fff" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-         <TextView
-             android:id="@+id/tg_batdau"
-             android:layout_width="wrap_content"
-             android:layout_height="match_parent"
-             android:textColor="#ccc"
-             android:layout_marginLeft="33dp"
-             android:textSize="12dp"
-             android:text="0:00"/>
+
+        <TextView
+            android:id="@+id/tg_batdau"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="33dp"
+            android:text="0:00"
+            android:textColor="#ccc"
+            android:textSize="12dp" />
         <TextView
             android:id="@+id/tg_ketthuc"
             android:layout_width="wrap_content"
@@ -93,39 +95,46 @@
             android:textColor="#ccc"
             android:layout_marginLeft="270dp"/>
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="30dp">
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/favorite"/>
+            android:src="@drawable/favorite" />
+
         <ImageView
             android:id="@+id/prev"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="55dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/back_button"/>
+            android:src="@drawable/back_button" />
+
         <ImageView
             android:id="@+id/control_musicplayer"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/play"/>
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/play1" />
+
         <ImageView
             android:id="@+id/next_f"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/next_button"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/next_button" />
 
     </LinearLayout>
-        
+
 
 </LinearLayout>

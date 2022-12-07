@@ -55,9 +55,7 @@
         <activity
             android:name=".MainActivity2"
             android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+
 
 
         </activity>
@@ -105,6 +103,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
 
         </activity>
         <service android:name=".Service_Play_Music_v1"

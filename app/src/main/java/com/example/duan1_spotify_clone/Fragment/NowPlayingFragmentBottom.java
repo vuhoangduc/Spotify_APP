@@ -35,10 +35,17 @@ import java.util.List;
 
 public class NowPlayingFragmentBottom extends Fragment {
     ImageView control_btn,img_music_tabar;
+    Bundle bundle;
     TextView tenBaiHat;
     public SeekBar thoiGianChay;
     MediaPlayer mediaPlayer;
     public int position1 ;
+ImageView imgImageView;
+public int countP,countS;
+
+    public void setImgImageView(ImageView imgImageView) {
+        this.imgImageView = imgImageView;
+    }
 
     List<Music1> music1s= new ArrayList<>();
     boolean check = false;
@@ -57,10 +64,18 @@ public class NowPlayingFragmentBottom extends Fragment {
             capNhapthoigian();
         }
 
+
         thoiGianChay.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 //                bundle.putInt("timeline", mediaPlayer.getDuration());
+                    countS=progress/1000;
+                if(countS==60){
+                    countS=0;
+                }
+                countP=progress;
+                Log.d("Timea",countP+":"+countS);
+
             }
 
             @Override
@@ -70,10 +85,10 @@ public class NowPlayingFragmentBottom extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
                 mediaPlayer.seekTo(thoiGianChay.getProgress());
             }
         });
+
 
 
     }
@@ -123,7 +138,9 @@ public class NowPlayingFragmentBottom extends Fragment {
             public void onClick(View view) {
                 if (music1s.size()!=0) {
                     Intent intent = new Intent(getActivity(), ActivityMusic.class);
-                    Bundle bundle = new Bundle();
+                    bundle = new Bundle();
+                    bundle.putInt("Giay",countS);
+                    bundle.putInt("Phut",countP);
 
                     bundle.putInt("index", position1);
                     bundle.putSerializable("list", (Serializable) music1s);
@@ -143,12 +160,14 @@ public class NowPlayingFragmentBottom extends Fragment {
             public void onClick(View view) {
                 if(mediaPlayer.isPlaying()){
                     mediaPlayer.pause();
+                    imgImageView.setImageResource(R.drawable.play1);
                     control_btn.setImageResource(R.drawable.play_button_arrowhead);
 //                    cd.clearAnimation();
 
 
                 }else {
                     mediaPlayer.start();
+                    imgImageView.setImageResource(R.drawable.pause);
                     control_btn.setImageResource(R.drawable.pause_button_arrowhead);
 //                    cd.startAnimation(animation);
                 }
@@ -209,6 +228,13 @@ public class NowPlayingFragmentBottom extends Fragment {
         Log.d("zzzzzzzzzzz "+mediaPlayer.getDuration(), "SetTimeToal: ");
         thoiGianChay.setMax(mediaPlayer.getDuration());
     }
-
+public void pauseMusic(){
+        mediaPlayer.pause();
+        control_btn.setImageResource(R.drawable.play_button_arrowhead);
+}
+    public void playMusic(){
+        mediaPlayer.start();
+        control_btn.setImageResource(R.drawable.pause_button_arrowhead);
+    }
 
 }

@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.duan1_spotify_clone.DBHelper.Save_kenh;
 import com.example.duan1_spotify_clone.DTO.DanhMuc;
 import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Kenh;
@@ -56,7 +57,15 @@ public class NgheSiAdapterHome  extends RecyclerView.Adapter<NgheSiAdapterHome.N
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity2)context).setCurrentPage(5);
+                Save_kenh save_kenh = new Save_kenh(context);
+                if (save_kenh.getData()!=null){
+                    save_kenh.DELETE_ALL();
+                    save_kenh.ADD_NEW(kenh);
+                }else {
+                    save_kenh.ADD_NEW(kenh);
+                }
+
+                ((MainActivity2) context).setCurrentPage(5);
             }
         });
     }

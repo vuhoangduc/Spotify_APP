@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,14 +14,16 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="220dp">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
+                android:id="@+id/imgKenh"
                 android:src="@drawable/sontung"/>
             <ImageView
-                android:id="@+id/imgKenh"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/custom"/>
@@ -35,6 +37,12 @@
                 android:layout_marginTop="160dp"
                 android:text="Sơn Tùng MTP"
                 android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:src="@drawable/back"
+                android:padding="15dp"
+                android:id="@+id/backKenh"
+                android:layout_height="50dp"/>
         </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
@@ -77,26 +85,26 @@
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="130dp"
-                        android:src="@drawable/play"/>
+                        android:src="@drawable/play1"/>
                 </LinearLayout>
-<!--                <ListView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/lv_dsbai"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_marginRight="20dp" />-->
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lv_dsbai"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp" />
                 <FrameLayout
                     android:layout_width="350dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:layout_height="370dp">
+                    android:layout_height="wrap_content">
                    <ImageView
-                       android:layout_width="match_parent"
-                       android:background="@drawable/sontungmtp"
+                       android:layout_width="wrap_content"
                        android:id="@+id/imgGthieu"
-                       android:layout_height="match_parent"/>
+                       android:src="@drawable/sontung"
+                       android:layout_height="wrap_content"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -134,7 +142,7 @@
                             android:lineHeight="25dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
-                            android:layout_marginBottom="15dp"
+                            android:layout_marginBottom="25dp"
                             android:id="@+id/tv_gioiThieu"/>
                     </LinearLayout>
                 </FrameLayout>
@@ -155,5 +163,5 @@
         </FrameLayout>
     </LinearLayout>
 
-</FrameLayout>
+</androidx.core.widget.NestedScrollView>
 

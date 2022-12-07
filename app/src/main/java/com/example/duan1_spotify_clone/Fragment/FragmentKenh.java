@@ -22,6 +22,8 @@ import com.example.duan1_spotify_clone.DTO.HomeItem;
 import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Chanel_Home;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music_Kenh;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.example.duan1_spotify_clone.intefaces.KenhSend;
 
@@ -34,9 +36,10 @@ public class FragmentKenh extends Fragment implements KenhSend {
     private RecyclerView recyclerViewNS;
     TextView tvGioiThieu,tv_dsBai,nameKenh;
     ListView lv;
-    ImageView view,imgGthieu;
+    ImageView view,imgGthieu,backKenh;
     Kenh kenh;
     KenhSend kenhSend = this;
+    String id_kenh,ten_kenh;
 
 
     public KenhSend getKenhSend() {
@@ -53,6 +56,14 @@ public class FragmentKenh extends Fragment implements KenhSend {
         view = v.findViewById(R.id.imgKenh);
         imgGthieu=v.findViewById(R.id.imgGthieu);
         nameKenh =v.findViewById(R.id.nameKenh);
+        lv=v.findViewById(R.id.lv_dsbai);
+        backKenh = v.findViewById(R.id.backKenh);
+        backKenh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)getContext()).setCurrentPage(1);
+            }
+        });
         Save_kenh save_kenh = new Save_kenh(getActivity());
         tvGioiThieu = v.findViewById(R.id.tv_gioiThieu);
         try {
@@ -63,15 +74,24 @@ public class FragmentKenh extends Fragment implements KenhSend {
         if (save_kenh.getData()!=null){
             addData(save_kenh.getData());
         }
+        try {
+            init();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
 
         return v;
     }
     public void init3() throws UnknownHostException {
         JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
-        jsonParser.execute("http://192.168.0.104:3000/kenhs");
+        jsonParser.execute("http://192.168.0.103:3000/kenhs");
     }
-    public static FragmentKenh getInstance(){
+    public void init() throws UnknownHostException {
+        JsonParser_Music_Kenh jsonParser = new JsonParser_Music_Kenh(getActivity(),lv,id_kenh,ten_kenh);
+        jsonParser.execute("http://192.168.0.103:3000/musics");
+    }
 
+    public static FragmentKenh getInstance(){
         Log.d("zzzzzzzzzzzzzzzzzzzzz fragment kenh hoat dong", "getInstance: '");
         return new FragmentKenh();
     }
@@ -88,6 +108,8 @@ public class FragmentKenh extends Fragment implements KenhSend {
         Glide.with(getContext()).load(kenh.getImg_kenh()).placeholder(R.drawable.hiphop).into(view);
         Glide.with(getContext()).load(kenh.getImg_gioiThieu()).placeholder(R.drawable.hiphop).into(imgGthieu);
         nameKenh.setText(kenh.getTen_kenh());
+        id_kenh=kenh.getId_kenh();
+        ten_kenh=kenh.getTen_kenh();
     }
 
 

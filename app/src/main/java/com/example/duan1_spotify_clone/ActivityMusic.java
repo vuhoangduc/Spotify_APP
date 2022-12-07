@@ -26,6 +26,7 @@ public class ActivityMusic extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     int position;
     int timeline;
+    int p,s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,8 @@ public class ActivityMusic extends AppCompatActivity {
         init();
         Bundle bundle = getIntent().getExtras();
         List<Music1> list = new ArrayList<>();
+
+
         music1s = new ArrayList<>();
         music1s = (List<Music1>) bundle.getSerializable("list");
 
@@ -41,6 +44,9 @@ public class ActivityMusic extends AppCompatActivity {
         position = index;
         ten_music.setText(music1s.get(index).getTen_music());
         Glide.with(this).load(music1s.get(index).getImg_music()).into(img_Music);
+         s = bundle.getInt("Giay");
+         p = bundle.getInt("Phut");
+        Log.d("thoigian",s+":"+p);
 
 
         try {
@@ -48,6 +54,8 @@ public class ActivityMusic extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        SetTimeToal();
+        capNhapthoigian();
 
 
     }
@@ -67,7 +75,7 @@ public class ActivityMusic extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.stop();
+//                mediaPlayer.stop();
                 finish();
             }
         });
@@ -76,13 +84,13 @@ public class ActivityMusic extends AppCompatActivity {
             public void onClick(View view) {
                 if(mediaPlayer.isPlaying()){
                     mediaPlayer.pause();
-                    control_btn.setImageResource(R.drawable.play);
+                    control_btn.setImageResource(R.drawable.play0);
 //                    cd.clearAnimation();
 
 
                 }else {
                     mediaPlayer.start();
-                    control_btn.setImageResource(R.drawable.pause);
+                    control_btn.setImageResource(R.drawable.pause0);
 //                    cd.startAnimation(animation);
                 }
                 SetTimeToal();
@@ -155,6 +163,9 @@ public class ActivityMusic extends AppCompatActivity {
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setDataSource(music1s.get(position).getFile_music());
         mediaPlayer.prepare();
+        mediaPlayer.seekTo(p);
+        mediaPlayer.start();
+        control_btn.setImageResource(R.drawable.pause0);
         ten_music.setText(music1s.get(position).getTen_music());
         Glide.with(this).load(music1s.get(position).getImg_music()).into(img_Music);
 

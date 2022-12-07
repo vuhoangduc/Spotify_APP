@@ -3,6 +3,7 @@ package com.example.duan1_spotify_clone.Fragment.GET_API_JSON;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -32,10 +33,14 @@ public class JsonParser_Music_Kenh extends AsyncTask<String, Integer, List<Music
     Context context;
     ListView view;
     ImageView control_music;
+    String id,ten;
     SongItemAction songItemAction;
-    public JsonParser_Music_Kenh(Context context, ListView view) {
+    public JsonParser_Music_Kenh(Context context, ListView view,String id,String ten) {
         this.context = context;
         this.view = view;
+        this.id=id;
+        this.ten=ten;
+        Log.d("avc",id);
     }
 
     public JsonParser_Music_Kenh(Context context, ListView view, ImageView control_music) {
@@ -70,7 +75,7 @@ public class JsonParser_Music_Kenh extends AsyncTask<String, Integer, List<Music
                 JSONArray jsonarray = new JSONArray(datav1);
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject value = jsonarray.getJSONObject(i);
-                    if (value.getString("id_DanhSach").equals(dont_open.getData())) {
+                    if (value.getString("id_kenh").equals(id)) {
                         Music1 music1 = new Music1(value.getString("id_music"), value.getString("ten_music"), value.getString("img_music"), value.getString("file_music"), value.getString("id_kenh"), value.getString("id_DanhSach"));
                         data.add(music1);
                     }else{
@@ -87,19 +92,19 @@ public class JsonParser_Music_Kenh extends AsyncTask<String, Integer, List<Music
     @Override
     protected void onPostExecute(List<Music1> music1s) {
         super.onPostExecute(music1s);
-        adapter = new MusicAdapter(context,music1s);
+        adapter = new MusicAdapter(context,music1s,ten);
         view.setAdapter(adapter);
-        control_music.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                control_music.setImageResource(R.drawable.pause);
-                ((MainActivity2)context).showFragment(false);
-                Intent intent = new Intent(context, NowPlayingFragmentBottom.class);
-                songItemAction = (SongItemAction) context;
-                NowPlayingFragmentBottom nowPlayingFragmentBottom = NowPlayingFragmentBottom.getInstance();
-                songItemAction.showMoreAction(0,music1s);
-            }
-        });
+//        control_music.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                control_music.setImageResource(R.drawable.pause);
+//                ((MainActivity2)context).showFragment(false);
+//                Intent intent = new Intent(context, NowPlayingFragmentBottom.class);
+//                songItemAction = (SongItemAction) context;
+//                NowPlayingFragmentBottom nowPlayingFragmentBottom = NowPlayingFragmentBottom.getInstance();
+//                songItemAction.showMoreAction(0,music1s);
+//            }
+//        });
     }
 
 }

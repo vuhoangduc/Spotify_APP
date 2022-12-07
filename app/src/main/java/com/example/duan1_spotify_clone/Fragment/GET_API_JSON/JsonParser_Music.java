@@ -93,6 +93,7 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
         return data;
     }
     boolean check = true;
+    int count = 0;
     @Override
     protected void onPostExecute(List<Music1> music1s) {
         super.onPostExecute(music1s);
@@ -101,12 +102,29 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
         control_music.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                control_music.setImageResource(R.drawable.pause);
-                ((MainActivity2)context).showFragment(false);
-                Intent intent = new Intent(context,NowPlayingFragmentBottom.class);
-                songItemAction = (SongItemAction) context;
-                NowPlayingFragmentBottom nowPlayingFragmentBottom = NowPlayingFragmentBottom.getInstance();
-                songItemAction.showMoreAction(0,music1s);
+                if(count==0){
+                    control_music.setImageResource(R.drawable.pause);
+                    ((MainActivity2)context).showFragment(false);
+                    Intent intent = new Intent(context,NowPlayingFragmentBottom.class);
+                    songItemAction = (SongItemAction) context;
+                    NowPlayingFragmentBottom nowPlayingFragmentBottom = NowPlayingFragmentBottom.getInstance();
+                    songItemAction.showMoreAction(0,music1s,control_music);
+                    check=false;
+                    count++;
+                }else{
+                    if(check==true&&count==1){
+                        control_music.setImageResource(R.drawable.pause);
+                        ((MainActivity2)context).controller(true);
+                        check=false;
+
+                    }else{
+                        control_music.setImageResource(R.drawable.play1);
+                        ((MainActivity2)context).controller(false);
+                        check=true;
+                    }
+                }
+
+
             }
         });
     }

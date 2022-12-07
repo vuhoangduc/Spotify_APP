@@ -23,18 +23,20 @@ public class FragmentSetting extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
-        Button btn = v.findViewById(R.id.backtoPrenium);
+        Button btn = v.findViewById(R.id.backtoLogin);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity2)getContext()).setCurrentPage(3);
+
+                startActivity(new Intent(getActivity(), Screen_Login_SignUp.class));
             }
         });
         LinearLayout layout = v.findViewById(R.id.backtoPrenium);
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), Screen_Login_SignUp.class));
+                ((MainActivity2)getContext()).setCurrentPage(3);
+
             }
         });
         return v;

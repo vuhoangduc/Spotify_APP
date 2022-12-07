@@ -24,6 +24,7 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         List<Music1> list;
         Context context;
         TextView tvNS,tvMS;
+        String ten;
     private SongItemAction songItemAction;
         ImageView img;
         public MusicAdapter(@NonNull Context context, List<Music1> list) {
@@ -31,6 +32,12 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         this.context=context;
         this.list=list;
         }
+    public MusicAdapter(@NonNull Context context, List<Music1> list,String ten) {
+        super(context, 0,list);
+        this.context=context;
+        this.list=list;
+        this.ten=ten;
+    }
 
     @NonNull
     @Override
@@ -56,6 +63,7 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         });
         tvNS.setText(music1.getTen_music());
         Glide.with(context).load(list.get(position).getImg_music()).placeholder(R.drawable.hiphop).into(img);
+        tvMS.setText(ten);
         return v;
         }
 }

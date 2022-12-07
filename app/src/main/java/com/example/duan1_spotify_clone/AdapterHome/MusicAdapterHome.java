@@ -17,11 +17,14 @@ import com.example.duan1_spotify_clone.DTO.Kenh;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
+import com.example.duan1_spotify_clone.intefaces.SongItemAction;
+import com.example.duan1_spotify_clone.intefaces.SongItemActionHome;
 
 import java.util.List;
     public class MusicAdapterHome extends RecyclerView.Adapter<MusicAdapterHome.MusicViewHolder>{
         private Context context;
         private List<GoiY> list;
+        private SongItemActionHome songItemAction;
         public MusicAdapterHome(Context context, List<GoiY> list) {
             this.context = context;
             this.list = list;
@@ -45,6 +48,11 @@ import java.util.List;
             holder.textView.setText(goiY.getTen_music());
             holder.textView2.setText("Sơn Tùng M-TP");
             holder.cardView.setBackgroundResource(0);
+            holder.img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+            });
 
         }
         @Override
