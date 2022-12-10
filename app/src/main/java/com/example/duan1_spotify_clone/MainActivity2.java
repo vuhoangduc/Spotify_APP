@@ -39,8 +39,7 @@ import java.io.Serializable;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import io.socket.client.IO;
-import io.socket.client.Socket;
+
 
 public class MainActivity2 extends AppCompatActivity implements SongItemAction,SongItemActionHome {
     public ViewPager2 viewPager2;
