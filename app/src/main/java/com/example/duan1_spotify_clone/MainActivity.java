@@ -13,23 +13,14 @@ import com.example.duan1_spotify_clone.ActivityLogin.Screen_Login_SignUp;
 
 import java.net.URISyntaxException;
 
-import io.socket.client.IO;
-import io.socket.client.Socket;
 
 public class MainActivity extends AppCompatActivity {
-    private Socket mSocket;
-    {
-        try {
-            mSocket = IO.socket("http://192.168.0.103:3000");
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mSocket.connect();
+
         ImageView img = findViewById(R.id.imgLogo);
         AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(MainActivity.this,R.animator.hieu_ung);
         animatorSet.setTarget(img);

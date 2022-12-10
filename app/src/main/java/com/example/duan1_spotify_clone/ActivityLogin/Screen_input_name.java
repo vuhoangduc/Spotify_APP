@@ -20,8 +20,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 
-import io.socket.client.IO;
-import io.socket.client.Socket;
+
 
 public class Screen_input_name extends AppCompatActivity {
     String email,gender,pass,name;
@@ -31,7 +30,7 @@ public class Screen_input_name extends AppCompatActivity {
     RetrofitInterFace retrofitInterFace;
     String BASE_URL = "";
 
-    private Socket mSocket;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +40,7 @@ public class Screen_input_name extends AppCompatActivity {
         gender = intent.getStringExtra("Gender");
         pass = intent.getStringExtra("Pass");
         date = intent.getIntExtra("Age",0);
-        try {
-            mSocket = IO.socket("http://192.168.0.104:3000");
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
 
-        mSocket.connect();
 
         final TextInputEditText editText = findViewById(R.id.edtInputName);
         AppCompatButton btn = findViewById(R.id.btnNextHome);
