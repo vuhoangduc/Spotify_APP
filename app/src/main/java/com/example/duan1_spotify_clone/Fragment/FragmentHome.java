@@ -1,5 +1,7 @@
 package com.example.duan1_spotify_clone.Fragment;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.app.Dialog;
 import android.os.Bundle;
 
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
 import  android.text.format.Time;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +31,7 @@ import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Chanel_H
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Kenh_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_WordCup;
+import com.example.duan1_spotify_clone.LoadingImg;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.example.duan1_spotify_clone.intefaces.KenhSend;
@@ -40,6 +44,7 @@ public class FragmentHome extends Fragment {
     private RecyclerView recyclerViewDM,recyclerViewNS,recycleViewPL,recyclerViewKenh;
     private DanhMucAdapterHome DMAdapter;
     KenhSend kenhSend;
+    LoadingImg loadingImg;
 
     public void setKenhSend(KenhSend kenhSend) {
         this.kenhSend = kenhSend;
@@ -51,12 +56,14 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-        openDialog(Gravity.CENTER);
+//        openDialog(Gravity.CENTER);
         //
         recyclerViewKenh = v.findViewById(R.id.recycleViewKenh);
         GridLayoutManager dGridLayoutManager = new GridLayoutManager(getActivity(),2);
         recyclerViewKenh.setLayoutManager(dGridLayoutManager);
         setting = v.findViewById(R.id.setting);
+        loadingImg = new LoadingImg(getActivity());
+        loadingImg.startDialog();
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +134,7 @@ public class FragmentHome extends Fragment {
         }
     }
     public void init() throws UnknownHostException {
-        JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh,kenhSend);
+        JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh,kenhSend,loadingImg);
         jsonParser.execute("http://192.168.0.104:3000/kenhs");
     }
     public void init2() throws UnknownHostException {
@@ -142,18 +149,18 @@ public class FragmentHome extends Fragment {
         JsonParser_WordCup jsonParser = new JsonParser_WordCup(getActivity(),recycleViewPL);
         jsonParser.execute("http://192.168.0.104:3000/wordcups");
     }
-    private void openDialog(int gravity){
-        Dialog dialog = new Dialog(getContext());
-        dialog.setContentView(R.layout.banner);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(false);
-        dialog.show();
-        ImageView img = dialog.findViewById(R.id.bannerback);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-    }
+//    private void openDialog(int gravity){
+//        Dialog dialog = new Dialog(getContext());
+//        dialog.setContentView(R.layout.banner);
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.setCancelable(false);
+//        dialog.show();
+//        ImageView img = dialog.findViewById(R.id.bannerback);
+//        img.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//    }
 }

@@ -27,6 +27,7 @@ public class ActivityMusic extends AppCompatActivity {
     int position;
     int timeline;
     int p,s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView img = findViewById(R.id.imgLogo);
-        AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(MainActivity.this,R.animator.hieu_ung);
-        animatorSet.setTarget(img);
+            AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(MainActivity.this,R.animator.hieu_ung);
+            animatorSet.setTarget(img);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

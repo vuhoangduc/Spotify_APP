@@ -3,14 +3,9 @@ package com.example.duan1_spotify_clone.Fragment.GET_API_JSON;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
-
-import androidx.fragment.app.Fragment;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapter;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
@@ -18,10 +13,7 @@ import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
-import com.example.duan1_spotify_clone.Service.Service_Play_Music;
-import com.example.duan1_spotify_clone.Service_Play_Music_v1;
 import com.example.duan1_spotify_clone.intefaces.SongItemAction;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,28 +26,18 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
-public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
+public class JsonParser_Music_Search extends AsyncTask<String, Integer, List<Music1>> {
 
     Context context;
     ListView view;
     List<Music1> data;
-
-    ImageView control_music;
     SongItemAction songItemAction;
-    public JsonParser_Music(Context context, ListView view) {
+    public JsonParser_Music_Search(Context context, ListView view) {
         this.context = context;
         this.view = view;
     }
-
-    public JsonParser_Music(Context context, ListView view, ImageView control_music) {
-        this.context = context;
-        this.view = view;
-        this.control_music = control_music;
-    }
-
-    public JsonParser_Music(Context context) {
+    public JsonParser_Music_Search(Context context) {
         this.context = context;
     }
     public void setSongItemAction(SongItemAction songItemAction) {
@@ -81,12 +63,8 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
                 JSONArray jsonarray = new JSONArray(datav1);
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject value = jsonarray.getJSONObject(i);
-                    if (value.getString("id_DanhSach").equals(dont_open.getData())) {
                         Music1 music1 = new Music1(value.getString("id_music"), value.getString("ten_music"), value.getString("img_music"), value.getString("file_music"), value.getString("id_kenh"), value.getString("id_DanhSach"));
                          data.add(music1);
-                    }else{
-                        continue;
-                    }
                 }
             }
         } catch (IOException | JSONException e) {
@@ -101,34 +79,9 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
         super.onPostExecute(music1s);
         adapter = new MusicAdapter(context,music1s);
         view.setAdapter(adapter);
-        control_music.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(count==0){
-                    control_music.setImageResource(R.drawable.pause);
-                    ((MainActivity2)context).showFragment(false);
-                    Intent intent = new Intent(context,NowPlayingFragmentBottom.class);
-                    songItemAction = (SongItemAction) context;
-                    NowPlayingFragmentBottom nowPlayingFragmentBottom = NowPlayingFragmentBottom.getInstance();
-                    songItemAction.showMoreAction(0,music1s,control_music);
-                    check=false;
-                    count++;
-                }else{
-                    if(check==true&&count==1){
-                        control_music.setImageResource(R.drawable.pause);
-                        ((MainActivity2)context).controller(true);
-                        check=false;
-
-                    }else{
-                        control_music.setImageResource(R.drawable.play1);
-                        ((MainActivity2)context).controller(false);
-                        check=true;
-                    }
-                }
-
-
-            }
-        });
+    }
+    public List<Music1> getData(){
+        return data;
     }
 
 }

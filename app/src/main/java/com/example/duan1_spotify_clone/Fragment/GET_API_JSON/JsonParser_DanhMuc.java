@@ -10,6 +10,7 @@ import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.DanhSachNhac.ItemNhac;
 import com.example.duan1_spotify_clone.DanhSachNhac.Tong;
 import com.example.duan1_spotify_clone.DanhSachNhac.TongAdapter;
+import com.example.duan1_spotify_clone.LoadingImg;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,11 +31,13 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
     RecyclerView ds_danhMuc;
     TongAdapter tongAdapter;
     String data_value;
+    LoadingImg loadingImg;
 
-    public JsonParser_DanhMuc(Context context, RecyclerView ds_danhMuc, String data_value) {
+    public JsonParser_DanhMuc(Context context, RecyclerView ds_danhMuc, String data_value,LoadingImg loadingImg) {
         this.context = context;
         this.ds_danhMuc = ds_danhMuc;
         this.data_value = data_value;
+        this.loadingImg=loadingImg;
     }
 
     public JsonParser_DanhMuc(Context context) {
@@ -89,7 +92,7 @@ public class JsonParser_DanhMuc extends AsyncTask<String,Integer, List<Tong>> {
         TongAdapter tongAdapter = new TongAdapter(context);
         tongAdapter.setData(tongs);
         ds_danhMuc.setAdapter(tongAdapter);
-
+        loadingImg.dismissDialog();
     }
 
     public class GetData extends AsyncTask<String, Integer, List<ItemNhac>> {

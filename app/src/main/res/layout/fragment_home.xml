@@ -5,124 +5,129 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.FragmentHome"
-    android:background="@color/black"
-    android:orientation="vertical">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".Fragment.FragmentHome"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="Good Morning"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:id="@+id/tv_setDate"
+                android:layout_marginLeft="20dp"
+                android:textSize="25dp"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_margin="5dp"
+                android:padding="4dp"
+
+                android:layout_height="30dp"
+                android:src="@drawable/bell"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_margin="5dp"
+                android:padding="4dp"
+                android:layout_height="30dp"
+                android:src="@drawable/history"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_margin="5dp"
+                android:padding="4dp"
+                android:id="@+id/setting"
+                android:layout_height="30dp"
+                android:src="@drawable/settings"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@null"
+            android:layout_marginRight="15dp"
+            android:id="@+id/recycleViewKenh"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/imgwc"
+                android:layout_marginLeft="10dp"
+                app:riv_corner_radius="100dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
+                android:orientation="vertical">
                 <TextView
-                    android:layout_width="240dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Good Morning"
+                    android:text="KHÁM PHÁ NHẠC CỦA"
+                    android:textColor="#cccc"
+                    android:textSize="14dp"
+                    android:layout_marginLeft="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Word Cup"
                     android:textColor="#fff"
+                    android:textSize="20dp"
                     android:textStyle="bold"
-                    android:id="@+id/tv_setDate"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="25dp"/>
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_margin="5dp"
-                    android:padding="4dp"
-
-                    android:layout_height="30dp"
-                    android:src="@drawable/bell"/>
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_margin="5dp"
-                    android:padding="4dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/history"/>
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_margin="5dp"
-                    android:padding="4dp"
-                    android:id="@+id/setting"
-                    android:layout_height="30dp"
-                    android:src="@drawable/settings"/>
+                    android:layout_marginLeft="10dp"/>
             </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:background="@null"
-        android:layout_marginRight="15dp"
-        android:id="@+id/recycleViewKenh"
-        android:layout_height="wrap_content"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:src="@drawable/imgwc"
-        android:layout_marginLeft="10dp"
-        app:riv_corner_radius="100dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/recycleMainPL"
+            android:background="@null"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="55dp"
+            android:layout_marginLeft="15dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                android:text="KHÁM PHÁ NHẠC CỦA"
-            android:textColor="#cccc"
-            android:textSize="14dp"
-            android:layout_marginLeft="10dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Word Cup"
+            android:text="Danh sách nghệ sĩ hot"
             android:textColor="#fff"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="10dp"/>
-    </LinearLayout>
-
-</LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:id="@+id/recycleMainPL"
-        android:background="@null"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="55dp"
-        android:layout_marginLeft="15dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Danh sách nghệ sĩ hot"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="20dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:id="@+id/recycleMainNS"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="15dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gợi ý cho bạn"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/recycleMainNS"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gợi ý cho bạn"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
@@ -133,5 +138,6 @@
             android:layout_marginLeft="15dp"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
 </androidx.core.widget.NestedScrollView>

@@ -20,6 +20,7 @@ import com.example.duan1_spotify_clone.DTO.DanhMuc;
 import com.example.duan1_spotify_clone.DTO.TheLoai;
 import com.example.duan1_spotify_clone.DanhSachNhac.FragmentDanhSachNhac;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
+import com.example.duan1_spotify_clone.LoadingImg;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
@@ -30,12 +31,14 @@ import java.util.List;
 public class FragmentSearch extends Fragment{
     List<DanhMuc> list = new ArrayList<>();
     RecyclerView recyclerView;
+    LoadingImg loadingImg;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search, container, false);
         SearchView searchView = v.findViewById(R.id.search);
+        loadingImg = new LoadingImg(getActivity());
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +63,7 @@ public class FragmentSearch extends Fragment{
         return v;
     }
     public void init() throws UnknownHostException {
-        JsonParser jsonParser = new JsonParser(getActivity(),recyclerView);
+        JsonParser jsonParser = new JsonParser(getActivity(),recyclerView,loadingImg);
         jsonParser.execute("http://192.168.0.104:3000/theloais");
 
     }

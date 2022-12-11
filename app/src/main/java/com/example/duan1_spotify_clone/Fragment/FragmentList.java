@@ -29,6 +29,7 @@ import com.example.duan1_spotify_clone.DTO.DanhSachNhac;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music;
+import com.example.duan1_spotify_clone.LoadingImg;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
@@ -57,6 +58,7 @@ public class FragmentList extends Fragment {
     public ImageView imageView,back_list,playmusic;
     public TextView textView;
     GetData getData;
+    LoadingImg loadingImg;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class FragmentList extends Fragment {
         back_list = v.findViewById(R.id.back_list);
         playmusic = v.findViewById(R.id.playMusic);
          dont_open = new Dont_Open(getActivity());
+         loadingImg = new LoadingImg(getActivity());
+         loadingImg.startDialog();
         back_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +134,7 @@ public class FragmentList extends Fragment {
             textView.setText(danhSachNhacs.get(0).getTieuDe_DS());
             DownloadImg downloadImg = new DownloadImg();
             downloadImg.execute(danhSachNhacs.get(0).getImg_DS());
+            loadingImg.dismissDialog();
         }
     }
     class DownloadImg extends AsyncTask<String, Void, Bitmap> {

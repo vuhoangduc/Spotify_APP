@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.duan1_spotify_clone.Add_List;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -24,7 +25,7 @@ public class FragmentLibrary extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
     MainAdapter mainAdapter;
-    ImageView img_addlist;
+    ImageView img_addlist,search_library1,img_library1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +46,20 @@ public class FragmentLibrary extends Fragment {
             @Override
             public void onClick(View v) {
                    startActivity(new Intent(getActivity(), Add_List.class));
+            }
+        });
+        search_library1=v.findViewById(R.id.search_library);
+        search_library1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),FragmentLibrarySearch.class));
+            }
+        });
+        img_library1=v.findViewById(R.id.img_library);
+        img_library1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)getContext()).setCurrentPage(9);
             }
         });
         return v;
