@@ -18,6 +18,7 @@ import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open_V1;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_DanhMuc;
+import com.example.duan1_spotify_clone.LoadingImg;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
@@ -40,6 +41,7 @@ public class FragmentDanhSachNhac extends Fragment {
     RecyclerView recyclerView;
     TongAdapter tongAdapter;
     TextView tenDanhMuc;
+    LoadingImg loadingImg;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class FragmentDanhSachNhac extends Fragment {
         recyclerView = view.findViewById(R.id.recycleMain);
         tongAdapter = new TongAdapter(getContext());
         tenDanhMuc =view.findViewById(R.id.tv_tenDanhMuc1);
+        loadingImg = new LoadingImg(getActivity());
+        loadingImg.startDialog();
 
         Dont_Open_V1 dont_open_v1 = new Dont_Open_V1(getActivity());
         if (!dont_open_v1.getData().equals("")){
@@ -71,7 +75,7 @@ public class FragmentDanhSachNhac extends Fragment {
     }
     public void init() throws UnknownHostException {
         Dont_Open dont_open = new Dont_Open(getActivity());
-        JsonParser_DanhMuc jsonParser = new JsonParser_DanhMuc(getActivity(),recyclerView,dont_open.getData());
+        JsonParser_DanhMuc jsonParser = new JsonParser_DanhMuc(getActivity(),recyclerView,dont_open.getData(),loadingImg);
 //        Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"+getMachineIP(), "init: ");
         jsonParser.execute("http://192.168.0.104:3000/danhmucs");
     }
