@@ -1,220 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.FragmentSetting">
-    <LinearLayout
+    android:background="@color/black"
+    android:layout_height="match_parent">
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
-        android:orientation="vertical">
+        android:layout_marginBottom="100dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".Fragment.FragmentSetting">
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="40dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:src="@drawable/back"/>
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="40dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="15dp"
+                    android:id="@+id/backSetting"
+                    android:src="@drawable/back"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="50dp"
+                    android:text="Cài đặt"
+                    android:textColor="#fff"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"/>
+
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="50dp"
-                android:text="Cài đặt"
-                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:text="Tài khoản miễn phí"
+                android:textStyle="bold"
                 android:textAlignment="center"
+                android:layout_marginTop="6dp"
+                android:textColor="#fff"
+                android:layout_margin="20dp"
+                android:textSize="25dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:id="@+id/backtoPrenium"
+                android:layout_height="wrap_content">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="20dp"
+                    app:riv_corner_radius="100dp"
+                    android:src="@drawable/img2"/>
+                <LinearLayout
+                    android:layout_width="180dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        android:text="Thông"
+                        android:layout_marginTop="6dp"
+                        android:textColor="#fff"
+                        android:textSize="25dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xem hồ sơ"
+                        android:textColor="#ccc"
+                        android:textSize="15dp"/>
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:padding="30dp"
+
+                    android:src="@drawable/right_arrow"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:textColor="#fff"
+                android:text="Email"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"
-                android:textSize="20dp"/>
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tài khoản miễn phí"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:layout_marginTop="6dp"
-            android:textColor="#fff"
-            android:layout_margin="20dp"
-            android:textSize="25dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:id="@+id/backtoPrenium"
-            android:layout_height="wrap_content">
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
                 android:layout_marginLeft="20dp"
-                app:riv_corner_radius="100dp"
-                android:src="@drawable/img2"/>
-            <LinearLayout
-                android:layout_width="180dp"
-                android:layout_height="80dp"
+                android:textColor="#cccc"
+                android:text="thonglaanh1011@gmail.com"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Thông"
-                    android:layout_marginTop="6dp"
-                    android:textColor="#fff"
-                    android:textSize="25dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Xem hồ sơ"
-                    android:textColor="#ccc"
-                    android:textSize="15dp"/>
-            </LinearLayout>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:padding="30dp"
-                android:src="@drawable/right_arrow"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:textColor="#fff"
-            android:text="Email"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
-            android:textColor="#cccc"
-            android:text="thonglaanh1011@gmail.com"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#cccc"
-            android:textSize="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:text="Tài khoản đã đủ 14 tuổi!"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@android:color/darker_gray"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="13dp"
-            android:textColor="#fff"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Bằng việc nhấn vào ' Tạo tài khoản ',bạn đồng ý với Điều khoản \nsử dụng Spotify."/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:textStyle="bold"
-            android:textColor="#01B51F"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Điều khoản sử dụng"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:text="Để tìm hiêu thêm về cách thức Spotify thu thập, sử dụng ,chia \nsẻ và bảo vệ dữ liệu cá nhân của bạn, vui lòng xem Chính sách\nquyền riêng tư của Spotify."
-            android:textColor="#fff"
-            android:textSize="12dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:textColor="#01B51F"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:text="Chính sách quyền riêng tư"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:layout_marginRight="20dp"
+                android:background="@android:color/darker_gray"/>
             <TextView
-                android:layout_width="330dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Tôi không muốn nhận tin nhắn tiếp thị từ Spotify"
+                android:textSize="13dp"
                 android:textColor="#fff"
-                android:textSize="13dp" />
-            <CheckBox
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:button="@android:color/transparent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/radio_selector"
-                />
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Chia sẻ dữ liệu đăng kí của tôi với các nhà cung cấp \nnội dung Spotify nhằm mục đích tiếp thị"
-                android:textColor="#fff"
-                android:textSize="13dp" />
-            <CheckBox
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:button="@android:color/transparent"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/radio_selector"
-                />
+                android:text="Bằng việc nhấn vào ' Tạo tài khoản ',bạn đồng ý với Điều khoản \nsử dụng Spotify."/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="#01B51F"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Điều khoản sử dụng"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Để tìm hiêu thêm về cách thức Spotify thu thập, sử dụng ,chia \nsẻ và bảo vệ dữ liệu cá nhân của bạn, vui lòng xem Chính sách\nquyền riêng tư của Spotify."
+                android:textColor="#fff"
+                android:textSize="12dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Spotify sẽ nhận được nhưng nhận được sự đồng ý của cá \nnhân sử dụng tài khoản của bạn."
+                android:textColor="#fff"
+                android:textSize="12dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#01B51F"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:text="Chính sách quyền riêng tư"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Tôi không muốn nhận tin nhắn tiếp thị từ Spotify"
+                    android:textColor="#fff"
+                    android:textSize="13dp" />
+                <CheckBox
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:button="@android:color/transparent"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/radio_selector"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Chia sẻ dữ liệu đăng kí của tôi với các nhà cung cấp \nnội dung Spotify nhằm mục đích tiếp thị"
+                    android:textColor="#fff"
+                    android:textSize="13dp" />
+                <CheckBox
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:button="@android:color/transparent"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/radio_selector"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:textColor="#FF0000"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:text="Tuân thủ các nguyên tắc cộng đồng được đề ra"/>
+
+            <TextView
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Đăng xuất"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:id="@+id/backtoLogin"
+                android:textSize="18dp" />
+            <TextView
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Đăng xuất tài khoản hiện tại"
+                android:textColor="#ccc"
+                android:layout_marginTop="5dp"
+                android:textSize="13dp" />
 
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-        android:textColor="#FF0000"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
-            android:textAlignment="center"
-            android:text="Tuân thủ các nguyên tắc cộng đồng được đề ra"/>
 
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:text="ĐĂNG XUẤT"
-            android:textSize="10dp"
-
-            android:textColor="#fff"
-            android:layout_gravity="center"
-            android:id="@+id/backtoLogin"
-            android:background="@drawable/custom_btn_dang_ky_sdt"/>
-
-    </LinearLayout>
-
-</FrameLayout>
+    </FrameLayout>
+</androidx.core.widget.NestedScrollView>

@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.duan1_spotify_clone.ActivityLogin.Screen_Login_SignUp;
 import com.example.duan1_spotify_clone.ActivityLogin.Screen_input_Login;
@@ -23,7 +25,7 @@ public class FragmentSetting extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
-        Button btn = v.findViewById(R.id.backtoLogin);
+        TextView btn = v.findViewById(R.id.backtoLogin);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +39,13 @@ public class FragmentSetting extends Fragment {
             public void onClick(View v) {
                 ((MainActivity2)getContext()).setCurrentPage(3);
 
+            }
+        });
+        ImageView backSetting = v.findViewById(R.id.backSetting);
+        backSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity2)getContext()).setCurrentPage(0);
             }
         });
         return v;

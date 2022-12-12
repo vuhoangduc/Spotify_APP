@@ -28,8 +28,9 @@
           android:queryBackground="@null"
           android:paddingTop="15dp"
           android:paddingBottom="15dp"
+          android:theme="@style/ThemeOverlay.SearchView"
           android:iconifiedByDefault="false"
-          android:queryHint="Nghệ sĩ, bài hát hoặc podcast"
+          android:queryHint="Bạn muốn nghe gì"
           android:background="@drawable/custom_search"/>
       <TextView
           android:layout_width="match_parent"

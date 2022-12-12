@@ -6,7 +6,7 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/loading"
+        android:src="@drawable/loader"
         android:layout_gravity="center"
         android:id="@+id/img_loading"/>
 </LinearLayout>
