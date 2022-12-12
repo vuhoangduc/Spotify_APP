@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_spotify_clone.AdapterHome.KenhAdapterHome;
 import com.example.duan1_spotify_clone.DTO.Kenh;
-import com.example.duan1_spotify_clone.DTO.TheLoai;
 import com.example.duan1_spotify_clone.LoadingImg;
 import com.example.duan1_spotify_clone.intefaces.KenhSend;
 
@@ -29,7 +28,7 @@ public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> 
     KenhSend kenhSend;
     LoadingImg loadingImg;
 
-    public JsonParser_Kenh_Home(Context context, RecyclerView ds_kenh, KenhSend kenhSend,LoadingImg loadingImg) {
+    public JsonParser_Kenh_Home(Context context, RecyclerView ds_kenh, KenhSend kenhSend) {
         this.context = context;
         this.ds_kenh = ds_kenh;
         this.kenhSend = kenhSend;
@@ -69,7 +68,7 @@ public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> 
     @Override
     protected void onPostExecute(List<Kenh> kenhs) {
         super.onPostExecute(kenhs);
-        loadingImg.dismissDialog();
+//        loadingImg.dismissDialog();
         KenhAdapterHome adapter = new KenhAdapterHome(context,kenhs,kenhSend);
         ds_kenh.setAdapter(adapter);
     }

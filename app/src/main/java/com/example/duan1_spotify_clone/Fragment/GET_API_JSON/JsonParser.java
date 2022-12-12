@@ -2,12 +2,10 @@ package com.example.duan1_spotify_clone.Fragment.GET_API_JSON;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.TheLoaiAdapter;
-import com.example.duan1_spotify_clone.AdapterHome.KenhAdapterHome;
 import com.example.duan1_spotify_clone.DTO.TheLoai;
 import com.example.duan1_spotify_clone.LoadingImg;
 
@@ -28,7 +26,7 @@ public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
     RecyclerView ds_theloai;
     LoadingImg loadingImg;
 
-    public JsonParser(Context context, RecyclerView ds_theloai,LoadingImg loadingImg) {
+    public JsonParser(Context context, RecyclerView ds_theloai) {
         this.loadingImg=loadingImg;
         this.context = context;
         this.ds_theloai = ds_theloai;
@@ -77,7 +75,7 @@ public class JsonParser extends AsyncTask<String,Integer, List<TheLoai>> {
 
         TheLoaiAdapter adapter = new TheLoaiAdapter(context,theLoais);
         ds_theloai.setAdapter(adapter);
-        loadingImg.dismissDialog();
+//        loadingImg.dismissDialog();
     }
 }
 

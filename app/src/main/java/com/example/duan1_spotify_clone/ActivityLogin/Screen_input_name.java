@@ -8,8 +8,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import com.example.duan1_spotify_clone.DBHelper.SaveUser;
 import com.example.duan1_spotify_clone.DTO.User;
 import com.example.duan1_spotify_clone.Fragment.POST_API_JSON.LoginResult;
 import com.example.duan1_spotify_clone.Fragment.POST_API_JSON.RetrofitInterFace;
@@ -17,18 +20,22 @@ import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.net.URISyntaxException;
 import java.util.HashMap;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class Screen_input_name extends AppCompatActivity {
     String email,gender,pass,name;
     int date;
-
+    Retrofit retrofit;
     LoginResult loginResult;
     RetrofitInterFace retrofitInterFace;
-    String BASE_URL = "";
+    String BASE_URL = "http://192.168.0.102:3000/";
 
 
     @Override
@@ -40,8 +47,13 @@ public class Screen_input_name extends AppCompatActivity {
         gender = intent.getStringExtra("Gender");
         pass = intent.getStringExtra("Pass");
         date = intent.getIntExtra("Age",0);
+        SaveUser saveUser = new SaveUser(this);
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-
+        retrofitInterFace = retrofit.create(RetrofitInterFace.class);
         final TextInputEditText editText = findViewById(R.id.edtInputName);
         AppCompatButton btn = findViewById(R.id.btnNextHome);
         editText.addTextChangedListener(new TextWatcher() {
@@ -65,7 +77,7 @@ public class Screen_input_name extends AppCompatActivity {
                     btn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            User user = new User(1,name,gender,date,email,pass);
+                            User user = new User(name,gender,date,email,pass);
 
                             HashMap<String,String> map = new HashMap<>();
                             map.put("email",email);
@@ -73,8 +85,27 @@ public class Screen_input_name extends AppCompatActivity {
                             map.put("date",""+date);
                             map.put("name",name);
                             map.put("gender",gender);
+                            Call<LoginResult> call = retrofitInterFace.wxecuteSignup(map);
+                            call.enqueue(new Callback<LoginResult>() {
+                                @Override
+                                public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                                        if (response.code() == 200){
+                                        }else if (response.code() == 400){
+                                            if (saveUser.getData().size()==0){
+                                                saveUser.Save_NEW_USER(user);
+                                            }else {
+                                                saveUser.DELETE();
+                                                saveUser.Save_NEW_USER(user);
+                                            }
+                                            go();
+                                        }
+                                }
 
-                            go();
+                                @Override
+                                public void onFailure(Call<LoginResult> call, Throwable t) {
+                                    Toast.makeText(Screen_input_name.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     });
                 }

@@ -12,6 +12,6 @@ public interface RetrofitInterFace {
     Call<LoginResult> executeLogin(@Body HashMap<String, String> map);
 
     @POST("/signup")
-    Call<Void> wxecuteSignup(@Body HashMap<String,String> map);
+    Call<LoginResult> wxecuteSignup(@Body HashMap<String,String> map);
 
 }

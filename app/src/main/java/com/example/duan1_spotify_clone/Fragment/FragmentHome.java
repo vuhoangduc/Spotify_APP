@@ -128,19 +128,19 @@ public class FragmentHome extends Fragment {
     }
     public void init() throws UnknownHostException {
         JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh,kenhSend);
-        jsonParser.execute("http://10.24.21.203:3000/kenhs");
+        jsonParser.execute("http://192.168.1.4:3000/kenhs");
     }
     public void init2() throws UnknownHostException {
         JsonParser_Music_Home jsonParser = new JsonParser_Music_Home(getActivity(),recyclerViewDM);
-        jsonParser.execute("http://10.24.21.203:3000/musics");
+        jsonParser.execute("http://192.168.1.4:3000/musics");
     }
     public void init3() throws UnknownHostException {
         JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
-        jsonParser.execute("http://10.24.21.203:3000/kenhs");
+        jsonParser.execute("http://192.168.1.4:3000/kenhs");
     }
     public void init4() throws UnknownHostException {
         JsonParser_WordCup jsonParser = new JsonParser_WordCup(getActivity(),recycleViewPL);
-        jsonParser.execute("http://10.24.21.203:3000/wordcups");
+        jsonParser.execute("http://192.168.1.4:3000/wordcups");
     }
     private void openDialog(int gravity){
         Dialog dialog = new Dialog(getContext());
