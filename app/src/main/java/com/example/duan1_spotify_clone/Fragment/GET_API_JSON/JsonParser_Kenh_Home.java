@@ -28,7 +28,7 @@ public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> 
     KenhSend kenhSend;
     LoadingImg loadingImg;
 
-    public JsonParser_Kenh_Home(Context context, RecyclerView ds_kenh, KenhSend kenhSend) {
+    public JsonParser_Kenh_Home(Context context, RecyclerView ds_kenh, KenhSend kenhSend,LoadingImg loadingImg) {
         this.context = context;
         this.ds_kenh = ds_kenh;
         this.kenhSend = kenhSend;
@@ -68,7 +68,7 @@ public class JsonParser_Kenh_Home extends AsyncTask<String,Integer, List<Kenh>> 
     @Override
     protected void onPostExecute(List<Kenh> kenhs) {
         super.onPostExecute(kenhs);
-//        loadingImg.dismissDialog();
+        loadingImg.dismissDialog();
         KenhAdapterHome adapter = new KenhAdapterHome(context,kenhs,kenhSend);
         ds_kenh.setAdapter(adapter);
     }

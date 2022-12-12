@@ -38,7 +38,6 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         this.list=list;
         this.ten=ten;
     }
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

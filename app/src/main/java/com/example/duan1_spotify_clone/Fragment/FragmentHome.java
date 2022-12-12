@@ -28,6 +28,7 @@ import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Chanel_H
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Kenh_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music_Home;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_WordCup;
+import com.example.duan1_spotify_clone.LoadingImg;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.example.duan1_spotify_clone.intefaces.KenhSend;
@@ -40,6 +41,7 @@ public class FragmentHome extends Fragment {
     private RecyclerView recyclerViewDM,recyclerViewNS,recycleViewPL,recyclerViewKenh;
     private DanhMucAdapterHome DMAdapter;
     KenhSend kenhSend;
+    LoadingImg loadingImg;
 
     public void setKenhSend(KenhSend kenhSend) {
         this.kenhSend = kenhSend;
@@ -51,7 +53,10 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-        openDialog(Gravity.CENTER);
+//        openDialog(Gravity.CENTER);
+        loadingImg = new LoadingImg(getActivity());
+        loadingImg.startDialog();
+
         //
         recyclerViewKenh = v.findViewById(R.id.recycleViewKenh);
         GridLayoutManager dGridLayoutManager = new GridLayoutManager(getActivity(),2);
@@ -127,7 +132,7 @@ public class FragmentHome extends Fragment {
         }
     }
     public void init() throws UnknownHostException {
-        JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh,kenhSend);
+        JsonParser_Kenh_Home jsonParser = new JsonParser_Kenh_Home(getActivity(),recyclerViewKenh,kenhSend,loadingImg);
         jsonParser.execute("http://192.168.0.102:3000/kenhs");
     }
     public void init2() throws UnknownHostException {
