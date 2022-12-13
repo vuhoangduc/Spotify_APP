@@ -21,6 +21,7 @@ import com.example.duan1_spotify_clone.ActivityLogin.Screen_Login_SignUp;
 import com.example.duan1_spotify_clone.ActivityLogin.Screen_input_Login;
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.PlayListAdapter2;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
+import com.example.duan1_spotify_clone.DBHelper.SaveUser;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -33,7 +34,7 @@ public class FragmentPramium extends Fragment {
     DBPlayList db;
     PlayListAdapter2 adapter;
     ImageView img;
-    TextView tv;
+    TextView tv_name,tv_email;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,7 +50,16 @@ public class FragmentPramium extends Fragment {
             }
         });
         img = v.findViewById(R.id.deleteName);
-        tv = v.findViewById(R.id.tv_Name);
+        tv_name = v.findViewById(R.id.tv_Name);
+        tv_email = v.findViewById(R.id.tv_email);
+
+        SaveUser saveUser = new SaveUser(getActivity());
+
+            tv_email.setText(saveUser.getData().get(0).getEmail_user());
+            tv_name.setText(saveUser.getData().get(0).getName_user());
+
+
+
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +93,7 @@ public class FragmentPramium extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    tv.setText(tv1.getText());
+                tv_name.setText(tv1.getText());
                     Toast.makeText(getContext(), "Sửa thành công", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
             }

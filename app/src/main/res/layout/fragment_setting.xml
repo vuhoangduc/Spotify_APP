@@ -66,6 +66,7 @@
                     android:layout_marginLeft="20dp"
                     android:orientation="vertical">
                     <TextView
+                        android:id="@+id/tv_nameUser_seting"
                         android:layout_width="match_parent"
                         android:textStyle="bold"
                         android:layout_height="wrap_content"
@@ -98,6 +99,7 @@
                 android:text="Email"/>
 
             <TextView
+                android:id="@+id/email_user_seting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
@@ -224,7 +226,7 @@
                 android:text="Đăng xuất"
                 android:textStyle="bold"
                 android:textColor="#fff"
-                android:id="@+id/backtoLogin"
+                android:id="@+id/logout_btn"
                 android:textSize="18dp" />
             <TextView
                 android:layout_width="330dp"

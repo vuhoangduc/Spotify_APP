@@ -1,6 +1,7 @@
 package com.example.duan1_spotify_clone.AdapterHome.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         Context context;
         TextView tvNS,tvMS;
         String ten;
+        ImageView btn_love;
     private SongItemAction songItemAction;
         ImageView img;
         public MusicAdapter(@NonNull Context context, List<Music1> list) {
@@ -51,6 +53,7 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
             tvNS = v.findViewById(R.id.tv_tenbaihat);
             tvMS = v.findViewById(R.id.tv_nameNS);
             img = v.findViewById(R.id.img_MS);
+            btn_love = v.findViewById(R.id.btn_love_music);
         }
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +66,14 @@ public class MusicAdapter extends ArrayAdapter<Music1> {
         tvNS.setText(music1.getTen_music());
         Glide.with(context).load(list.get(position).getImg_music()).placeholder(R.drawable.hiphop).into(img);
         tvMS.setText(ten);
+        btn_love.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Log.d("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", "onClick: "+position);
+                btn_love.setImageResource(R.drawable.ic_love_music_v2);
+            }
+        });
         return v;
         }
 }

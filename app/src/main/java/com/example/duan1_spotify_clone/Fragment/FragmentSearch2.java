@@ -35,7 +35,7 @@ public class FragmentSearch2 extends AppCompatActivity {
         img = findViewById(R.id.back_search);
         SearchView searchView = findViewById(R.id.searchView);
         JsonParser_Music_Search jsonParser_music = new JsonParser_Music_Search(FragmentSearch2.this,listView);
-        jsonParser_music.execute("http://192.168.0.102:3000/musics");
+        jsonParser_music.execute("http://192.168.0.101:3000/musics");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

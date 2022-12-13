@@ -7,9 +7,11 @@ import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.duan1_spotify_clone.ActivityLogin.Screen_Login_SignUp;
+import com.example.duan1_spotify_clone.DBHelper.SaveUser;
 
 import java.net.URISyntaxException;
 
@@ -20,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ImageView img = findViewById(R.id.imgLogo);
             AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(MainActivity.this,R.animator.hieu_ung);
             animatorSet.setTarget(img);

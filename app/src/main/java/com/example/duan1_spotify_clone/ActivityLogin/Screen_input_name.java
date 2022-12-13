@@ -35,7 +35,7 @@ public class Screen_input_name extends AppCompatActivity {
     Retrofit retrofit;
     LoginResult loginResult;
     RetrofitInterFace retrofitInterFace;
-    String BASE_URL = "http://192.168.0.102:3000/";
+    String BASE_URL = "http://192.168.0.101:3000/";
 
 
     @Override
@@ -48,6 +48,7 @@ public class Screen_input_name extends AppCompatActivity {
         pass = intent.getStringExtra("Pass");
         date = intent.getIntExtra("Age",0);
         SaveUser saveUser = new SaveUser(this);
+        saveUser.open();
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

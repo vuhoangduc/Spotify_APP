@@ -32,7 +32,7 @@ public class SaveUser extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-            String sql = "CREATE TABLE " + TB_SAVE_USER + "( " + EMAIL + " TEXT NOT NULL," + NAME + " TEXT NOT NULL," + PASSWORD + " TEXT NOT NULL," + AGE + " TEXT NOT NULL," + GENDER + " TEXT NOT NULL," + ID_KENH + " TEXT NOT NULL," + ID_MUSIC + " TEXT NOT NULL," + ID_PLAYLIST + " TEXT NOT NULL)";
+            String sql = "CREATE TABLE " + TB_SAVE_USER + "( " + EMAIL + " TEXT NOT NULL," + NAME + " TEXT NOT NULL," + PASSWORD + " TEXT NOT NULL," + AGE + " TEXT NOT NULL," + GENDER + " TEXT NOT NULL," + ID_KENH + " TEXT ," + ID_MUSIC + " TEXT," + ID_PLAYLIST + " TEXT )";
             db.execSQL(sql);
     }
 

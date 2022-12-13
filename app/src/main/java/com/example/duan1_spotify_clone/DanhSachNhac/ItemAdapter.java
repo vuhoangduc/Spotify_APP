@@ -46,23 +46,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         return new ItemViewHolder(view);
     }
-    int x =-1 ;
+
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
 
-//                if (y == 10 ){
-//                    x = 5;
-//                }else if (y == 15){
-//                    x = 10;
-//                }else if (y == 20){
-//                    x = 15;
-//                }else if (y == 25){
-//                    x = 20;
-//                }
-//                else{
-//                    x++;
-//                }
-        Log.d("zzzzzzzzzzzzzzzzzzzzs "+x, "onBindViewHolder: ");
                 ItemNhac itemNhac = list.get(position);
                 Glide.with(context)
                         .load(itemNhac.getImg())
@@ -77,7 +64,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     public void onClick(View v) {
                         Dont_Open dont_open = new Dont_Open(context);
                         dont_open.open();
-                        Log.d("xxxxx",itemNhac.getId());
                         if (!dont_open.getData().equals("")){
                             dont_open.DELETE_ALL();
                             dont_open.ADD_NEW(itemNhac.getId());
@@ -87,7 +73,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                         ((MainActivity2)context).setCurrentPage(7);
                     }
                 });
-                y--;
+
     }
     @Override
     public int getItemCount() {
