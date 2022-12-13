@@ -8,7 +8,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapter;
+import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapterRecycle;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
@@ -31,11 +34,11 @@ import java.util.List;
 public class JsonParser_Music_Kenh extends AsyncTask<String, Integer, List<Music1>> {
 
     Context context;
-    ListView view;
+    RecyclerView view;
     ImageView control_music;
     String id,ten;
     SongItemAction songItemAction;
-    public JsonParser_Music_Kenh(Context context, ListView view,String id,String ten) {
+    public JsonParser_Music_Kenh(Context context, RecyclerView view,String id,String ten) {
         this.context = context;
         this.view = view;
         this.id=id;
@@ -43,7 +46,7 @@ public class JsonParser_Music_Kenh extends AsyncTask<String, Integer, List<Music
         Log.d("avc",id);
     }
 
-    public JsonParser_Music_Kenh(Context context, ListView view, ImageView control_music) {
+    public JsonParser_Music_Kenh(Context context, RecyclerView view, ImageView control_music) {
         this.context = context;
         this.view = view;
         this.control_music = control_music;
@@ -55,7 +58,7 @@ public class JsonParser_Music_Kenh extends AsyncTask<String, Integer, List<Music
     public void setSongItemAction(SongItemAction songItemAction) {
         this.songItemAction = songItemAction;
     }
-    MusicAdapter adapter;
+    MusicAdapterRecycle adapter;
     @Override
     protected List<Music1> doInBackground(String... strings) {
         String line = "";
@@ -92,7 +95,7 @@ public class JsonParser_Music_Kenh extends AsyncTask<String, Integer, List<Music
     @Override
     protected void onPostExecute(List<Music1> music1s) {
         super.onPostExecute(music1s);
-        adapter = new MusicAdapter(context,music1s,ten);
+        adapter = new MusicAdapterRecycle(context,music1s,ten);
         view.setAdapter(adapter);
 //        control_music.setOnClickListener(new View.OnClickListener() {
 //            @Override

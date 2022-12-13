@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapter;
+import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapterRecycle;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
@@ -30,10 +33,10 @@ import java.util.List;
 public class JsonParser_Music_Search extends AsyncTask<String, Integer, List<Music1>> {
 
     Context context;
-    ListView view;
+    RecyclerView view;
     List<Music1> data;
     SongItemAction songItemAction;
-    public JsonParser_Music_Search(Context context, ListView view) {
+    public JsonParser_Music_Search(Context context, RecyclerView view) {
         this.context = context;
         this.view = view;
     }
@@ -43,7 +46,7 @@ public class JsonParser_Music_Search extends AsyncTask<String, Integer, List<Mus
     public void setSongItemAction(SongItemAction songItemAction) {
         this.songItemAction = songItemAction;
     }
-    MusicAdapter adapter;
+    MusicAdapterRecycle adapter;
     @Override
     protected List<Music1> doInBackground(String... strings) {
         String line = "";
@@ -77,7 +80,7 @@ public class JsonParser_Music_Search extends AsyncTask<String, Integer, List<Mus
     @Override
     protected void onPostExecute(List<Music1> music1s) {
         super.onPostExecute(music1s);
-        adapter = new MusicAdapter(context,music1s);
+        adapter = new MusicAdapterRecycle(context,music1s);
         view.setAdapter(adapter);
     }
     public List<Music1> getData(){

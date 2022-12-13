@@ -35,7 +35,7 @@ public class FragmentKenh extends Fragment implements KenhSend {
     private NgheSiAdapterHome NSAdapter;
     private RecyclerView recyclerViewNS;
     TextView tvGioiThieu,tv_dsBai,nameKenh;
-    ListView lv;
+    RecyclerView lv;
     ImageView view,imgGthieu,backKenh;
     Kenh kenh;
     KenhSend kenhSend = this;

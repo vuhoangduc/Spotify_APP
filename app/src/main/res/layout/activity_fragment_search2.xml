@@ -30,9 +30,9 @@
             android:queryHint="Bạn muốn nghe gì"
             android:layout_height="match_parent"/>
     </LinearLayout>
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listViewSearch"/>
+        android:id="@+id/listViewSearch2"/>
 
 </LinearLayout>

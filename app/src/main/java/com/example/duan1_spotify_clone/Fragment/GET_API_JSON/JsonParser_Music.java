@@ -11,8 +11,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapter;
+import com.example.duan1_spotify_clone.AdapterHome.Adapter.MusicAdapterRecycle;
 import com.example.duan1_spotify_clone.DBHelper.Dont_Open;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.Fragment.NowPlayingFragmentBottom;
@@ -39,17 +41,17 @@ import java.util.zip.Inflater;
 public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
 
     Context context;
-    ListView view;
+    RecyclerView view;
     List<Music1> data;
 
     ImageView control_music;
     SongItemAction songItemAction;
-    public JsonParser_Music(Context context, ListView view) {
+    public JsonParser_Music(Context context, RecyclerView view) {
         this.context = context;
         this.view = view;
     }
 
-    public JsonParser_Music(Context context, ListView view, ImageView control_music) {
+    public JsonParser_Music(Context context, RecyclerView view, ImageView control_music) {
         this.context = context;
         this.view = view;
         this.control_music = control_music;
@@ -61,7 +63,7 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
     public void setSongItemAction(SongItemAction songItemAction) {
         this.songItemAction = songItemAction;
     }
-    MusicAdapter adapter;
+    MusicAdapterRecycle adapter;
     @Override
     protected List<Music1> doInBackground(String... strings) {
         String line = "";
@@ -99,7 +101,7 @@ public class JsonParser_Music extends AsyncTask<String, Integer, List<Music1>> {
     @Override
     protected void onPostExecute(List<Music1> music1s) {
         super.onPostExecute(music1s);
-        adapter = new MusicAdapter(context,music1s);
+        adapter = new MusicAdapterRecycle(context,music1s);
         view.setAdapter(adapter);
         control_music.setOnClickListener(new View.OnClickListener() {
             @Override

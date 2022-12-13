@@ -9,6 +9,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.util.Log;
@@ -29,6 +31,7 @@ import com.example.duan1_spotify_clone.DTO.DanhSachNhac;
 import com.example.duan1_spotify_clone.DTO.Music1;
 import com.example.duan1_spotify_clone.DTO.Playlist;
 import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_Music_Search;
 import com.example.duan1_spotify_clone.LoadingImg;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
@@ -50,7 +53,7 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 
 public class FragmentList extends Fragment {
-    public ListView listView;
+    public RecyclerView listView;
     ArrayList<Playlist> list = new ArrayList<>();
     DBPlayList db;
     PlayListAdapter2 adapter;
@@ -64,6 +67,8 @@ public class FragmentList extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_list, container, false);
         listView = v.findViewById(R.id.lvListBH);
+        LinearLayoutManager managerPL = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+        listView.setLayoutManager(managerPL);
         textView = v.findViewById(R.id.tieu_de_DanhSachNhac);
         imageView = v.findViewById(R.id.img_DanhSachNhac);
         back_list = v.findViewById(R.id.back_list);
@@ -82,7 +87,7 @@ public class FragmentList extends Fragment {
         db = new DBPlayList(getContext());
         getData = new GetData();
         getData.execute("http://192.168.0.101:3000/danhsachnhacs");
-        JsonParser_Music jsonParser_music = new JsonParser_Music(getActivity(),listView,playmusic);
+        JsonParser_Music_Search jsonParser_music = new JsonParser_Music_Search(getActivity(),listView);
         jsonParser_music.execute("http://192.168.0.101:3000/musics");
         // Inflate the layout for this fragment
         return v;

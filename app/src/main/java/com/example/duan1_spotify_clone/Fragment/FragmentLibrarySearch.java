@@ -25,10 +25,10 @@ public class FragmentLibrarySearch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_search2);
+        setContentView(R.layout.layout_fragment_search);
         img = findViewById(R.id.back_search);
         SearchView searchView = findViewById(R.id.searchView);
-         listView = findViewById(R.id.listViewSearch);
+         listView = findViewById(R.id.listViewSearch3);
         db = new DBPlayList(this);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
