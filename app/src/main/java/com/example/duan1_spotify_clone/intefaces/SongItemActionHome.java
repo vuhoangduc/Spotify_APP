@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface SongItemActionHome {
     void showMoreActionv1(int position, List<WordCup> songs);
-    void setOnItemClickListenerv1( List<WordCup> songs);
+    void setOnItemClickListenerv1( WordCup wordCup);
 }

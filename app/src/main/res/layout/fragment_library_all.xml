@@ -32,4 +32,25 @@
                 android:layout_marginTop="10dp"
                 android:text="Thêm nghệ sĩ"/>
         </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/show_music_fv"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="60dp">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="17dp"
+            android:background="#7C48EB"
+            android:src="@drawable/ic_love_fv"
+            android:layout_marginLeft="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:text="Bài hát yêu thích"/>
+    </LinearLayout>
 </LinearLayout>

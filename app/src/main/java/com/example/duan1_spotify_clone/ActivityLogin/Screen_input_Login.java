@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.example.duan1_spotify_clone.DBHelper.SaveUser;
 import com.example.duan1_spotify_clone.DTO.User;
+import com.example.duan1_spotify_clone.Fragment.GET_API_JSON.JsonParser_user_v1;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -47,7 +48,7 @@ public class Screen_input_Login extends AppCompatActivity {
         layout_email = findViewById(R.id.layout_email);
         layout_pass = findViewById(R.id.layout_password);
         JsonParser_User_v1 jsonParser_user_v1 = new JsonParser_User_v1(this);
-            jsonParser_user_v1.execute("http://192.168.0.101:3000/users");
+            jsonParser_user_v1.execute("http://192.168.0.102:3000/users");
         edtEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -164,6 +165,8 @@ public class Screen_input_Login extends AppCompatActivity {
             Log.d("Tai khoan chua ton tai", "Login_Working: ");
             return;
         }
+        JsonParser_user_v1 jsonParser_user_v1 = new JsonParser_user_v1(this);
+        jsonParser_user_v1.execute("http://192.168.0.102:3000/users");
         go();
     }
     public void back_singup(View view){
@@ -214,9 +217,6 @@ public class Screen_input_Login extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<User> users_v1) {
             super.onPostExecute(users_v1);
-            for (int i = 0; i < users_v1.size(); i++) {
-                Log.d("zzzzzzzzzzzzzzzzz "+users_v1.get(i).getEmail_user(), "onPostExecute: ");
-            }
             users.addAll(users_v1);
         }
     }

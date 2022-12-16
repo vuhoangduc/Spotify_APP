@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.example.duan1_spotify_clone.AdapterHome.Adapter.PlayListAdapter2;
 import com.example.duan1_spotify_clone.DBHelper.DBPlayList;
 import com.example.duan1_spotify_clone.DTO.Playlist;
+import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
 import java.util.ArrayList;
@@ -28,13 +30,20 @@ public class FragmentLibraryAll extends Fragment {
     ArrayList<Playlist> list = new ArrayList<>();
     DBPlayList db;
     PlayListAdapter2 adapter;
+    LinearLayout show_music_fv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_library_all, container, false);
         listView = v.findViewById(R.id.ListViewList);
-
+        show_music_fv =v.findViewById(R.id.show_music_fv);
+        show_music_fv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity2) getContext()).setCurrentPage(9);
+            }
+        });
         db = new DBPlayList(getContext());
         capNhat();
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

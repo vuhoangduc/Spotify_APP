@@ -4,9 +4,9 @@ import java.lang.reflect.Array;
 
 public class Post_music_fv {
     String email;
-    Array id_music;
+    String id_music;
 
-    public Post_music_fv(String email, Array id_music) {
+    public Post_music_fv(String email, String id_music) {
         this.email = email;
         this.id_music = id_music;
     }
@@ -22,11 +22,11 @@ public class Post_music_fv {
         this.email = email;
     }
 
-    public Array getId_music() {
+    public String getId_music() {
         return id_music;
     }
 
-    public void setId_music(Array id_music) {
+    public void setId_music(String id_music) {
         this.id_music = id_music;
     }
 }

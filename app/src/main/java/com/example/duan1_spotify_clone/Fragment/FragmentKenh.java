@@ -50,8 +50,8 @@ public class FragmentKenh extends Fragment implements KenhSend {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_kenh, container, false);
-        recyclerViewNS = v.findViewById(R.id.recycleNS);
-        LinearLayoutManager managerNS = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        recyclerViewNS = v.findViewById(R.id.lv_dsbai);
+        LinearLayoutManager managerNS = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         recyclerViewNS.setLayoutManager(managerNS);
         view = v.findViewById(R.id.imgKenh);
         imgGthieu=v.findViewById(R.id.imgGthieu);
@@ -61,7 +61,7 @@ public class FragmentKenh extends Fragment implements KenhSend {
         backKenh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity2)getContext()).setCurrentPage(1);
+                ((MainActivity2)getContext()).setCurrentPage(0);
             }
         });
         Save_kenh save_kenh = new Save_kenh(getActivity());
@@ -84,11 +84,11 @@ public class FragmentKenh extends Fragment implements KenhSend {
     }
     public void init3() throws UnknownHostException {
         JsonParser_Chanel_Home jsonParser = new JsonParser_Chanel_Home(getActivity(),recyclerViewNS);
-        jsonParser.execute("http://192.168.0.101:3000/kenhs");
+        jsonParser.execute("http://192.168.0.102:3000/kenhs");
     }
     public void init() throws UnknownHostException {
         JsonParser_Music_Kenh jsonParser = new JsonParser_Music_Kenh(getActivity(),lv,id_kenh,ten_kenh);
-        jsonParser.execute("http://192.168.0.101:3000/musics");
+        jsonParser.execute("http://192.168.0.102:3000/musics");
     }
 
     public static FragmentKenh getInstance(){

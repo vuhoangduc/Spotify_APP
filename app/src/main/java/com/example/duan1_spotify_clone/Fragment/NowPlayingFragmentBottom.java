@@ -159,13 +159,11 @@ public int countP,countS;
             capNhapthoigian();
         }
     }
-    public void showMoreAction_2( List<WordCup> songs) {
+    public void showMoreAction_2( WordCup songs) {
         music1s.clear();
         Music1 music1_wc = new Music1();
-        for (int i = 0; i < songs.size(); i++) {
-            music1_wc=new Music1(songs.get(i).getId_wc(),songs.get(i).getTen_wc(),songs.get(i).getImg_wc(),songs.get(i).getFile_wc(),songs.get(i).getNam_wc(),null);
+            music1_wc=new Music1(songs.getId_wc(),songs.getTen_wc(),songs.getImg_wc(),songs.getFile_wc(),songs.getNam_wc(),null);
             music1s.add(music1_wc);
-        }
         if (mediaPlayer!= null){
             if (mediaPlayer.isPlaying()){
                 mediaPlayer.stop();

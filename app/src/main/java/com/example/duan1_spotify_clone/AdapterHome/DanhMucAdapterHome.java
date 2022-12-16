@@ -32,14 +32,12 @@ public class DanhMucAdapterHome extends RecyclerView.Adapter<DanhMucAdapterHome.
         this.context= context;
         notifyDataSetChanged();
     }
-
     @NonNull
     @Override
     public DanhMucViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_danhmuc, parent, false);
         return new DanhMucViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull DanhMucViewHolder holder, int position) {
         WordCup wordCup = list.get(position);
@@ -55,12 +53,11 @@ public class DanhMucAdapterHome extends RecyclerView.Adapter<DanhMucAdapterHome.
             @Override
             public void onClick(View v) {
                 songItemAction = (SongItemActionHome) context;
-                songItemAction.setOnItemClickListenerv1(list);
+                songItemAction.setOnItemClickListenerv1(wordCup);
                 ((MainActivity2)context).showFragment(false);
             }
         });
     }
-
     @Override
     public int getItemCount() {
         if (list != null) {
@@ -68,7 +65,6 @@ public class DanhMucAdapterHome extends RecyclerView.Adapter<DanhMucAdapterHome.
         }
         return 0;
     }
-
     public class DanhMucViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgDM;
         private TextView textView,textView2;

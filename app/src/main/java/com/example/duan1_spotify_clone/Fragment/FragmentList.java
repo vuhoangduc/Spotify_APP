@@ -86,9 +86,11 @@ public class FragmentList extends Fragment {
         });
         db = new DBPlayList(getContext());
         getData = new GetData();
-        getData.execute("http://192.168.0.101:3000/danhsachnhacs");
-        JsonParser_Music_Search jsonParser_music = new JsonParser_Music_Search(getActivity(),listView);
-        jsonParser_music.execute("http://192.168.0.101:3000/musics");
+        getData.execute("http://192.168.0.102:3000/danhsachnhacs");
+        JsonParser_Music_Search jsonParser_music_search = new JsonParser_Music_Search(getActivity(),listView);
+        jsonParser_music_search.execute("http://192.168.0.102:3000/musics");
+        JsonParser_Music jsonParser_music = new JsonParser_Music(getActivity(),listView,playmusic);
+        jsonParser_music.execute("http://192.168.0.102:3000/musics");
         // Inflate the layout for this fragment
         return v;
     }

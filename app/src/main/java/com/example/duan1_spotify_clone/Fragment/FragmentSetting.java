@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.duan1_spotify_clone.ActivityLogin.Screen_Login_SignUp;
 import com.example.duan1_spotify_clone.ActivityLogin.Screen_input_Login;
 import com.example.duan1_spotify_clone.DBHelper.SaveUser;
+import com.example.duan1_spotify_clone.DBHelper.Save_music_fv;
 import com.example.duan1_spotify_clone.MainActivity2;
 import com.example.duan1_spotify_clone.R;
 
@@ -38,6 +39,8 @@ public class FragmentSetting extends Fragment {
             public void onClick(View v) {
                 SaveUser user = new SaveUser(getActivity());
                 user.DELETE();
+                Save_music_fv save_music_fv = new Save_music_fv(getActivity());
+                save_music_fv.DELETE_ALL();
                 startActivity(new Intent(getActivity(), Screen_Login_SignUp.class));
             }
         });

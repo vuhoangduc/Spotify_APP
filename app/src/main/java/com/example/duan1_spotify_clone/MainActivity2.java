@@ -146,7 +146,7 @@ public class MainActivity2 extends AppCompatActivity implements SongItemAction,S
     }
 
     @Override
-    public void setOnItemClickListenerv1(List<WordCup> songs) {
+    public void setOnItemClickListenerv1(WordCup songs) {
         NowPlayingFragmentBottom fragBot = (NowPlayingFragmentBottom) getSupportFragmentManager().findFragmentById(R.id.framgent_bottom);
         fragBot.showMoreAction_2(songs);
     }

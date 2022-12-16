@@ -35,7 +35,7 @@ public class Screen_input_name extends AppCompatActivity {
     Retrofit retrofit;
     LoginResult loginResult;
     RetrofitInterFace retrofitInterFace;
-    String BASE_URL = "http://192.168.0.101:3000/";
+    String BASE_URL = "http://192.168.0.102:3000/";
 
 
     @Override
